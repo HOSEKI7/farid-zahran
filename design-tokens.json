@@ -1,0 +1,153 @@
+{
+  "$schema": "https://design-tokens.org/format/v1",
+  "name": "Halide Portfolio Design System",
+  "description": "Dark cinematic portfolio — monochrome with orange-red accent, grainy 3D aesthetic",
+  "version": "1.0.0",
+
+  "color": {
+    "background": { "value": "#0a0a0a", "description": "Page background — deep near-black" },
+    "foreground": { "value": "#e0e0e0", "description": "Primary text color — light silver" },
+    "card":        { "value": "#1a1a1a", "description": "Card/surface background — one step above bg" },
+    "accent":      { "value": "#ff3c00", "description": "Interactive accent — vivid orange-red" },
+    "accent-hover":{"value": "#e63600", "description": "Accent hover — slightly darker" },
+    "primary":     { "value": "#e0e0e0", "description": "Primary (used for limelight glow, matches foreground)" },
+    "secondary":   { "value": "#b0b0b0", "description": "Secondary text / subdued foreground" },
+    "border":      { "value": "#2a2a2a", "description": "Default border color — subtle dark gray" },
+    "muted":       { "value": "#888888", "description": "Muted text / placeholder — medium gray" },
+    "overlay":     { "value": "rgba(0,0,0,0.6)", "description": "Overlay for modals / backdrops" }
+  },
+
+  "typography": {
+    "font-family": {
+      "primary":  { "value": "Arial, sans-serif", "description": "Headings and body text" },
+      "mono":     { "value": "'JetBrains Mono', monospace", "description": "Small text, buttons, code" }
+    },
+    "font-size": {
+      "hero":       { "value": "clamp(3rem, 10vw, 10rem)", "description": "Hero name — responsive, dramatic" },
+      "h1":         { "value": "2.5rem", "description": "Section heading" },
+      "h2":         { "value": "2rem", "description": "Subsection heading" },
+      "h3":         { "value": "1.5rem", "description": "Card heading" },
+      "body":       { "value": "1rem", "description": "Body / paragraph text" },
+      "small":      { "value": "0.875rem", "description": "Caption / metadata" },
+      "mono-sm":    { "value": "0.75rem", "description": "Job title, nav extras (JetBrains Mono)" },
+      "brand":      { "value": "1.125rem", "description": "Brand 'FZ' in navbar" }
+    },
+    "line-height": {
+      "tight":  { "value": "0.85", "description": "Hero title only" },
+      "snug":   { "value": "1.1", "description": "Large headings" },
+      "normal":  { "value": "1.5", "description": "Body text" }
+    },
+    "letter-spacing": {
+      "hero":   { "value": "-0.04em", "description": "Hero title tight tracking" },
+      "normal": { "value": "0em", "description": "Default" }
+    },
+    "font-weight": {
+      "bold":  { "value": "700", "description": "Headings, buttons" },
+      "normal":{ "value": "400", "description": "Body text" }
+    }
+  },
+
+  "spacing": {
+    "0.5":  { "value": "0.125rem", "description": "2px — micro" },
+    "1":    { "value": "0.25rem",  "description": "4px — base unit" },
+    "2":    { "value": "0.5rem",   "description": "8px — tight gap" },
+    "3":    { "value": "0.75rem",  "description": "12px — nav padding" },
+    "4":    { "value": "1rem",     "description": "16px — button padding, card gap" },
+    "5":    { "value": "1.25rem",  "description": "20px — icon container padding" },
+    "6":    { "value": "1.5rem",   "description": "24px — section padding" },
+    "8":    { "value": "2rem",     "description": "32px — hero section padding" },
+    "10":   { "value": "2.5rem",   "description": "40px" },
+    "12":   { "value": "3rem",     "description": "48px" },
+    "16":   { "value": "4rem",     "description": "64px — interface grid padding" },
+    "20":   { "value": "5rem",     "description": "80px — navbar offset" }
+  },
+
+  "border-radius": {
+    "sm":   { "value": "0.25rem", "description": "4px — subtle" },
+    "md":   { "value": "0.5rem",  "description": "8px — cards, nav items (Tailwind rounded-lg)" },
+    "lg":   { "value": "0.75rem", "description": "12px — generous" },
+    "xl":   { "value": "1rem",    "description": "16px — dialogs" },
+    "full": { "value": "9999px",  "description": "Pills" }
+  },
+
+  "border-width": {
+    "default": { "value": "1px", "description": "Standard border" }
+  },
+
+  "shadow": {
+    "limelight-glow": { "value": "0 50px 15px var(--color-primary)", "description": "Nav active indicator glow" },
+    "button-hover":   { "value": "0 4px 12px rgba(255,60,0,0.3)", "description": "Accent button hover glow" }
+  },
+
+  "opacity": {
+    "inactive":  { "value": "0.4",  "description": "Inactive nav icon" },
+    "grain":     { "value": "0.15", "description": "Grain texture overlay" },
+    "muted":     { "value": "0.6",  "description": "Muted social icons" },
+    "full":      { "value": "1",    "description": "Active / full opacity" }
+  },
+
+  "animation": {
+    "easing": {
+      "spring":      { "value": "cubic-bezier(0.16, 1, 0.3, 1)", "description": "Hero entrance, limelight slide" },
+      "ease-in-out": { "value": "ease-in-out", "description": "Standard transitions" }
+    },
+    "duration": {
+      "instant":    { "value": "100ms",  "description": "Nav icon opacity" },
+      "fast":       { "value": "300ms",  "description": "Button hover" },
+      "normal":     { "value": "400ms",  "description": "Limelight slide" },
+      "slow":       { "value": "800ms",  "description": "Canvas 3D transform" },
+      "entrance":   { "value": "2500ms", "description": "Hero load-in" }
+    },
+    "keyframes": {
+      "flow": {
+        "description": "Scroll hint pulsing line",
+        "0%":   { "transform": "scaleY(0)", "transform-origin": "top" },
+        "50%":  { "transform": "scaleY(1)", "transform-origin": "top" },
+        "51%":  { "transform": "scaleY(1)", "transform-origin": "bottom" },
+        "100%": { "transform": "scaleY(0)", "transform-origin": "bottom" }
+      }
+    },
+    "grain": {
+      "type":         "svg-filter",
+      "filter-id":    "grain",
+      "description":  "SVG feTurbulence noise overlay, applied via CSS filter: url(#grain)"
+    }
+  },
+
+  "z-index": {
+    "grain":  { "value": "100", "description": "Grain overlay — topmost" },
+    "navbar": { "value": "50",  "description": "Fixed navbar" },
+    "nav-item":{ "value": "20", "description": "Nav items above limelight" },
+    "limelight":{ "value": "10", "description": "Limelight glow behind items" },
+    "interface":{ "value": "10", "description": "Hero interface grid" }
+  },
+
+  "clip-path": {
+    "cta-button": {
+      "value": "polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%)",
+      "description": "Diagonal clipped corner on CTA button"
+    },
+    "limelight-glow": {
+      "value": "polygon(5% 100%, 25% 0, 75% 0, 95% 100%)",
+      "description": "Trapezoid glow under limelight"
+    }
+  },
+
+  "mix-blend-mode": {
+    "hero-title": { "value": "difference", "description": "Hero title over 3D layers" },
+    "layer-screen": { "value": "screen", "description": "3D layer 2" },
+    "layer-overlay": { "value": "overlay", "description": "3D layer 3" }
+  },
+
+  "breakpoints": {
+    "sm":  { "value": "640px",  "description": "Mobile landscape" },
+    "md":  { "value": "768px",  "description": "Tablet" },
+    "lg":  { "value": "1024px", "description": "Desktop" },
+    "xl":  { "value": "1280px", "description": "Large desktop" }
+  },
+
+  "tailwind-v4-theme": {
+    "description": "Copy this block into your global.css @theme directive",
+    "snippet": "--color-background: #0a0a0a;\n--color-foreground: #e0e0e0;\n--color-card: #1a1a1a;\n--color-accent: #ff3c00;\n--color-accent-hover: #e63600;\n--color-primary: #e0e0e0;\n--color-secondary: #b0b0b0;\n--color-border: #2a2a2a;\n--color-muted: #888888;\n--color-overlay: rgba(0,0,0,0.6);"
+  }
+}
