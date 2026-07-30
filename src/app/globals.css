@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #e0e0e0;
+  --color-card: #1a1a1a;
+  --color-accent: #ff3c00;
+  --color-accent-hover: #e63600;
+  --color-primary: #e0e0e0;
+  --color-secondary: #b0b0b0;
+  --color-border: #2a2a2a;
+  --color-muted: #888888;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Typography */
+  --font-primary: "Arial", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Animation */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Example Project",
+    "description": "A brief description of the project.",
+    "tags": ["Next.js", "TypeScript"],
+    "liveUrl": "https://example.com",
+    "slug": "example-project",
+    "bidang": "fullstack",
+    "githubUrl": "https://github.com/username/example",
+    "year": 2025
+  }
+]
