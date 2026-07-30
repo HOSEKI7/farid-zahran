@@ -51,3 +51,8 @@ next-env.d.ts
 .agents
 CLAUDE.md
 AGENTS.md
+skills-lock.json
+
+# === Task ===
+.superpowers
+docs/superpowers
