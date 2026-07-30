@@ -95,7 +95,7 @@ export const LimelightNav = ({
 
   return (
     <nav
-      className={`relative inline-flex items-center h-16 rounded-lg bg-card text-foreground border px-2 ${className}`}
+      className={`relative inline-flex items-center h-16 text-foreground bg-transparent border-none px-2 ${className}`}
     >
       {items.map(({ id, icon, label, onClick }, index) => {
         const existingClassName = (icon.props as { className?: string })?.className || "";

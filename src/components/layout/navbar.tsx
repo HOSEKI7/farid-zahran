@@ -105,54 +105,72 @@ export const Navbar = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-opacity duration-300 ease-in-out ${
-        isVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      }`}
-    >
-      <div className="w-full px-6 sm:px-10 py-5 flex items-center justify-between">
-        {/* Left: Brand Logo */}
-        <div className="flex items-center">
-          <a
-            href="#hero"
-            className="flex items-center gap-2.5 group text-foreground font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
-          >
-            <span className="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-mono text-sm font-extrabold group-hover:scale-105 transition-transform">
-              FZ
-            </span>
-            <span className="hidden sm:inline-block font-sans text-xs tracking-wider uppercase font-semibold text-foreground/90">
-              FARID ZAHRAN
-            </span>
-          </a>
-        </div>
+    <>
+      {/* Top Header Bar (Desktop & Mobile) */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-opacity duration-300 ease-in-out ${
+          isVisible
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="w-full px-4 sm:px-10 py-4 sm:py-5 flex items-center justify-between">
+          {/* Left: Brand Logo */}
+          <div className="flex items-center">
+            <a
+              href="#hero"
+              className="flex items-center gap-2.5 group text-foreground font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+            >
+              <span className="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-mono text-sm font-extrabold group-hover:scale-105 transition-transform shadow-md">
+                FZ
+              </span>
+              <span className="hidden sm:inline-block font-sans text-xs tracking-wider uppercase font-semibold text-foreground/90">
+                FARID ZAHRAN
+              </span>
+            </a>
+          </div>
 
-        {/* Center: Navigation Menu */}
-        <div className="flex items-center justify-center">
-          <LimelightNav items={navItems} />
-        </div>
+          {/* Center: Navigation Menu (Desktop Only) */}
+          <div className="hidden md:flex items-center justify-center">
+            <LimelightNav items={navItems} />
+          </div>
 
-        {/* Right: Social Link Icons */}
-        <div className="flex items-center gap-3">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="w-10 h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
-          >
-            <GithubSocialIcon className="w-4 h-4" />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            className="w-10 h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
-          >
-            <LinkedinSocialIcon className="w-4 h-4" />
-          </a>
+          {/* Right: Social Link Icons */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <a
+              href="https://github.com/HOSEKI7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
+            >
+              <GithubSocialIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/farid-zahran"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="w-10 h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
+            >
+              <LinkedinSocialIcon className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Bottom Floating Limelight Dock (Mobile Only) */}
+      <div
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden transition-all duration-300 ease-in-out ${
+          isVisible
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <div className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-full shadow-2xl px-2 py-1 flex items-center">
+          <LimelightNav items={navItems} iconContainerClassName="p-3.5" />
         </div>
       </div>
-    </header>
+    </>
   );
 };
