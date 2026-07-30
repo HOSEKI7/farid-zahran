@@ -1,17 +1,12 @@
+import { HalideTopoHero } from "@/components/ui/halide-topo-hero";
+import heroImage from "@/assets/images/hero-image.webp";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section
-        id="hero"
-        className="min-h-screen flex flex-col items-center justify-center text-center px-4"
-      >
-        <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.04em]">
-          FARID ZAHRAN
-        </h1>
-        <p className="mt-4 text-muted text-lg sm:text-xl max-w-xl">
-          Full-stack Developer & AI Engineer building modern web experiences.
-        </p>
+      <section id="hero">
+        <HalideTopoHero layers={[heroImage]} />
       </section>
 
       {/* About Section */}
