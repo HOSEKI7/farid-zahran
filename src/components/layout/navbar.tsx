@@ -25,9 +25,12 @@ const LinkedinSocialIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    const sectionIds = ["hero", "about", "projects", "experience", "contact"];
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const atTop = currentScrollY <= 15;
@@ -46,6 +49,19 @@ export const Navbar = () => {
         hideTimerRef.current = setTimeout(() => {
           setIsVisible(false);
         }, 2000);
+      }
+
+      // Track active section highlight based on scroll position
+      const scrollFocalPoint = currentScrollY + window.innerHeight * 0.35;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollFocalPoint >= top) {
+            setActiveSectionIndex(i);
+            break;
+          }
+        }
       }
     };
 
@@ -132,7 +148,7 @@ export const Navbar = () => {
 
           {/* Center: Navigation Menu (Desktop Only) */}
           <div className="hidden md:flex items-center justify-center">
-            <LimelightNav items={navItems} />
+            <LimelightNav items={navItems} activeIndex={activeSectionIndex} />
           </div>
 
           {/* Right: Social Link Icons */}
@@ -168,7 +184,7 @@ export const Navbar = () => {
         }`}
       >
         <div className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-full shadow-2xl px-2 py-1 flex items-center">
-          <LimelightNav items={navItems} iconContainerClassName="p-3.5" />
+          <LimelightNav items={navItems} activeIndex={activeSectionIndex} iconContainerClassName="p-3.5" />
         </div>
       </div>
     </>
