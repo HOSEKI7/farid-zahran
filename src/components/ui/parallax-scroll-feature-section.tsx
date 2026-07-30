@@ -25,13 +25,13 @@ export const ParallaxScrollFeatureSection = ({
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["start 90%", "center center"]
+        offset: ["start 80%", "center 40%"]
     });
 
-    // Scroll Animations: Animasi selesai lebih awal (pada progress 0.5) agar gambar terbuka 100% penuh saat section berada di tengah viewport / diklik via navlink
-    const opacityContent = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-    const clipProgress = useTransform(scrollYProgress, [0, 0.5], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]);
-    const translateContent = useTransform(scrollYProgress, [0, 0.5], [-50, 0]);
+    // Scroll Animations: Membuka gambar secara bertahap & halus (0 -> 1) dari saat memasuki layar hingga scroll melewati gambar
+    const opacityContent = useTransform(scrollYProgress, [0, 1], [0, 1]);
+    const clipProgress = useTransform(scrollYProgress, [0, 1], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]);
+    const translateContent = useTransform(scrollYProgress, [0, 1], [-50, 0]);
 
     const resolvedSrc = typeof imageUrl === "string" ? imageUrl : imageUrl?.src;
 
