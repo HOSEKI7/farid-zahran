@@ -3,11 +3,13 @@
 import React, { useEffect, useRef } from "react";
 import type { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import { JobTitleScramble } from "@/components/ui/job-title-scramble";
 
 export interface HalideTopoHeroProps {
   className?: string;
   name?: string;
   role?: string;
+  jobTitles?: string[];
   ctaText?: string;
   ctaHref?: string;
   onCtaClick?: () => void;
@@ -18,6 +20,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
   className,
   name = "FARID\nZAHRAN",
   role = "FULL-STACK DEVELOPER & AI ENGINEER",
+  jobTitles = ["FULL-STACK DEVELOPER", "AI ENGINEER"],
   ctaText = "EXPLORE DEPTH",
   ctaHref = "#about",
   onCtaClick,
@@ -277,7 +280,11 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
               letterSpacing: "0.05em",
             }}
           >
-            <p>{role}</p>
+            {jobTitles && jobTitles.length > 0 ? (
+              <JobTitleScramble titles={jobTitles} interval={4000} />
+            ) : (
+              <p>{role}</p>
+            )}
           </div>
           <a
             href={ctaHref}

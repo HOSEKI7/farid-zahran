@@ -6,7 +6,10 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section id="hero">
-        <HalideTopoHero layers={[heroImage]} />
+        <HalideTopoHero
+          layers={[heroImage]}
+          jobTitles={["FULL-STACK DEVELOPER", "AI ENGINEER"]}
+        />
       </section>
 
       {/* About Section */}
