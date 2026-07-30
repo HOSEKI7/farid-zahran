@@ -4,10 +4,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+import type { StaticImageData } from "next/image";
+
 export interface ParallaxScrollFeatureSectionProps {
     title?: string;
     description?: string;
-    imageUrl?: string;
+    imageUrl?: string | StaticImageData;
     reverse?: boolean;
     className?: string;
 }
@@ -30,6 +32,8 @@ export const ParallaxScrollFeatureSection = ({
     const opacityContent = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
     const clipProgress = useTransform(scrollYProgress, [0, 0.7], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]);
     const translateContent = useTransform(scrollYProgress, [0, 1], [-50, 0]);
+
+    const resolvedSrc = typeof imageUrl === "string" ? imageUrl : imageUrl?.src;
 
     return (
         <div className={cn("flex flex-col md:px-0 px-6", className)}>
@@ -59,7 +63,7 @@ export const ParallaxScrollFeatureSection = ({
                     className="relative z-10"
                 >
                     <img 
-                        src={imageUrl} 
+                        src={resolvedSrc} 
                         className="w-72 h-72 md:w-96 md:h-96 object-cover shadow-2xl" 
                         alt={title}
                     />

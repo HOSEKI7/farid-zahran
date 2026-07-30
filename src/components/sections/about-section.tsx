@@ -3,6 +3,7 @@
 import React from "react";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
 import { cn } from "@/lib/utils";
+import aboutImage from "@/assets/images/about-1x1-image.webp";
 
 export interface AboutSectionProps {
   className?: string;
@@ -39,7 +40,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         <ParallaxScrollFeatureSection
           title="About Me"
           description="I specialize in architecting resilient full-stack platforms and crafting intelligent AI solutions. Focused on seamless user experiences, precise motion design, and scalable systems."
-          imageUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+          imageUrl={aboutImage}
           reverse={true}
         />
       </div>
