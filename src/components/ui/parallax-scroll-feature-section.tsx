@@ -25,10 +25,10 @@ export const ParallaxScrollFeatureSection = ({
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["start 80%", "center 40%"]
+        offset: ["start 80%", "center 55%"]
     });
 
-    // Scroll Animations: Membuka gambar secara bertahap & halus (0 -> 1) dari saat memasuki layar hingga scroll melewati gambar
+    // Scroll Animations: Membuka gambar secara halus dari saat memasuki layar hingga tepat berada di area tengah viewport
     const opacityContent = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const clipProgress = useTransform(scrollYProgress, [0, 1], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]);
     const translateContent = useTransform(scrollYProgress, [0, 1], [-50, 0]);
