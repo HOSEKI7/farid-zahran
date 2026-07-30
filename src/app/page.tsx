@@ -1,4 +1,5 @@
 import { HalideTopoHero } from "@/components/ui/halide-topo-hero";
+import { AboutSection } from "@/components/sections/about-section";
 import heroImage from "@/assets/images/hero-image.webp";
 
 export default function Home() {
@@ -13,15 +14,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-card/20 border-t border-border/30"
-      >
-        <h2 className="text-4xl font-bold tracking-tight mb-4">About Me</h2>
-        <p className="text-muted max-w-2xl text-lg">
-          Crafting clean code, scalable architecture, and intelligent systems.
-        </p>
-      </section>
+      <AboutSection />
 
       {/* Projects Section */}
       <section
@@ -64,3 +57,4 @@ export default function Home() {
     </main>
   );
 }
+

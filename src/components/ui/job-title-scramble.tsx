@@ -1,5 +1,5 @@
 "use client";
-import { ComponentProps, useEffect, useRef } from "react";
+import { ComponentProps, useCallback, useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
@@ -30,55 +30,62 @@ export const JobTitleScramble = ({
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { contextSafe } = useGSAP();
 
-  const animateToTitle = contextSafe((nextTitle: string) => {
-    const target = wrapperRef.current;
-    if (!target) return;
+  const animateToTitle = useCallback(
+    (nextTitle: string) => {
+      contextSafe(() => {
+        const target = wrapperRef.current;
+        if (!target) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-    if (prefersReducedMotion) {
-      target.innerText = nextTitle;
-      return;
-    }
+        if (prefersReducedMotion) {
+          target.innerText = nextTitle;
+          return;
+        }
 
-    if (gsap.isTweening(target)) return;
+        if (gsap.isTweening(target)) return;
 
-    gsap.to(target, {
-      duration: 1,
-      ease: "sine.in",
-      scrambleText: {
-        text: nextTitle,
-        speed: scrambleSpeed,
-        chars: random ? defaultChars : nextTitle.replace(/\s/g, ""),
-      },
-    });
-  });
+        gsap.to(target, {
+          duration: 1,
+          ease: "sine.in",
+          scrambleText: {
+            text: nextTitle,
+            speed: scrambleSpeed,
+            chars: random ? defaultChars : nextTitle.replace(/\s/g, ""),
+          },
+        });
+      })();
+    },
+    [contextSafe, scrambleSpeed, random]
+  );
 
-  const scrambleCurrent = contextSafe(() => {
-    const target = wrapperRef.current;
-    if (!target) return;
+  const scrambleCurrent = useCallback(() => {
+    contextSafe(() => {
+      const target = wrapperRef.current;
+      if (!target) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    if (prefersReducedMotion) return;
-    if (gsap.isTweening(target)) return;
+      if (prefersReducedMotion) return;
+      if (gsap.isTweening(target)) return;
 
-    const currentTitle = titles[currentIndexRef.current] || target.innerText;
+      const currentTitle = titles[currentIndexRef.current] || target.innerText;
 
-    gsap.to(target, {
-      duration: 1,
-      ease: "sine.in",
-      scrambleText: {
-        text: currentTitle,
-        speed: scrambleSpeed,
-        chars: random ? defaultChars : currentTitle.replace(/\s/g, ""),
-      },
-    });
-  });
+      gsap.to(target, {
+        duration: 1,
+        ease: "sine.in",
+        scrambleText: {
+          text: currentTitle,
+          speed: scrambleSpeed,
+          chars: random ? defaultChars : currentTitle.replace(/\s/g, ""),
+        },
+      });
+    })();
+  }, [contextSafe, scrambleSpeed, random, titles]);
 
   useEffect(() => {
     if (!titles || titles.length === 0) return;
