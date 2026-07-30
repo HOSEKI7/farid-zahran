@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,14 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-background text-foreground font-[Arial,sans-serif] antialiased">
+      <body className="bg-background text-foreground font-[Arial,sans-serif] antialiased min-h-screen">
+        <Navbar />
         {children}
       </body>
     </html>
