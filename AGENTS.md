@@ -10,7 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Context
 
-- **Read SPEC.md for project spec and explanation**
+- **Read PRODUCT.md for project spec and explanation**
 - **Read DESIGN.md for design system**
 
 ## Bahasa Indonesia
