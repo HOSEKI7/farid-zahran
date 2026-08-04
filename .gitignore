@@ -50,7 +50,6 @@ next-env.d.ts
 # === AI ===
 .agents
 CLAUDE.md
-AGENTS.md
 skills-lock.json
 
 # === Task ===
