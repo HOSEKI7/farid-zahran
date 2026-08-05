@@ -90,6 +90,7 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 
 - **GSAP** handles: hero entrance timeline (rotate from 90deg, 2500ms, spring easing), text scramble effect on job title, 3D parallax on mouse/device move, scroll-triggered section entrance animations (ScrollTrigger).
 - **Framer Motion** handles: Tech Stack section scroll-reveal stagger, page transitions (`AnimatePresence`), mobile menu overlay animation, hover states on interactive elements.
+- **CSS keyframes** drive the Tech Stack orbit rotation (decorative; icons counter-rotate to stay upright; disabled under `prefers-reduced-motion` via `useReducedMotion`).
 - Both libraries respect `prefers-reduced-motion`: GSAP checks the media query before running timelines; Framer Motion uses `useReducedMotion` hook.
 
 ### Navigation

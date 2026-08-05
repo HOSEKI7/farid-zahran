@@ -4,8 +4,60 @@ import React from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { techStack } from "@/data/tech-stack";
+import { OrbitRotation, type OrbitIcon } from "@/components/ui/orbit-rotation";
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaDocker,
+  FaAws,
+  FaGit,
+  FaGithub,
+  FaBrain,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFastapi,
+  SiVercel,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiPytorch,
+  SiLangchain,
+  SiHuggingface,
+} from "react-icons/si";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { CpuIcon } from "@hugeicons/core-free-icons";
 
 const EASE_SPRING = [0.16, 1, 0.3, 1] as const;
+
+const CpuCenterIcon = (props: { className?: string }) => (
+  <HugeiconsIcon icon={CpuIcon} {...props} />
+);
+
+const orbitIcons: OrbitIcon[] = [
+  { Icon: FaReact, name: "React" },
+  { Icon: SiNextdotjs, name: "Next.js" },
+  { Icon: SiTypescript, name: "TypeScript" },
+  { Icon: SiTailwindcss, name: "Tailwind CSS" },
+  { Icon: FaNodeJs, name: "Node.js" },
+  { Icon: SiFastapi, name: "FastAPI" },
+  { Icon: FaPython, name: "Python" },
+  { Icon: SiPytorch, name: "PyTorch" },
+  { Icon: SiLangchain, name: "LangChain" },
+  { Icon: FaBrain, name: "OpenAI" },
+  { Icon: SiHuggingface, name: "Hugging Face" },
+  { Icon: SiPostgresql, name: "PostgreSQL" },
+  { Icon: SiMongodb, name: "MongoDB" },
+  { Icon: SiRedis, name: "Redis" },
+  { Icon: FaDocker, name: "Docker" },
+  { Icon: FaAws, name: "AWS" },
+  { Icon: SiVercel, name: "Vercel" },
+  { Icon: FaGit, name: "Git" },
+  { Icon: FaGithub, name: "GitHub" },
+];
 
 const containerVariants: Variants = {
   hidden: {},
@@ -67,7 +119,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
             initial={reduce ? false : "hidden"}
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid gap-16 lg:grid-cols-12"
+            className="grid gap-16 lg:grid-cols-12 lg:gap-4"
           >
             <motion.div variants={itemVariants} className="lg:col-span-7">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -105,14 +157,16 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
 
             <motion.div
               variants={itemVariants}
-              className="hidden lg:col-span-5 lg:flex"
+              className="hidden lg:col-span-5 lg:flex items-center justify-center"
             >
-              <div className="flex w-full min-h-[480px] items-center justify-center rounded-lg border border-dashed border-border/70">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted/70 text-center leading-relaxed px-6">
-                  Visual Placeholder
-                  <br />
-                  Animation & Mockup
-                </p>
+              <div className="origin-center scale-[0.72] xl:scale-100">
+                <OrbitRotation
+                  icons={orbitIcons}
+                  orbitCount={3}
+                  orbitGap={6}
+                  centerIcon={{ Icon: CpuCenterIcon, name: "AI" }}
+                  size="md"
+                />
               </div>
             </motion.div>
           </motion.div>

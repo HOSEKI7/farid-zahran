@@ -62,7 +62,7 @@ Add a project by adding a JSON entry — no component changes needed. Detail pag
 - Use design-system components from `@/components/ui/` and tokens from `globals.css` `@theme` block.
 - Component dirs: `layout/` (shell), `ui/` (reusable primitives), `sections/` (page sections), `animations/` (animation wrappers). `sections/` and `animations/` are currently empty.
 - `cn()` utility from `clsx` + `tailwind-merge` (`src/lib/utils.ts`).
-- Icons: `@hugeicons/react` with core-free-icons set; social icons inlined as SVGs.
+- Icons: `@hugeicons/react` with core-free-icons set; social icons inlined as SVGs. Tech brand marks in the Tech Stack orbit use `react-icons` (fa/si), rendered monochrome via `currentColor`.
 - Navbar auto-hides after 2s scroll inactivity. LimelightNav manages active section indicator.
 - Token source of truth: `design-tokens.json`. Propagate changes to `globals.css` `@theme` block.
 
