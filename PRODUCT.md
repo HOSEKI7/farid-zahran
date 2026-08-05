@@ -20,8 +20,8 @@ A dark, cinematic single-page portfolio whose design is the product: monochrome 
 
 ## Operating Context
 
-- Single-page scroll: Hero, About, Projects, Experience, Contact, Footer. Project detail routes at `/projects/[slug]`.
-- Visitor flow: land on hero → see name/role → scroll to About → browse filterable Projects → skim Experience timeline → submit contact form / download CV / open socials.
+- Single-page scroll: Hero, About, Tech Stack, Projects, Experience, Contact, Footer. Project detail routes at `/projects/[slug]`.
+- Visitor flow: land on hero → see name/role → scroll to About → skim Tech Stack capabilities → browse filterable Projects → skim Experience timeline → submit contact form / download CV / open socials.
 - Static export (`output: 'export'`) served from Vercel CDN; no server runtime, no database, no CMS.
 - Projects added by editing one JSON file (`src/data/projects.json`), typed via the `Project` interface.
 - Design improvised during development per SPEC.md — behavior and architecture are constrained, not the aesthetics.

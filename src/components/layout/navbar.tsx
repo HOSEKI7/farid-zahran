@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ComputerTerminal01Icon,
   QuillWrite01Icon,
+  CpuIcon,
   BlocksIcon,
   Briefcase08Icon,
   Mail02Icon,
@@ -29,7 +30,7 @@ export const Navbar = () => {
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const sectionIds = ["hero", "about", "projects", "experience", "contact"];
+    const sectionIds = ["hero", "about", "tech-stack", "projects", "experience", "contact"];
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -92,6 +93,14 @@ export const Navbar = () => {
       icon: <HugeiconsIcon icon={QuillWrite01Icon} />,
       onClick: () => {
         document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      },
+    },
+    {
+      id: "tech-stack",
+      label: "Stack",
+      icon: <HugeiconsIcon icon={CpuIcon} />,
+      onClick: () => {
+        document.getElementById("tech-stack")?.scrollIntoView({ behavior: "smooth" });
       },
     },
     {

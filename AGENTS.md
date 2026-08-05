@@ -13,6 +13,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Read PRODUCT.md for project spec and explanation**
 - **Read DESIGN.md for design system**
 
+## Language
+
+**This portfolio website use english as main language.**
+
 ## Bahasa Indonesia
 
 **Always ask, instruct, and write plans in Bahasa Indonesia** (even when prompted in English). UI text = Indonesia; code/comments = English.

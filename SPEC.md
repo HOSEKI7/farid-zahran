@@ -21,8 +21,8 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 7. As a recruiter, I want a fixed top navigation bar with brand, section links, and social icons, so that I can jump to any section at any time.
 8. As a recruiter, I want the active nav item to be visually highlighted as I scroll through sections, so that I always know where I am on the page.
 9. As a recruiter, I want to scroll to the About section and see Farid's photo and a brief background, so that I get a personal sense of who he is.
-10. As a recruiter, I want to click a "Tech Stack" button in the About section and see a modal dialog, so that I can explore technical skills without the section being cluttered.
-11. As a recruiter, I want the Tech Stack dialog to have tabs separating "Full-stack" and "AI Engineer" skills, so that I can quickly assess skills relevant to my open position.
+10. As a recruiter, I want to scroll to the Tech Stack section and see my technical skills in a single grouped card, so that I can assess capabilities without the section feeling cluttered.
+11. As a recruiter, I want the Tech Stack card to organize skills into five categories (Frontend & User Interface, Backend & API Architecture, AI/ML & Data Processing, Database & Vector Storage, Infrastructure/DevOps/MLOps), so that I can quickly assess skills relevant to my open position.
 12. As a recruiter, I want to browse project cards in the Projects section, so that I can see the breadth of Farid's work.
 13. As a recruiter, I want to filter projects by field (Full-stack / AI Engineer) using tabs, so that I only see relevant work.
 14. As a recruiter, I want each project card to show title, short description, tags, and year, so that I can quickly assess relevance.
@@ -74,7 +74,7 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 
 ### Rendering & Routing
 
-- Homepage (`/`) is a single-page scroll with sections: Hero, About, Projects, Experience, Contact, Footer.
+- Homepage (`/`) is a single-page scroll with sections: Hero, About, Tech Stack, Projects, Experience, Contact, Footer.
 - Project detail pages at `/projects/[slug]` — statically generated from JSON data using `generateStaticParams`.
 - Page transitions between homepage and project detail pages via Framer Motion `AnimatePresence` (fade + subtle slide). May be upgraded during development.
 
@@ -84,12 +84,12 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 - A TypeScript interface enforces this shape. Components import the typed data directly.
 - Project detail page content (long description, screenshots, tech breakdown) is hardcoded in individual page components or a content map — not in the JSON.
 - Experience data is hardcoded in the Experience section component.
-- Tech stack data (Full-stack and AI Engineer categories) is hardcoded in the Tech Stack dialog component.
+- Tech stack data (five categories covering full-stack and AI tooling) lives in `src/data/tech-stack.ts` (typed `TechGroup` array) and is rendered by the Tech Stack section component.
 
 ### Animation Strategy (Hybrid)
 
 - **GSAP** handles: hero entrance timeline (rotate from 90deg, 2500ms, spring easing), text scramble effect on job title, 3D parallax on mouse/device move, scroll-triggered section entrance animations (ScrollTrigger).
-- **Framer Motion** handles: Tech Stack dialog open/close (`AnimatePresence`), tab switching (layout animation), page transitions (`AnimatePresence`), mobile menu overlay animation, hover states on interactive elements.
+- **Framer Motion** handles: Tech Stack section scroll-reveal stagger, page transitions (`AnimatePresence`), mobile menu overlay animation, hover states on interactive elements.
 - Both libraries respect `prefers-reduced-motion`: GSAP checks the media query before running timelines; Framer Motion uses `useReducedMotion` hook.
 
 ### Navigation

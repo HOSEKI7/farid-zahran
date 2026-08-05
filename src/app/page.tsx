@@ -1,5 +1,6 @@
 import { HalideTopoHero } from "@/components/ui/halide-topo-hero";
 import { AboutSection } from "@/components/sections/about-section";
+import { TechStackSection } from "@/components/sections/tech-stack-section";
 import heroImage from "@/assets/images/hero-image.webp";
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
 
       {/* About Section */}
       <AboutSection />
+
+      {/* Tech Stack Section */}
+      <TechStackSection />
 
       {/* Projects Section */}
       <section
