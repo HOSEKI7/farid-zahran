@@ -77,7 +77,7 @@ export const ParallaxScrollFeatureSection = ({
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: isMobile
-      ? ["start 90%", "center 75%"]
+      ? ["start 95%", "center 85%"]
       : ["start 80%", "center 55%"],
   });
 
