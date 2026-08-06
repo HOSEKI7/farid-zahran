@@ -22,29 +22,50 @@ export function ProjectsSection() {
   const activeProject = projects[selectedIndex] || projects[0];
 
   return (
-    <section id="projects" className="relative w-full py-24 bg-black overflow-hidden">
-      {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#9ba480]">
-          Selected Portfolio
-        </span>
-        <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
-          Featured Projects
-        </h2>
-      </div>
+    <section
+      id="projects"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden"
+    >
+      {/* Halide Grain Noise SVG Background */}
+      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
+        <filter id="projects-grain">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.65"
+            numOctaves="3"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+      </svg>
 
-      {/* Full-width 3D Coverflow Carousel */}
-      <div className="w-full">
-        <CoverflowCarousel
-          slides={slides}
-          onSelectChange={setSelectedIndex}
-          showPagination={true}
-          showNavigation={true}
-        />
-      </div>
+      <div
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{ filter: "url(#projects-grain)" }}
+      />
 
-      {/* Active Project Details Panel */}
-      <div className="max-w-3xl mx-auto px-6 mt-10">
+      <div className="relative z-10 w-full flex flex-col justify-center">
+        {/* Section Header */}
+        <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8 text-center">
+          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#9ba480]">
+            Selected Portfolio
+          </span>
+          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
+            Featured Projects
+          </h2>
+        </div>
+
+        {/* Full-width 3D Coverflow Carousel */}
+        <div className="w-full">
+          <CoverflowCarousel
+            slides={slides}
+            onSelectChange={setSelectedIndex}
+            showPagination={true}
+            showNavigation={true}
+          />
+        </div>
+
+        {/* Active Project Details Panel */}
+        <div className="max-w-3xl mx-auto px-6 mt-8 md:mt-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.slug}
@@ -122,6 +143,7 @@ export function ProjectsSection() {
             </div>
           </motion.div>
         </AnimatePresence>
+      </div>
       </div>
     </section>
   );
