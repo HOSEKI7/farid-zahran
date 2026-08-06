@@ -25,7 +25,7 @@ Dark, cinematic, single-page portfolio built with performance and SEO as first-c
 
 ## Design System
 
-This project uses the **Halide** design system — a dark cinematic aesthetic with monochrome palette and a single `#ff3c00` orange-red accent. See [DESIGN.md](DESIGN.md) for full documentation and [design-tokens.json](design-tokens.json) for token values.
+This project uses the **Halide** design system — a dark cinematic aesthetic with monochrome palette and a single `#9ba480` green accent. See [DESIGN.md](DESIGN.md) for full documentation and [design-tokens.json](design-tokens.json) for token values.
 
 ## Getting Started
 

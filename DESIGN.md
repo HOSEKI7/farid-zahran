@@ -22,8 +22,8 @@ The system is deliberately constrained: one accent color, one primary typeface (
 | `--color-secondary`    | `#b0b0b0`         | Secondary text        | Distinguishable from primary, used for less important information                                    |
 | `--color-muted`        | `#888888`         | Caption / placeholder | Lowest legible contrast on dark bg                                                                   |
 | `--color-border`       | `#2a2a2a`         | Dividers / outlines   | Visible but not distracting — softer than pure gray                                                  |
-| `--color-accent`       | `#ff3c00`         | Interactive elements  | Vivid orange-red — the single point of color. High contrast against black, signals attention         |
-| `--color-accent-hover` | `#e63600`         | Accent hover          | Slightly darker to indicate interaction without jarring shift                                        |
+| `--color-accent`       | `#9ba480`         | Interactive elements  | Subtle green — the single point of color. High contrast against black, signals attention         |
+| `--color-accent-hover` | `#8b9373`         | Accent hover          | Slightly darker to indicate interaction without jarring shift                                        |
 | `--color-primary`      | `#e0e0e0`         | Limelight glow        | Matches foreground — the "limelight" is a reflection of the text color, not a distinct hue           |
 | `--color-overlay`      | `rgba(0,0,0,0.6)` | Backdrops             | Semi-transparent black for modal overlays                                                            |
 
@@ -170,7 +170,7 @@ The scroll hint at the bottom of the hero uses a custom `flow` animation: a vert
 
 ## 8. Accessibility Notes
 
-- **Contrast:** `#e0e0e0` on `#0a0a0a` yields ~14.5:1 ratio (WCAG AAA). The accent `#ff3c00` on `#0a0a0a` yields ~4.2:1 (WCAG AA for large text only). Accent should not be used for small body text.
+- **Contrast:** `#e0e0e0` on `#0a0a0a` yields ~14.5:1 ratio (WCAG AAA). The accent `#9ba480` on `#0a0a0a` yields good contrast. Accent should not be used for small body text.
 - **Focus states:** Not yet implemented. Add `outline: 2px solid var(--accent)` on all interactive elements.
 - **Reduced motion:** Job title scramble component respects `prefers-reduced-motion: reduce` by swapping text instantly without GSAP tween. The hero entrance animation should also check this preference.
 - **Touch targets:** Nav items and icon buttons are `h-10 w-10` (40px), exceeding the 44px WCAG recommendation for the icon buttons. Nav items are larger and fine.

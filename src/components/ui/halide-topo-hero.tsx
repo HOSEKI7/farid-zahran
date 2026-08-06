@@ -91,7 +91,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
         :root {
           --bg: #0a0a0a;
           --silver: #e0e0e0;
-          --accent: #ff3c00;
+          --accent: #9ba480;
           --grain-opacity: 0.15;
         }
 

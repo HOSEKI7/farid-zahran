@@ -115,7 +115,7 @@ export const ParallaxScrollFeatureSection = ({
 
           {/* Floating Badge Overlay */}
           <div className="absolute -bottom-6 -right-4 md:-right-6 bg-[#141414]/95 backdrop-blur-md border border-[#2a2a2a] p-4 md:p-5 rounded-xl shadow-2xl flex flex-col items-center z-20 min-w-[150px]">
-            <span className="text-3xl md:text-4xl font-extrabold text-[#ff3c00] font-mono tracking-tight">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#9ba480] font-mono tracking-tight">
               {statNumber}
             </span>
             <span className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#888888] mt-1 text-center font-semibold">
@@ -127,9 +127,9 @@ export const ParallaxScrollFeatureSection = ({
         {/* Right Column: Text Content, Eyebrow, Split Paragraphs, Feature Row & CTA */}
         <div className="lg:col-span-7 flex flex-col justify-start">
           {/* Eyebrow Label */}
-          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold text-[#ff3c00] tracking-widest uppercase mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#ff3c00] animate-pulse" />
-            <span>// {eyebrow}</span>
+          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold text-[#9ba480] tracking-widest uppercase mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#9ba480] animate-pulse" />
+            <span>{"// "}{eyebrow}</span>
           </div>
 
           {/* Heading */}
@@ -153,9 +153,9 @@ export const ParallaxScrollFeatureSection = ({
               return (
                 <div
                   key={idx}
-                  className="flex flex-col p-4 rounded-xl border border-[#2a2a2a]/50 bg-[#121212]/60 backdrop-blur-sm hover:border-[#ff3c00]/40 transition-colors"
+                  className="flex flex-col p-4 rounded-xl border border-[#2a2a2a]/50 bg-[#121212]/60 backdrop-blur-sm hover:border-[#9ba480]/40 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] flex items-center justify-center text-[#ff3c00] mb-3 shadow-inner">
+                  <div className="w-10 h-10 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] flex items-center justify-center text-[#9ba480] mb-3 shadow-inner">
                     <HugeiconsIcon icon={IconComponent} className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-[#e0e0e0] text-sm tracking-wide mb-1">
@@ -173,7 +173,7 @@ export const ParallaxScrollFeatureSection = ({
           <div>
             <a
               href={ctaHref}
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-[#e0e0e0]/30 hover:border-[#ff3c00] hover:text-[#ff3c00] hover:bg-[#ff3c00]/10 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 group"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-[#e0e0e0]/30 hover:border-[#9ba480] hover:text-[#9ba480] hover:bg-[#9ba480]/10 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 group"
             >
               <span>{ctaText}</span>
               <HugeiconsIcon

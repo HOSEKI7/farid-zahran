@@ -42,7 +42,7 @@ A dark, cinematic single-page portfolio whose design is the product: monochrome 
 ## Brand Commitments
 
 - Name: Farid Zahran. Roles claimed: Full-stack Developer & AI Engineer.
-- Halide visual identity: monochrome `#0a0a0a` dark room + single `#ff3c00` accent, grain texture, `difference`/`screen`/`overlay` blend modes, spring cubic-bezier easing, clip-path cut on the CTA button.
+- Halide visual identity: monochrome `#0a0a0a` dark room + single `#9ba480` accent, grain texture, `difference`/`screen`/`overlay` blend modes, spring cubic-bezier easing, clip-path cut on the CTA button.
 - Photo (hero image) and social media links are real; keep them as-is.
 
 ## Evidence on Hand
@@ -64,7 +64,7 @@ A dark, cinematic single-page portfolio whose design is the product: monochrome 
 
 ## Accessibility & Inclusion
 
-- Target WCAG AA contrast: `#e0e0e0` on `#0a0a0a` (~14.5:1); accent `#ff3c00` AA for large text only, not small body text.
+- Target WCAG AA contrast: `#e0e0e0` on `#0a0a0a` (~14.5:1); accent `#9ba480` AA for large text only, not small body text.
 - `prefers-reduced-motion: reduce` must disable or reduce GSAP and motion animations.
 - Keyboard-focusable interactive elements with visible focus indicators (not yet fully implemented).
 - Semantic HTML and ARIA labels for screen readers.

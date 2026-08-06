@@ -34,7 +34,7 @@ But the entire portfolio (UI text, codebase, and documentation) is strictly in E
 
 ## Project Overview
 
-Next.js 16.2.12 static portfolio (`output: 'export'` — no server runtime). Dark cinematic single-page app with GSAP + motion (Framer Motion successor) animations. Halide design system: monochrome + `##ff3c00` accent.
+Next.js 16.2.12 static portfolio (`output: 'export'` — no server runtime). Dark cinematic single-page app with GSAP + motion (Framer Motion successor) animations. Halide design system: monochrome + `##9ba480` accent.
 
 ## Commands
 

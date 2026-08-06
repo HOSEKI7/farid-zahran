@@ -120,7 +120,7 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 - All tokens from `design-tokens.json` are applied via Tailwind v4 `@theme` directive.
 - Dark-only theme. No light mode toggle.
 - SVG `feTurbulence` grain texture overlay at 15% opacity.
-- Single accent color `#ff3c00`. Blend modes (`difference`, `screen`, `overlay`) on hero layers.
+- Single accent color `#9ba480`. Blend modes (`difference`, `screen`, `overlay`) on hero layers.
 - UI design is improvised during development — the spec does not prescribe visual layout beyond what the Halide design system defines.
 
 ### Deployment

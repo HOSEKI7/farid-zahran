@@ -8,8 +8,8 @@
     "background": { "value": "#0a0a0a", "description": "Page background — deep near-black" },
     "foreground": { "value": "#e0e0e0", "description": "Primary text color — light silver" },
     "card":        { "value": "#1a1a1a", "description": "Card/surface background — one step above bg" },
-    "accent":      { "value": "#ff3c00", "description": "Interactive accent — vivid orange-red" },
-    "accent-hover":{"value": "#e63600", "description": "Accent hover — slightly darker" },
+    "accent":      { "value": "#9ba480", "description": "Interactive accent — subtle green" },
+    "accent-hover":{"value": "#8b9373", "description": "Accent hover — slightly darker" },
     "primary":     { "value": "#e0e0e0", "description": "Primary (used for limelight glow, matches foreground)" },
     "secondary":   { "value": "#b0b0b0", "description": "Secondary text / subdued foreground" },
     "border":      { "value": "#2a2a2a", "description": "Default border color — subtle dark gray" },
@@ -148,6 +148,6 @@
 
   "tailwind-v4-theme": {
     "description": "Copy this block into your global.css @theme directive",
-    "snippet": "--color-background: #0a0a0a;\n--color-foreground: #e0e0e0;\n--color-card: #1a1a1a;\n--color-accent: #ff3c00;\n--color-accent-hover: #e63600;\n--color-primary: #e0e0e0;\n--color-secondary: #b0b0b0;\n--color-border: #2a2a2a;\n--color-muted: #888888;\n--color-overlay: rgba(0,0,0,0.6);"
+    "snippet": "--color-background: #0a0a0a;\n--color-foreground: #e0e0e0;\n--color-card: #1a1a1a;\n--color-accent: #9ba480;\n--color-accent-hover: #8b9373;\n--color-primary: #e0e0e0;\n--color-secondary: #b0b0b0;\n--color-border: #2a2a2a;\n--color-muted: #888888;\n--color-overlay: rgba(0,0,0,0.6);"
   }
 }
