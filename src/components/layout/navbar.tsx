@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import logo from "@/assets/images/logo.webp";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ComputerTerminal01Icon,
   QuillWrite01Icon,
-  CpuIcon,
   BlocksIcon,
   Briefcase08Icon,
   Mail02Icon,
@@ -26,12 +27,9 @@ const LinkedinSocialIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const sectionIds = ["hero", "about", "tech-stack", "projects", "experience", "contact"];
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const atTop = currentScrollY <= 15;
@@ -50,19 +48,6 @@ export const Navbar = () => {
         hideTimerRef.current = setTimeout(() => {
           setIsVisible(false);
         }, 2000);
-      }
-
-      // Track active section highlight based on scroll position
-      const scrollFocalPoint = currentScrollY + window.innerHeight * 0.35;
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollFocalPoint >= top) {
-            setActiveSectionIndex(i);
-            break;
-          }
-        }
       }
     };
 
@@ -96,14 +81,6 @@ export const Navbar = () => {
       },
     },
     {
-      id: "tech-stack",
-      label: "Stack",
-      icon: <HugeiconsIcon icon={CpuIcon} />,
-      onClick: () => {
-        document.getElementById("tech-stack")?.scrollIntoView({ behavior: "smooth" });
-      },
-    },
-    {
       id: "projects",
       label: "Projects",
       icon: <HugeiconsIcon icon={BlocksIcon} />,
@@ -134,9 +111,7 @@ export const Navbar = () => {
       {/* Top Header Bar (Desktop & Mobile) */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-opacity duration-300 ease-in-out ${
-          isVisible
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          isVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="w-full px-4 sm:px-10 py-4 sm:py-5 flex items-center justify-between">
@@ -144,26 +119,30 @@ export const Navbar = () => {
           <div className="flex items-center">
             <a
               href="#hero"
-              className="flex items-center gap-2.5 group text-foreground font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+              className="flex items-center group hover:opacity-80 transition-opacity"
+              aria-label="Farid Zahran"
             >
-              <span className="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-mono text-sm font-extrabold group-hover:scale-105 transition-transform shadow-md">
-                FZ
-              </span>
-              <span className="hidden sm:inline-block font-sans text-xs tracking-wider uppercase font-semibold text-foreground/90">
-                FARID ZAHRAN
-              </span>
+              <Image
+                src={logo}
+                alt="Farid Zahran Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
+                priority
+                unoptimized
+              />
             </a>
           </div>
 
           {/* Center: Navigation Menu (Desktop Only) */}
           <div className="hidden md:flex items-center justify-center">
-            <LimelightNav items={navItems} activeIndex={activeSectionIndex} />
+            <LimelightNav items={navItems} />
           </div>
 
           {/* Right: Social Link Icons */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <a
-              href="https://github.com/HOSEKI7"
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
@@ -172,7 +151,7 @@ export const Navbar = () => {
               <GithubSocialIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://linkedin.com/in/farid-zahran"
+              href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
@@ -193,7 +172,7 @@ export const Navbar = () => {
         }`}
       >
         <div className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-full shadow-2xl px-2 py-1 flex items-center">
-          <LimelightNav items={navItems} activeIndex={activeSectionIndex} iconContainerClassName="p-3.5" />
+          <LimelightNav items={navItems} iconContainerClassName="p-3.5" />
         </div>
       </div>
     </>

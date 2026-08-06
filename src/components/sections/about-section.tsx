@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
-import aboutImage from "@/assets/images/about-1x1-image.webp";
+import aboutImage from "@/assets/images/about.gif";
 import { cn } from "@/lib/utils";
 
 export interface AboutSectionProps {
