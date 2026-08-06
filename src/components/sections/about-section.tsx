@@ -2,8 +2,8 @@
 
 import React from "react";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
-import { cn } from "@/lib/utils";
 import aboutImage from "@/assets/images/about-1x1-image.webp";
+import { cn } from "@/lib/utils";
 
 export interface AboutSectionProps {
   className?: string;
@@ -14,7 +14,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
     <section
       id="about"
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40",
+        "relative w-full py-24 md:py-36 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden",
         className
       )}
     >
@@ -38,10 +38,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       {/* Main Parallax Component */}
       <div className="relative z-10">
         <ParallaxScrollFeatureSection
-          title="About Me"
-          description="I specialize in architecting resilient full-stack platforms and crafting intelligent AI solutions. Focused on seamless user experiences, precise motion design, and scalable systems."
+          eyebrow="ABOUT ME"
+          title="Membangun Sistem Modern & Kecerdasan Artifisial"
+          paragraph1="Saya seorang Full-Stack Engineer & AI Specialist yang berfokus pada pengembangan aplikasi web berkinerja tinggi, arsitektur sistem yang fleksibel, dan antarmuka pengguna yang intuitif."
+          paragraph2="Dengan menggabungkan prinsip desain modern dan alur kerja berkecepatan tinggi berbasis AI, saya menciptakan solusi digital yang presisi, scalable, dan memberikan dampak nyata bagi penggunanya."
           imageUrl={aboutImage}
-          reverse={true}
+          statNumber="04+"
+          statLabel="PENGALAMAN & MILESTONE"
+          ctaText="HUBUNGI SAYA"
+          ctaHref="#contact"
         />
       </div>
     </section>
