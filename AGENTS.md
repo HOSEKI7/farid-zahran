@@ -15,11 +15,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Language
 
-**This portfolio website use english as main language.**
+**This portfolio website uses English as the main language.**
 
-## Bahasa Indonesia
+## Communication & Planning
 
-**Always ask, instruct, and write plans in Bahasa Indonesia** (even when prompted in English). UI text = Indonesia; code/comments = English.
+**Always ask, instruct, write plans, and comments in Indonesian.**
+But the entire portfolio (UI text, codebase, and documentation) is strictly in English.
 
 ## Workflow
 

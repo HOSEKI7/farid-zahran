@@ -6,6 +6,10 @@
 
 web
 
+## Language
+
+**CRITICAL RULE: The entire portfolio website (UI text, codebase, comments, and planning) MUST use English as the main language. Do not use or translate to Bahasa Indonesia.**
+
 ## Users
 
 Primary visitor: recruiters and potential clients evaluating Farid Zahran for full-stack or AI engineering roles. Secondary: collaborators exploring his work. They arrive via social links, search, or shared URL, assess capability quickly, then decide whether to reach out.

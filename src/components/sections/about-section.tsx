@@ -39,13 +39,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       <div className="relative z-10">
         <ParallaxScrollFeatureSection
           eyebrow="ABOUT ME"
-          title="Membangun Sistem Modern & Kecerdasan Artifisial"
-          paragraph1="Saya seorang Full-Stack Engineer & AI Specialist yang berfokus pada pengembangan aplikasi web berkinerja tinggi, arsitektur sistem yang fleksibel, dan antarmuka pengguna yang intuitif."
-          paragraph2="Dengan menggabungkan prinsip desain modern dan alur kerja berkecepatan tinggi berbasis AI, saya menciptakan solusi digital yang presisi, scalable, dan memberikan dampak nyata bagi penggunanya."
+          title="Building Modern Systems & Artificial Intelligence"
+          paragraph1="I am a Full-Stack Engineer & AI Specialist focusing on developing high-performance web applications, flexible system architectures, and intuitive user interfaces."
+          paragraph2="By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact for users."
           imageUrl={aboutImage}
           statNumber="04+"
-          statLabel="PENGALAMAN & MILESTONE"
-          ctaText="HUBUNGI SAYA"
+          statLabel="EXPERIENCE & MILESTONES"
+          ctaText="CONTACT ME"
           ctaHref="#contact"
         />
       </div>
