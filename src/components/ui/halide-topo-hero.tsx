@@ -134,15 +134,15 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
         }
 
         .layer-1 {
-          filter: grayscale(1) contrast(1.2) brightness(0.5);
+          filter: grayscale(0.6) contrast(1.1) brightness(0.5);
         }
         .layer-2 {
-          filter: grayscale(1) contrast(1.1) brightness(0.7);
+          filter: grayscale(0.6) contrast(1) brightness(0.7);
           opacity: 0.6;
           mix-blend-mode: screen;
         }
         .layer-3 {
-          filter: grayscale(1) contrast(1.3) brightness(0.8);
+          filter: grayscale(0.6) contrast(1.2) brightness(0.8);
           opacity: 0.4;
           mix-blend-mode: overlay;
         }
@@ -315,14 +315,18 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
             ref={(el) => {
               layersRef.current[1] = el;
             }}
-            style={{ backgroundImage: `url('${resolveSrc(layers[1] ?? layers[0])}')` }}
+            style={{
+              backgroundImage: `url('${resolveSrc(layers[1] ?? layers[0])}')`,
+            }}
           />
           <div
             className="layer layer-3"
             ref={(el) => {
               layersRef.current[2] = el;
             }}
-            style={{ backgroundImage: `url('${resolveSrc(layers[2] ?? layers[0])}')` }}
+            style={{
+              backgroundImage: `url('${resolveSrc(layers[2] ?? layers[0])}')`,
+            }}
           />
           <div className="contours"></div>
         </div>

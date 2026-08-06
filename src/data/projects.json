@@ -1,12 +1,12 @@
 [
   {
-    "title": "Example Project",
+    "title": "NextLevel Academy",
     "description": "A brief description of the project.",
     "tags": ["Next.js", "TypeScript"],
-    "liveUrl": "https://example.com",
-    "slug": "example-project",
-    "bidang": "fullstack",
-    "githubUrl": "https://github.com/username/example",
-    "year": 2025
+    "liveUrl": "https://nextlevelacademy.id",
+    "slug": "nextlevel-academy",
+    "bidang": "Software Development",
+    "githubUrl": "https://github.com/HOSEKI7/ta-platform-pembelajaran-digital-nextlevel-academy",
+    "year": 2026
   }
 ]
