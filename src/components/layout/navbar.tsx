@@ -26,25 +26,35 @@ const LinkedinSocialIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const SECTION_IDS = [
+  "hero",
+  "about",
+  "tech-stack",
+  "projects",
+  "experience",
+  "contact",
+] as const;
+
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isManualScrollRef = useRef(false);
+  const manualScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Auto-hide navbar after 2s of scroll inactivity (when not at top)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const atTop = currentScrollY <= 15;
 
-      // Always show navbar immediately when scrolling occurs
       setIsVisible(true);
 
-      // Clear any existing inactivity timer
       if (hideTimerRef.current) {
         clearTimeout(hideTimerRef.current);
         hideTimerRef.current = null;
       }
 
-      // If not scrolled to top, start 2s timer to fade out on scroll inactivity
       if (!atTop) {
         hideTimerRef.current = setTimeout(() => {
           setIsVisible(false);
@@ -52,7 +62,6 @@ export const Navbar = () => {
       }
     };
 
-    // Initial check on mount
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -64,54 +73,101 @@ export const Navbar = () => {
     };
   }, []);
 
+  // Scroll spy: Track currently visible section and update activeIndex dynamically
+  useEffect(() => {
+    const handleSectionSpy = () => {
+      if (isManualScrollRef.current) return;
+
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Edge case: bottom of the page
+      if (viewportHeight + scrollY >= documentHeight - 50) {
+        setActiveIndex(SECTION_IDS.length - 1);
+        return;
+      }
+
+      // Edge case: top of the page
+      if (scrollY < 100) {
+        setActiveIndex(0);
+        return;
+      }
+
+      // Check section offsets (offset threshold at ~35% of viewport height)
+      const spyPosition = scrollY + viewportHeight * 0.35;
+
+      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
+        const sectionEl = document.getElementById(SECTION_IDS[i]);
+        if (sectionEl) {
+          const sectionTop = sectionEl.offsetTop;
+          if (spyPosition >= sectionTop) {
+            setActiveIndex(i);
+            break;
+          }
+        }
+      }
+    };
+
+    handleSectionSpy();
+
+    window.addEventListener("scroll", handleSectionSpy, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleSectionSpy);
+    };
+  }, []);
+
+  const handleNavClick = (index: number, sectionId: string) => {
+    setActiveIndex(index);
+    isManualScrollRef.current = true;
+
+    if (manualScrollTimerRef.current) {
+      clearTimeout(manualScrollTimerRef.current);
+    }
+
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+
+    manualScrollTimerRef.current = setTimeout(() => {
+      isManualScrollRef.current = false;
+    }, 800);
+  };
+
   const navItems: NavItem[] = [
     {
       id: "hero",
       label: "Hero",
       icon: <HugeiconsIcon icon={ComputerTerminal01Icon} />,
-      onClick: () => {
-        document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(0, "hero"),
     },
     {
       id: "about",
       label: "About",
       icon: <HugeiconsIcon icon={QuillWrite01Icon} />,
-      onClick: () => {
-        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(1, "about"),
     },
     {
       id: "tech-stack",
       label: "Tech Stack",
       icon: <HugeiconsIcon icon={CpuIcon} />,
-      onClick: () => {
-        document.getElementById("tech-stack")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(2, "tech-stack"),
     },
     {
       id: "projects",
       label: "Projects",
       icon: <HugeiconsIcon icon={BlocksIcon} />,
-      onClick: () => {
-        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(3, "projects"),
     },
     {
       id: "experience",
       label: "Experience",
       icon: <HugeiconsIcon icon={Briefcase08Icon} />,
-      onClick: () => {
-        document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(4, "experience"),
     },
     {
       id: "contact",
       label: "Contact",
       icon: <HugeiconsIcon icon={Mail02Icon} />,
-      onClick: () => {
-        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-      },
+      onClick: () => handleNavClick(5, "contact"),
     },
   ];
 
@@ -128,6 +184,10 @@ export const Navbar = () => {
           <div className="flex items-center">
             <a
               href="#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(0, "hero");
+              }}
               className="flex items-center group hover:opacity-80 transition-opacity"
               aria-label="Farid Zahran"
             >
@@ -145,7 +205,11 @@ export const Navbar = () => {
 
           {/* Center: Navigation Menu (Desktop Only) */}
           <div className="hidden md:flex items-center justify-center">
-            <LimelightNav items={navItems} />
+            <LimelightNav
+              items={navItems}
+              activeIndex={activeIndex}
+              onTabChange={setActiveIndex}
+            />
           </div>
 
           {/* Right: Social Link Icons */}
@@ -181,7 +245,12 @@ export const Navbar = () => {
         }`}
       >
         <div className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-full shadow-2xl px-2 py-1 flex items-center">
-          <LimelightNav items={navItems} iconContainerClassName="p-3.5" />
+          <LimelightNav
+            items={navItems}
+            activeIndex={activeIndex}
+            onTabChange={setActiveIndex}
+            iconContainerClassName="p-3.5"
+          />
         </div>
       </div>
     </>
