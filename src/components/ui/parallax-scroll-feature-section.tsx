@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { StaticImageData } from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -63,9 +63,22 @@ export const ParallaxScrollFeatureSection = ({
 }: ParallaxScrollFeatureSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 80%", "center 55%"],
+    offset: isMobile
+      ? ["start 90%", "center 75%"]
+      : ["start 80%", "center 55%"],
   });
 
   const opacityContent = useTransform(scrollYProgress, [0, 1], [0, 1]);
