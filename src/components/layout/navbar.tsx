@@ -7,6 +7,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ComputerTerminal01Icon,
   QuillWrite01Icon,
+  CpuIcon,
   BlocksIcon,
   Briefcase08Icon,
   Mail02Icon,
@@ -78,6 +79,14 @@ export const Navbar = () => {
       icon: <HugeiconsIcon icon={QuillWrite01Icon} />,
       onClick: () => {
         document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      },
+    },
+    {
+      id: "tech-stack",
+      label: "Tech Stack",
+      icon: <HugeiconsIcon icon={CpuIcon} />,
+      onClick: () => {
+        document.getElementById("tech-stack")?.scrollIntoView({ behavior: "smooth" });
       },
     },
     {
