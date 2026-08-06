@@ -81,7 +81,7 @@ export const ParallaxScrollFeatureSection = ({
     <div className={cn("max-w-7xl mx-auto px-6 md:px-12 w-full", className)}>
       <div
         ref={sectionRef}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
       >
         {/* Left Column: Enlarged Profile Image with Parallax & Badge Overlay */}
         <motion.div

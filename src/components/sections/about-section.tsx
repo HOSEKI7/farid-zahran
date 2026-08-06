@@ -14,7 +14,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
     <section
       id="about"
       className={cn(
-        "relative w-full py-24 md:py-36 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden",
+        "relative w-full min-h-screen flex flex-col justify-center py-20 md:py-28 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden",
         className
       )}
     >
