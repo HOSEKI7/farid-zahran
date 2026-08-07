@@ -101,37 +101,32 @@ export function ExperienceCarousel({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/40 backdrop-blur-md"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-5xl max-h-[85vh] w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-neutral-950 flex items-center justify-center"
+              className="relative max-w-6xl max-h-[85vh] w-auto h-auto rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-neutral-950/90 p-2 md:p-3 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/70 hover:bg-white/20 border border-white/20 text-white transition-colors cursor-pointer"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/75 hover:bg-white/20 border border-white/20 text-white transition-colors cursor-pointer shadow-lg backdrop-blur-md"
                 aria-label="Close image preview"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Image Preview */}
-              <div className="relative w-full h-full min-h-[300px] md:min-h-[500px]">
-                <Image
-                  src={`/experience-photos/${selectedImage}`}
-                  alt={`${company} enlarged experience photo`}
-                  fill
-                  className="object-contain p-2 md:p-6"
-                  sizes="100vw"
-                  priority
-                />
-              </div>
+              <img
+                src={`/experience-photos/${selectedImage}`}
+                alt={`${company} enlarged experience photo`}
+                className="max-h-[80vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl"
+              />
             </motion.div>
           </motion.div>
         )}
