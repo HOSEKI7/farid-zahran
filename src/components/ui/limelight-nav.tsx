@@ -130,12 +130,12 @@ export const LimelightNav = ({
 
       <div
         ref={limelightRef}
-        className={`absolute top-0 z-10 w-11 h-1.25 rounded-full bg-white shadow-[0_50px_15px_#ffffff] ${
+        className={`absolute top-0 z-10 w-11 h-1 rounded-full bg-white shadow-[0_0_10px_#ffffff] ${
           isReady ? "transition-[left] duration-400 ease-in-out" : ""
         } ${limelightClassName}`}
         style={{ left: "-999px" }}
       >
-        <div className="absolute left-[-30%] top-5 w-[160%] h-14 [clip-path:polygon(5%_100%,25%_0,75%_0,95%_100%)] bg-linear-to-b from-white/30 to-transparent pointer-events-none" />
+        <div className="absolute left-[-35%] top-1 w-[170%] h-14 [clip-path:polygon(0%_100%,25%_0%,75%_0%,100%_100%)] bg-linear-to-b from-white/35 via-white/10 to-transparent pointer-events-none" />
       </div>
     </nav>
   );
