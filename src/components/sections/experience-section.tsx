@@ -10,13 +10,10 @@ export function ExperienceSection() {
   const experiences: Experience[] = experiencesData;
 
   const timelineData = experiences.map((exp) => ({
-    title: (
-      <span>
-        {exp.startYear} - {exp.endYear}
-      </span>
-    ),
+    id: exp.id,
+    title: `${exp.startYear} - ${exp.endYear}`,
     content: (
-      <div className="mb-12">
+      <div key={exp.id} className="mb-12">
         <div className="flex items-center gap-4 mb-4">
           {exp.companyLogo && (
             <div className="relative shrink-0 h-12 w-12 md:h-14 md:w-14">

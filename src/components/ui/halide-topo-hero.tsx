@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import type { StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import { JobTitleScramble } from "@/components/ui/job-title-scramble";
 
@@ -308,26 +308,46 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
             ref={(el) => {
               layersRef.current[0] = el;
             }}
-            style={{ backgroundImage: `url('${resolveSrc(layers[0])}')` }}
-          />
+          >
+            <Image
+              src={resolveSrc(layers[0])}
+              alt="Topography Layer 1"
+              fill
+              priority
+              sizes="85vw"
+              className="object-cover"
+            />
+          </div>
           <div
             className="layer layer-2"
             ref={(el) => {
               layersRef.current[1] = el;
             }}
-            style={{
-              backgroundImage: `url('${resolveSrc(layers[1] ?? layers[0])}')`,
-            }}
-          />
+          >
+            <Image
+              src={resolveSrc(layers[1] ?? layers[0])}
+              alt="Topography Layer 2"
+              fill
+              priority
+              sizes="85vw"
+              className="object-cover"
+            />
+          </div>
           <div
             className="layer layer-3"
             ref={(el) => {
               layersRef.current[2] = el;
             }}
-            style={{
-              backgroundImage: `url('${resolveSrc(layers[2] ?? layers[0])}')`,
-            }}
-          />
+          >
+            <Image
+              src={resolveSrc(layers[2] ?? layers[0])}
+              alt="Topography Layer 3"
+              fill
+              priority
+              sizes="85vw"
+              className="object-cover"
+            />
+          </div>
           <div className="contours"></div>
         </div>
       </div>

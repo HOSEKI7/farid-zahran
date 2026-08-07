@@ -68,7 +68,7 @@ export function ExperienceCarousel({
             <motion.div
               key={idx}
               onClick={() => handleCardClick(photo)}
-              className="group relative min-w-[280px] md:min-w-[400px] aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50"
+              className="group relative min-w-280px md:min-w-400px aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50"
             >
               <Image
                 src={`/experience-photos/${photo}`}
