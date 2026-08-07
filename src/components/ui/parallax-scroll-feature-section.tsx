@@ -127,10 +127,12 @@ export const ParallaxScrollFeatureSection = ({
         {/* Right Column: Text Content, Eyebrow, Split Paragraphs, Feature Row & CTA */}
         <div className="lg:col-span-7 flex flex-col justify-start">
           {/* Eyebrow Label */}
-          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold text-accent tracking-widest uppercase mb-3">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span>{"// "}{eyebrow}</span>
-          </div>
+          {eyebrow && (
+            <div className="flex items-center gap-2.5 font-mono text-xs font-semibold text-accent tracking-widest uppercase mb-3">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span>{"// "}{eyebrow}</span>
+            </div>
+          )}
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-6">

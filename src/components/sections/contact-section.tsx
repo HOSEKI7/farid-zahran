@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Check, Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,6 +27,8 @@ export function ContactSection() {
       id="contact"
       className="relative w-full py-20 md:py-28 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
+      {/* Decorative Background Ghost Title */}
+      <SectionGhostTitle text="Contact" />
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="contact-grain">

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import projectsData from "@/data/projects.json";
 import { Project } from "@/lib/types";
 import { CoverflowCarousel, CoverflowSlide } from "@/components/ui/coverflow-carousel";
+import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -26,6 +27,8 @@ export function ProjectsSection() {
       id="projects"
       className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
+      {/* Decorative Background Ghost Title */}
+      <SectionGhostTitle text="Projects" />
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="projects-grain">
@@ -46,12 +49,9 @@ export function ProjectsSection() {
       <div className="relative z-10 w-full flex flex-col justify-center">
         {/* Section Header */}
         <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8 text-center">
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-accent">
             Selected Portfolio
           </span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-foreground">
-            Featured Projects
-          </h2>
         </div>
 
         {/* Full-width 3D Coverflow Carousel */}

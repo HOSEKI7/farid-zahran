@@ -4,6 +4,7 @@ import React from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { techStack } from "@/data/tech-stack";
+import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import { OrbitRotation, type OrbitIcon } from "@/components/ui/orbit-rotation";
 import {
   FaReact,
@@ -95,6 +96,8 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
         className
       )}
     >
+      {/* Decorative Background Ghost Title */}
+      <SectionGhostTitle text="Tech Stack" />
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="tech-stack-grain">
@@ -122,10 +125,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
             className="grid gap-16 lg:grid-cols-12 lg:gap-4"
           >
             <motion.div variants={itemVariants} className="lg:col-span-7">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Tech Stack
-              </h2>
-              <p className="text-muted max-w-md mt-5 text-base md:text-lg leading-relaxed">
+              <p className="text-muted max-w-md text-base md:text-lg leading-relaxed">
                 Technologies I use to design, build, and deploy full-stack platforms
                 and AI systems.
               </p>

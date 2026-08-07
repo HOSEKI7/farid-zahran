@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
+import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import aboutImage from "@/assets/images/about.gif";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +19,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         className
       )}
     >
+      {/* Decorative Background Ghost Title */}
+      <SectionGhostTitle text="About" />
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="about-grain">
@@ -38,7 +41,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       {/* Main Parallax Component */}
       <div className="relative z-10">
         <ParallaxScrollFeatureSection
-          eyebrow="ABOUT ME"
+          eyebrow=""
           title="Building Modern Systems & Artificial Intelligence"
           paragraph1="I am a Full-Stack Engineer & AI Specialist focusing on developing high-performance web applications, flexible system architectures, and intuitive user interfaces."
           paragraph2="By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact for users."

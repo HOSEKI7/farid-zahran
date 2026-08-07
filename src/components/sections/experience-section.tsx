@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Timeline } from "@/components/ui/timeline";
 import { ExperienceCarousel } from "@/components/ui/experience-carousel";
+import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import { Experience } from "@/lib/types";
 import experiencesData from "@/data/experiences.json";
 import { Globe, ArrowUpRight } from "lucide-react";
@@ -92,6 +93,8 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden">
+      {/* Decorative Background Ghost Title */}
+      <SectionGhostTitle text="Experience" />
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="experience-grain">
@@ -111,9 +114,6 @@ export function ExperienceSection() {
 
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 mb-8 md:mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-4">
-            Experience
-          </h2>
           <p className="text-secondary max-w-xl text-lg">
             A timeline of my professional journey, highlighting key roles, engineering milestones, and contributions.
           </p>
