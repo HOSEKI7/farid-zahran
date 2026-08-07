@@ -17,13 +17,13 @@ export function ExperienceSection() {
       <div className="mb-12">
         <div className="flex items-center gap-4 mb-4">
           {exp.companyLogo && (
-            <div className="relative shrink-0 h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white/5 border border-white/10 p-2 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center">
+            <div className="relative shrink-0 h-12 w-12 md:h-14 md:w-14">
               <Image
                 src={`/company-logo/${exp.companyLogo}`}
                 alt={`${exp.company} logo`}
                 width={56}
                 height={56}
-                className="h-full w-full object-contain filter drop-shadow"
+                className="h-full w-full object-contain"
               />
             </div>
           )}
