@@ -22,15 +22,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 **Always ask, instruct, write plans, and comments in Indonesian.**
 But the entire portfolio (UI text, codebase, and documentation) is strictly in English.
 
+## Write code
+
+**Use or access /ponytail skill when executing plan or before writing code.**
+
 ## Workflow
 
 - **If the prompt is ambiguous, enter plan mode and ask before writing any code.**
+- Use Context7 to fetch up-to-date library docs before implementing.
+- Use relevant skills when appropriate.
 - Never mark a task complete without proving it works (dev server, relevant page/endpoint, DB state in Prisma Studio). Ask "Would a senior dev approve this PR?"
 - Never commit or push without permission.
 - Always provide a commit message of latest changes after finishing a task.
-- Use Context7 to fetch up-to-date library docs before implementing.
 - If implementation differs from SPEC.md or DESIGN.md, or when making a new decision, update those docs to reflect it.
-- Use relevant skills when appropriate.
 
 ## Project Overview
 

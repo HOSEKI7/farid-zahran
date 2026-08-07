@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "company": "NextLevel Academy",
+    "title": "Software Engineer",
+    "location": "Medan, Indonesia",
+    "employmentType": "Full-time",
+    "startYear": "2024",
+    "endYear": "Present",
+    "description": [
+      "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      "Designed and implemented user interfaces for various client projects. Utilized HTML, CSS, and JavaScript to create responsive and visually appealing websites.",
+      "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      "Designed and implemented user interfaces for various client projects. Utilized HTML, CSS, and JavaScript to create responsive and visually appealing websites"
+    ],
+    "photos": ["photo1.webp", "photo2.webp"]
+  },
+  {
+    "id": 2,
+    "company": "CodingLab",
+    "title": "Full Stack Developer",
+    "location": "Medan, Indonesia",
+    "employmentType": "Internship",
+    "startYear": "2024",
+    "endYear": "2025",
+    "description": [
+      "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      "Designed and implemented user interfaces for various client projects. Utilized HTML, CSS, and JavaScript to create responsive and visually appealing websites.",
+      "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
+    ]
+  }
+]
