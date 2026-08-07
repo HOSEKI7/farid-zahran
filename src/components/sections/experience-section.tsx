@@ -93,32 +93,16 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden">
-      {/* Decorative Background Ghost Title */}
-      <SectionGhostTitle text="Experience" />
-      {/* Halide Grain Noise SVG Background */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
-        <filter id="experience-grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
+      {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-8 md:mb-12">
+        <SectionGhostTitle text="Experience" />
+        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-10 sm:-mt-14 md:-mt-20 tracking-wide">
+          Where I've worked & key milestones.
+        </p>
+      </div>
 
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-15"
-        style={{ filter: "url(#experience-grain)" }}
-      />
-
+      {/* Main Content Div */}
       <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 mb-8 md:mb-16">
-          <p className="text-secondary max-w-xl text-lg">
-            A timeline of my professional journey, highlighting key roles, engineering milestones, and contributions.
-          </p>
-        </div>
-        
         <Timeline data={timelineData} />
       </div>
     </section>

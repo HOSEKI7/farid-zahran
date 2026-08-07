@@ -14,17 +14,17 @@ export const SectionGhostTitle: React.FC<SectionGhostTitleProps> = ({
     <div
       aria-hidden="true"
       className={cn(
-        "absolute left-1/2 -translate-x-1/2 top-2 sm:top-4 md:top-6 lg:top-8 z-0 pointer-events-none select-none w-full text-center overflow-hidden px-4",
+        "relative z-0 pointer-events-none select-none w-full text-center overflow-hidden px-4",
         className
       )}
     >
       <span
         className={cn(
           "inline-block font-extrabold uppercase tracking-tighter whitespace-nowrap leading-none",
-          "text-[clamp(3.2rem,13vw,11rem)]",
-          "bg-gradient-to-b from-foreground/15 via-foreground/5 to-transparent bg-clip-text text-transparent",
-          "[mask-image:linear-gradient(to_bottom,black_20%,transparent_90%)]",
-          "[-webkit-mask-image:linear-gradient(to_bottom,black_20%,transparent_90%)]"
+          "text-[clamp(3.5rem,14vw,11.5rem)]",
+          "bg-gradient-to-b from-foreground/25 via-foreground/8 to-transparent bg-clip-text text-transparent",
+          "[mask-image:linear-gradient(to_bottom,black_30%,transparent_95%)]",
+          "[-webkit-mask-image:linear-gradient(to_bottom,black_30%,transparent_95%)]"
         )}
       >
         {text}

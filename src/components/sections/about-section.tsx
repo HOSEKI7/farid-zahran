@@ -19,30 +19,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         className
       )}
     >
-      {/* Decorative Background Ghost Title */}
-      <SectionGhostTitle text="About" />
-      {/* Halide Grain Noise SVG Background */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
-        <filter id="about-grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
+      {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-8 md:mb-12">
+        <SectionGhostTitle text="About" />
+        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-10 sm:-mt-14 md:-mt-20 tracking-wide">
+          Crafting fast web apps & smart AI systems.
+        </p>
+      </div>
 
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-15"
-        style={{ filter: "url(#about-grain)" }}
-      />
-
-      {/* Main Parallax Component */}
+      {/* Main Content Div */}
       <div className="relative z-10">
         <ParallaxScrollFeatureSection
           eyebrow=""
-          title="Building Modern Systems & Artificial Intelligence"
+          title=""
           paragraph1="I am a Full-Stack Engineer & AI Specialist focusing on developing high-performance web applications, flexible system architectures, and intuitive user interfaces."
           paragraph2="By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact for users."
           imageUrl={aboutImage}

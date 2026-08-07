@@ -135,9 +135,11 @@ export const ParallaxScrollFeatureSection = ({
           )}
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-6">
-            {title}
-          </h2>
+          {title && (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-6">
+              {title}
+            </h2>
+          )}
 
           {/* Split Paragraphs */}
           <div className="space-y-4 text-secondary leading-relaxed font-sans text-base md:text-lg">

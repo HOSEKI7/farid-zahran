@@ -27,36 +27,24 @@ export function ContactSection() {
       id="contact"
       className="relative w-full py-20 md:py-28 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
-      {/* Decorative Background Ghost Title */}
-      <SectionGhostTitle text="Contact" />
-      {/* Halide Grain Noise SVG Background */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
-        <filter id="contact-grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-15"
-        style={{ filter: "url(#contact-grain)" }}
-      />
+      {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-12 md:mb-16">
+        <SectionGhostTitle text="Contact" />
+        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-10 sm:-mt-14 md:-mt-20 tracking-wide">
+          Got an idea? Let's build something awesome.
+        </p>
+      </div>
 
+      {/* Main Content Div */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
         {/* TOP SECTION: Two-column layout (Left ~40%, Right ~60%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16 md:mb-24">
           {/* Left Column (col-span-5 / ~40%) */}
           <div className="lg:col-span-5 flex flex-col space-y-6 md:space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-mono uppercase tracking-widest text-accent px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
-                  Get In Touch
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground flex items-center gap-3">
-                Let's Talk
-                <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 text-accent shrink-0" />
-              </h2>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground flex items-center gap-3">
+              Let's Talk
+              <ArrowUpRight className="w-7 h-7 md:w-8 md:h-8 text-accent shrink-0" />
+            </h2>
 
             <p className="text-secondary text-base md:text-lg leading-relaxed max-w-lg">
               Have a project in mind, looking for potential collaboration, or want to discuss engineering ideas? Send a message and let's create something exceptional together.

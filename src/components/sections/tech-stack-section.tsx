@@ -92,45 +92,30 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
     <section
       id="tech-stack"
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-background text-foreground border-t border-border/40",
+        "relative w-full min-h-screen overflow-hidden bg-background text-foreground border-t border-border/40 py-20 md:py-28",
         className
       )}
     >
-      {/* Decorative Background Ghost Title */}
-      <SectionGhostTitle text="Tech Stack" />
-      {/* Halide Grain Noise SVG Background */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
-        <filter id="tech-stack-grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
+      {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-8 md:mb-12">
+        <SectionGhostTitle text="Tech Stack" />
+        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-10 sm:-mt-14 md:-mt-20 tracking-wide">
+          The tools & technologies behind my work.
+        </p>
+      </div>
 
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-15"
-        style={{ filter: "url(#tech-stack-grain)" }}
-      />
-
-      <div className="relative z-10 flex min-h-screen w-full items-center">
-        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 py-20">
+      {/* Main Content Div */}
+      <div className="relative z-10 flex w-full items-center">
+        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
           <motion.div
             variants={containerVariants}
             initial={reduce ? false : "hidden"}
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid gap-16 lg:grid-cols-12 lg:gap-4"
+            className="grid gap-12 lg:grid-cols-12 lg:gap-8 items-center"
           >
             <motion.div variants={itemVariants} className="lg:col-span-7">
-              <p className="text-muted max-w-md text-base md:text-lg leading-relaxed">
-                Technologies I use to design, build, and deploy full-stack platforms
-                and AI systems.
-              </p>
-
-              <article className="mt-14 rounded-lg border border-border bg-card/40 p-6 md:p-8">
+              <article className="rounded-lg border border-border bg-card/40 p-6 md:p-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
                   {techStack.map((group, index) => (
                     <div
