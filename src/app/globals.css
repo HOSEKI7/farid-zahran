@@ -8,9 +8,9 @@
   --color-accent: #9ba480;
   --color-accent-hover: #8b9373;
   --color-primary: #e0e0e0;
-  --color-secondary: #b0b0b0;
+  --color-secondary: #cccccc;
   --color-border: #2a2a2a;
-  --color-muted: #888888;
+  --color-muted: #b0b0b0;
   --color-overlay: rgba(0, 0, 0, 0.6);
 
   /* Typography */

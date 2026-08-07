@@ -11,9 +11,9 @@
     "accent":      { "value": "#9ba480", "description": "Interactive accent — subtle green" },
     "accent-hover":{"value": "#8b9373", "description": "Accent hover — slightly darker" },
     "primary":     { "value": "#e0e0e0", "description": "Primary (used for limelight glow, matches foreground)" },
-    "secondary":   { "value": "#b0b0b0", "description": "Secondary text / subdued foreground" },
+    "secondary":   { "value": "#cccccc", "description": "Secondary text / long text description — bright silver" },
     "border":      { "value": "#2a2a2a", "description": "Default border color — subtle dark gray" },
-    "muted":       { "value": "#888888", "description": "Muted text / placeholder — medium gray" },
+    "muted":       { "value": "#b0b0b0", "description": "Muted text / placeholder — bright gray" },
     "overlay":     { "value": "rgba(0,0,0,0.6)", "description": "Overlay for modals / backdrops" }
   },
 
@@ -148,6 +148,6 @@
 
   "tailwind-v4-theme": {
     "description": "Copy this block into your global.css @theme directive",
-    "snippet": "--color-background: #0a0a0a;\n--color-foreground: #e0e0e0;\n--color-card: #1a1a1a;\n--color-accent: #9ba480;\n--color-accent-hover: #8b9373;\n--color-primary: #e0e0e0;\n--color-secondary: #b0b0b0;\n--color-border: #2a2a2a;\n--color-muted: #888888;\n--color-overlay: rgba(0,0,0,0.6);"
+    "snippet": "--color-background: #0a0a0a;\n--color-foreground: #e0e0e0;\n--color-card: #1a1a1a;\n--color-accent: #9ba480;\n--color-accent-hover: #8b9373;\n--color-primary: #e0e0e0;\n--color-secondary: #cccccc;\n--color-border: #2a2a2a;\n--color-muted: #b0b0b0;\n--color-overlay: rgba(0,0,0,0.6);"
   }
 }

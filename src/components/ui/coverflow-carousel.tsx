@@ -280,8 +280,8 @@ export function CoverflowCarousel({
                   aria-roledescription="slide"
                   aria-label={`${index + 1} of ${count}`}
                   className={cn(
-                    "absolute left-1/2 top-0 aspect-video overflow-hidden rounded-xl bg-zinc-900 border border-white/10 shadow-2xl transition-shadow duration-300 will-change-transform cursor-pointer",
-                    isSelected && "ring-1 ring-[#9ba480]/60 shadow-[0_0_30px_rgba(155,164,128,0.2)]",
+                    "absolute left-1/2 top-0 aspect-video overflow-hidden rounded-xl bg-card border border-border shadow-2xl transition-shadow duration-300 will-change-transform cursor-pointer",
+                    isSelected && "ring-1 ring-accent/60 shadow-[0_0_30px_rgba(155,164,128,0.2)]",
                     cardClassName
                   )}
                   style={{ width: "var(--cf-card)" }}
@@ -309,7 +309,7 @@ export function CoverflowCarousel({
               type="button"
               aria-label="Previous slide"
               onClick={() => nudge(-1)}
-              className="pointer-events-auto rounded-full bg-zinc-950/80 border border-white/10 p-3 text-zinc-200 backdrop-blur-md transition-all hover:bg-zinc-800 hover:border-[#9ba480]/50 hover:text-white"
+              className="pointer-events-auto rounded-full bg-card/80 border border-border p-3 text-secondary backdrop-blur-md transition-all hover:bg-card hover:border-accent/50 hover:text-foreground"
             >
               <ChevronLeft className="size-6" />
             </button>
@@ -317,7 +317,7 @@ export function CoverflowCarousel({
               type="button"
               aria-label="Next slide"
               onClick={() => nudge(1)}
-              className="pointer-events-auto rounded-full bg-zinc-950/80 border border-white/10 p-3 text-zinc-200 backdrop-blur-md transition-all hover:bg-zinc-800 hover:border-[#9ba480]/50 hover:text-white"
+              className="pointer-events-auto rounded-full bg-card/80 border border-border p-3 text-secondary backdrop-blur-md transition-all hover:bg-card hover:border-accent/50 hover:text-foreground"
             >
               <ChevronRight className="size-6" />
             </button>
@@ -337,8 +337,8 @@ export function CoverflowCarousel({
               className={cn(
                 "h-1.5 rounded-full transition-all duration-300",
                 index === selected
-                  ? "w-8 bg-[#9ba480]"
-                  : "w-2 bg-zinc-700 hover:bg-zinc-500"
+                  ? "w-8 bg-accent"
+                  : "w-2 bg-border hover:bg-muted"
               )}
             />
           ))}

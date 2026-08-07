@@ -219,7 +219,7 @@ export const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-secondary hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
             >
               <GithubSocialIcon className="w-4 h-4" />
             </a>
@@ -228,7 +228,7 @@ export const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-10 h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
+              className="w-10 h-10 rounded-full border border-border/50 bg-card/60 backdrop-blur-md flex items-center justify-center text-secondary hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all"
             >
               <LinkedinSocialIcon className="w-4 h-4" />
             </a>

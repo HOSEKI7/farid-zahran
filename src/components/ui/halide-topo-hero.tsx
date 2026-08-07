@@ -83,7 +83,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
   return (
     <div
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-[#0a0a0a] text-[#e0e0e0] font-sans flex items-center justify-center",
+        "relative w-full min-h-screen overflow-hidden bg-background text-foreground font-sans flex items-center justify-center",
         className,
       )}
     >

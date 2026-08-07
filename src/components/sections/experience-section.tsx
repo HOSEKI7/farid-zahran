@@ -30,16 +30,16 @@ export function ExperienceSection() {
             </div>
           )}
           <div className="flex flex-col justify-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-snug">
               {exp.company}
             </h3>
-            <p className="text-sm md:text-base font-medium text-neutral-400 leading-snug">
+            <p className="text-sm md:text-base font-medium text-secondary leading-snug">
               {exp.title}
             </p>
           </div>
         </div>
-        
-        <div className="flex flex-wrap gap-3 mb-6 text-xs md:text-sm font-mono uppercase tracking-widest text-neutral-400">
+
+        <div className="flex flex-wrap gap-3 mb-6 text-xs md:text-sm font-mono uppercase tracking-widest text-secondary">
           <span className="flex items-center gap-1.5 border border-white/10 px-2.5 py-1 rounded-full bg-white/5">
             {exp.location}
           </span>
@@ -48,10 +48,10 @@ export function ExperienceSection() {
           </span>
         </div>
 
-        <ul className="space-y-3 text-neutral-300 max-w-2xl text-base md:text-lg">
+        <ul className="space-y-3 text-secondary max-w-2xl text-base md:text-lg">
           {exp.description.map((desc, idx) => (
             <li key={idx} className="flex items-start gap-3">
-              <span className="text-[#9ba480] mt-1.5 text-sm">&bull;</span>
+              <span className="text-accent mt-1.5 text-sm">&bull;</span>
               <span>{desc}</span>
             </li>
           ))}
@@ -68,11 +68,11 @@ export function ExperienceSection() {
                 href={exp.company_website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#9ba480]/50 transition-all"
+                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono text-secondary hover:text-foreground bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent/50 transition-all"
               >
-                <Globe className="w-3.5 h-3.5 text-[#9ba480]" />
+                <Globe className="w-3.5 h-3.5 text-accent" />
                 <span>Visit Website</span>
-                <ArrowUpRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-3 h-3 text-muted group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             )}
             {exp.company_linkedin && (
@@ -80,11 +80,11 @@ export function ExperienceSection() {
                 href={exp.company_linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono text-neutral-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#9ba480]/50 transition-all"
+                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono text-secondary hover:text-foreground bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent/50 transition-all"
               >
-                <FaLinkedin className="w-3.5 h-3.5 text-[#9ba480]" />
+                <FaLinkedin className="w-3.5 h-3.5 text-accent" />
                 <span>Company LinkedIn</span>
-                <ArrowUpRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-3 h-3 text-muted group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             )}
           </div>
@@ -94,7 +94,7 @@ export function ExperienceSection() {
   }));
 
   return (
-    <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden">
+    <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden">
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
         <filter id="experience-grain">
@@ -114,10 +114,10 @@ export function ExperienceSection() {
 
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 mb-8 md:mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-4">
             Experience
           </h2>
-          <p className="text-neutral-400 max-w-xl text-lg">
+          <p className="text-secondary max-w-xl text-lg">
             A timeline of my professional journey, highlighting key roles, engineering milestones, and contributions.
           </p>
         </div>

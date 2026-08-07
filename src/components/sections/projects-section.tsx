@@ -24,7 +24,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40 overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
       {/* Halide Grain Noise SVG Background */}
       <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
@@ -46,10 +46,10 @@ export function ProjectsSection() {
       <div className="relative z-10 w-full flex flex-col justify-center">
         {/* Section Header */}
         <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8 text-center">
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#9ba480]">
+          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
             Selected Portfolio
           </span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
+          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-foreground">
             Featured Projects
           </h2>
         </div>
@@ -77,16 +77,16 @@ export function ProjectsSection() {
           >
             {/* Meta badges: Bidang & Year */}
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 text-xs font-mono uppercase rounded-full bg-[#9ba480]/10 border border-[#9ba480]/30 text-[#9ba480]">
+              <span className="px-3 py-1 text-xs font-mono uppercase rounded-full bg-accent/10 border border-accent/30 text-accent">
                 {activeProject.bidang}
               </span>
-              <span className="text-xs font-mono text-zinc-500">
+              <span className="text-xs font-mono text-muted">
                 {activeProject.year}
               </span>
             </div>
 
             {/* Project Title */}
-            <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">
               {activeProject.title}
             </h3>
 
@@ -95,7 +95,7 @@ export function ProjectsSection() {
               {activeProject.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 text-xs font-mono rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300"
+                  className="px-2.5 py-1 text-xs font-mono rounded-md bg-card border border-border text-secondary"
                 >
                   {tag}
                 </span>
@@ -103,7 +103,7 @@ export function ProjectsSection() {
             </div>
 
             {/* Description */}
-            <p className="text-zinc-400 text-sm md:text-base max-w-2xl leading-relaxed">
+            <p className="text-secondary text-sm md:text-base max-w-2xl leading-relaxed">
               {activeProject.description}
             </p>
 
@@ -111,7 +111,7 @@ export function ProjectsSection() {
             <div className="flex items-center gap-4 pt-2">
               <a
                 href={`/projects/${activeProject.slug}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#9ba480] text-black font-semibold text-sm hover:bg-[#aab38d] transition-all transform active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-background font-semibold text-sm hover:bg-accent-hover transition-all transform active:scale-[0.98]"
               >
                 View Project
                 <ArrowUpRight className="size-4" />
@@ -122,7 +122,7 @@ export function ProjectsSection() {
                   href={activeProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-medium text-sm hover:border-zinc-600 hover:text-white transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border bg-card/60 text-secondary font-medium text-sm hover:border-border/80 hover:text-foreground transition-all"
                 >
                   Live URL
                   <ExternalLink className="size-3.5" />
@@ -135,7 +135,7 @@ export function ProjectsSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Repository"
-                  className="p-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all"
+                  className="p-2.5 rounded-lg border border-border bg-card/60 text-muted hover:text-foreground hover:border-border/80 transition-all"
                 >
                   <FaGithub className="size-4" />
                 </a>

@@ -91,7 +91,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
     <section
       id="tech-stack"
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-[#0a0a0a] text-[#e0e0e0] border-t border-[#2a2a2a]/40",
+        "relative w-full min-h-screen overflow-hidden bg-background text-foreground border-t border-border/40",
         className
       )}
     >

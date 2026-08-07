@@ -68,7 +68,7 @@ export function ExperienceCarousel({
             <motion.div
               key={idx}
               onClick={() => handleCardClick(photo)}
-              className="group relative min-w-[280px] md:min-w-[400px] aspect-video rounded-xl overflow-hidden border border-white/10 cursor-pointer select-none bg-neutral-900/50"
+              className="group relative min-w-[280px] md:min-w-[400px] aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50"
             >
               <Image
                 src={`/experience-photos/${photo}`}
@@ -83,8 +83,8 @@ export function ExperienceCarousel({
 
               {/* Open Button for Desktop & Tap indicator for Mobile */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-10">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/75 border border-white/20 text-white text-xs font-mono shadow-lg backdrop-blur-md">
-                  <Maximize2 className="w-3.5 h-3.5 text-[#9ba480]" />
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-card/80 border border-border text-foreground text-xs font-mono shadow-lg backdrop-blur-md">
+                  <Maximize2 className="w-3.5 h-3.5 text-accent" />
                   <span>Open</span>
                 </span>
               </div>
@@ -109,13 +109,13 @@ export function ExperienceCarousel({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl max-h-[85vh] w-auto h-auto rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-neutral-950/90 p-2 md:p-3 flex items-center justify-center"
+              className="relative max-w-6xl max-h-[85vh] w-auto h-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-card/90 p-2 md:p-3 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/75 hover:bg-white/20 border border-white/20 text-white transition-colors cursor-pointer shadow-lg backdrop-blur-md"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-card/80 hover:bg-card border border-border text-foreground transition-colors cursor-pointer shadow-lg backdrop-blur-md"
                 aria-label="Close image preview"
               >
                 <X className="w-5 h-5" />

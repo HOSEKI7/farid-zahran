@@ -33,13 +33,13 @@ export default function Home() {
         id="contact"
         className="min-h-screen flex flex-col items-center justify-center text-center px-4 border-t border-border/30"
       >
-        <h2 className="text-4xl font-bold tracking-tight mb-4">Contact</h2>
-        <p className="text-muted max-w-2xl text-lg mb-6">
+        <h2 className="text-4xl font-bold tracking-tight mb-4 text-foreground">Contact</h2>
+        <p className="text-secondary max-w-2xl text-lg mb-6">
           Interested in working together or discussing potential projects?
         </p>
         <a
           href="mailto:contact@faridzahran.com"
-          className="px-6 py-3 rounded-full bg-accent text-white font-medium hover:bg-accent-hover transition-colors"
+          className="px-6 py-3 rounded-full bg-accent text-background font-medium hover:bg-accent-hover transition-colors"
         >
           Get In Touch
         </a>
