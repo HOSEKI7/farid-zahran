@@ -8,3 +8,15 @@ export interface Project {
   githubUrl: string;
   year: number;
 }
+
+export interface Experience {
+  id: number;
+  company: string;
+  title: string;
+  location: string;
+  employmentType: string;
+  startYear: string;
+  endYear: string;
+  description: string[];
+  photos?: string[];
+}
