@@ -94,9 +94,9 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden">
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-8 md:mb-12">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12">
         <SectionGhostTitle text="Experience" />
-        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-10 sm:-mt-14 md:-mt-20 tracking-wide">
+        <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
           Where I've worked & key milestones.
         </p>
       </div>
