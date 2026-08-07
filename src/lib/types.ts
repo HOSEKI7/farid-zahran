@@ -20,5 +20,7 @@ export interface Experience {
   endYear: string;
   description: string[];
   photos?: string[];
+  company_website?: string;
+  company_linkedin?: string;
 }
 
