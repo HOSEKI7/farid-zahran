@@ -2,6 +2,7 @@
   {
     "id": 1,
     "company": "NextLevel Academy",
+    "companyLogo": "nextlevel-academy.webp",
     "title": "Software Engineer",
     "location": "Medan, Indonesia",
     "employmentType": "Full-time",
@@ -18,6 +19,7 @@
   {
     "id": 2,
     "company": "CodingLab",
+    "companyLogo": "codinglab.webp",
     "title": "Full Stack Developer",
     "location": "Medan, Indonesia",
     "employmentType": "Internship",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Timeline } from "@/components/ui/timeline";
 import { ExperienceCarousel } from "@/components/ui/experience-carousel";
 import { Experience } from "@/lib/types";
@@ -14,9 +15,27 @@ export function ExperienceSection() {
     ),
     content: (
       <div className="mb-12">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-          {exp.title} <span className="text-neutral-500 font-normal">at {exp.company}</span>
-        </h3>
+        <div className="flex items-center gap-4 mb-4">
+          {exp.companyLogo && (
+            <div className="relative shrink-0 h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white/5 border border-white/10 p-2 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center">
+              <Image
+                src={`/company-logo/${exp.companyLogo}`}
+                alt={`${exp.company} logo`}
+                width={56}
+                height={56}
+                className="h-full w-full object-contain filter drop-shadow"
+              />
+            </div>
+          )}
+          <div className="flex flex-col justify-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
+              {exp.company}
+            </h3>
+            <p className="text-sm md:text-base font-medium text-neutral-400 leading-snug">
+              {exp.title}
+            </p>
+          </div>
+        </div>
         
         <div className="flex flex-wrap gap-3 mb-6 text-xs md:text-sm font-mono uppercase tracking-widest text-neutral-400">
           <span className="flex items-center gap-1.5 border border-white/10 px-2.5 py-1 rounded-full bg-white/5">

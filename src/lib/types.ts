@@ -12,6 +12,7 @@ export interface Project {
 export interface Experience {
   id: number;
   company: string;
+  companyLogo?: string;
   title: string;
   location: string;
   employmentType: string;
@@ -20,3 +21,4 @@ export interface Experience {
   description: string[];
   photos?: string[];
 }
+
