@@ -11,6 +11,8 @@ import {
   ArrowRight01Icon
 } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container";
 
 export interface FeatureItem {
   icon: typeof ComputerTerminal01Icon;
@@ -142,21 +144,30 @@ export const ParallaxScrollFeatureSection = ({
           )}
 
           {/* Split Paragraphs */}
-          <div className="space-y-4 text-secondary leading-relaxed font-sans text-base md:text-lg">
-            <p>{paragraph1}</p>
-            <p className="text-secondary text-sm md:text-base">{paragraph2}</p>
-          </div>
+          <ScrollReveal direction="up" distance={20} duration={0.6} amount={0.3}>
+            <div className="space-y-4 text-secondary leading-relaxed font-sans text-base md:text-lg">
+              <p>{paragraph1}</p>
+              <p className="text-secondary text-sm md:text-base">{paragraph2}</p>
+            </div>
+          </ScrollReveal>
 
           {/* Horizontal Divider */}
           <div className="w-full h-px bg-border/80 my-8 md:my-10" />
 
           {/* Feature Row (3 Columns) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+          <StaggerContainer
+            staggerChildren={0.12}
+            amount={0.25}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8"
+          >
             {features.map((feature, idx) => {
               const IconComponent = feature.icon;
               return (
-                <div
+                <StaggerItem
                   key={idx}
+                  direction="up"
+                  distance={25}
+                  duration={0.5}
                   className="flex flex-col p-4 rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-lg border border-border bg-card flex items-center justify-center text-accent mb-3 shadow-inner">
@@ -168,13 +179,13 @@ export const ParallaxScrollFeatureSection = ({
                   <p className="text-xs text-muted leading-relaxed">
                     {feature.description}
                   </p>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
 
           {/* CTA Button */}
-          <div>
+          <ScrollReveal direction="up" distance={20} delay={0.15} amount={0.3}>
             <a
               href={ctaHref}
               className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-border hover:border-accent hover:text-accent hover:bg-accent/10 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 group"
@@ -185,7 +196,7 @@ export const ParallaxScrollFeatureSection = ({
                 className="w-4 h-4 transition-transform group-hover:translate-x-1"
               />
             </a>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { ArrowUpRight, Check, Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -28,57 +30,67 @@ export function ContactSection() {
       className="relative w-full py-20 md:py-28 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-12 md:mb-16">
+      <ScrollReveal
+        direction="up"
+        distance={35}
+        amount={0.3}
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-12 md:mb-16"
+      >
         <SectionGhostTitle text="Contact" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
-          Got an idea? Let's build something awesome.
+          Got an idea? Let&apos;s build something awesome.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Main Content Div */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
         {/* TOP SECTION: Two-column layout (Left ~40%, Right ~60%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16 md:mb-24">
           {/* Left Column (col-span-5 / ~40%) */}
-          <div className="lg:col-span-5 flex flex-col space-y-6 md:space-y-8">
+          <ScrollReveal
+            direction="right"
+            distance={30}
+            amount={0.2}
+            className="lg:col-span-5 flex flex-col space-y-6 md:space-y-8"
+          >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground flex items-center gap-3">
-              Let's Talk
+              Let&apos;s Talk
               <ArrowUpRight className="w-7 h-7 md:w-8 md:h-8 text-accent shrink-0" />
             </h2>
 
             <p className="text-secondary text-base md:text-lg leading-relaxed max-w-lg">
-              Have a project in mind, looking for potential collaboration, or want to discuss engineering ideas? Send a message and let's create something exceptional together.
+              Have a project in mind, looking for potential collaboration, or want to discuss engineering ideas? Send a message and let&apos;s create something exceptional together.
             </p>
 
             {/* Vertical checklist of 3 short benefit items */}
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center gap-3.5">
+            <StaggerContainer staggerChildren={0.1} amount={0.2} className="space-y-4 pt-2">
+              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
                 <span className="text-foreground text-sm md:text-base font-medium">
                   Fast Turnaround & Clear Updates
                 </span>
-              </div>
+              </StaggerItem>
 
-              <div className="flex items-center gap-3.5">
+              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
                 <span className="text-foreground text-sm md:text-base font-medium">
                   End-to-End Full-Stack & AI Solutions
                 </span>
-              </div>
+              </StaggerItem>
 
-              <div className="flex items-center gap-3.5">
+              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
                 <span className="text-foreground text-sm md:text-base font-medium">
                   Clean Architecture & High Performance
                 </span>
-              </div>
-            </div>
+              </StaggerItem>
+            </StaggerContainer>
 
             {/* Row of 3 circular social media icon buttons */}
             <div className="pt-4 flex items-center gap-3">
@@ -110,10 +122,15 @@ export function ContactSection() {
                 <FaXTwitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column (col-span-7 / ~60%) */}
-          <div className="lg:col-span-7">
+          <ScrollReveal
+            direction="left"
+            distance={30}
+            amount={0.2}
+            className="lg:col-span-7"
+          >
             <div className="relative p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl bg-card border border-border/60 shadow-2xl overflow-hidden">
               {/* Ambient accent glow inside card */}
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -194,14 +211,22 @@ export function ContactSection() {
                 </div>
               </form>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* BOTTOM SECTION: Horizontal Row of 3 Info Cards with Divider Lines */}
         <div className="pt-8 md:pt-12 border-t border-border/40">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/40">
+          <StaggerContainer
+            staggerChildren={0.12}
+            amount={0.2}
+            className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/40"
+          >
             {/* Card 1: Email */}
-            <div className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none">
+            <StaggerItem
+              direction="up"
+              distance={20}
+              className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none"
+            >
               <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <Mail className="w-6 h-6" />
               </div>
@@ -216,10 +241,14 @@ export function ContactSection() {
                   contact@faridzahran.com
                 </a>
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Card 2: Phone */}
-            <div className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none">
+            <StaggerItem
+              direction="up"
+              distance={20}
+              className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none"
+            >
               <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <Phone className="w-6 h-6" />
               </div>
@@ -231,10 +260,14 @@ export function ContactSection() {
                   Available on request
                 </p>
               </div>
-            </div>
+            </StaggerItem>
 
             {/* Card 3: Location */}
-            <div className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none">
+            <StaggerItem
+              direction="up"
+              distance={20}
+              className="p-6 md:p-8 flex items-center gap-4 group hover:bg-white/[0.02] transition-colors rounded-xl md:rounded-none"
+            >
               <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <MapPin className="w-6 h-6" />
               </div>
@@ -246,8 +279,8 @@ export function ContactSection() {
                   Jakarta, Indonesia (UTC+7)
                 </p>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </div>
     </section>

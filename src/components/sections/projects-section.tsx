@@ -6,6 +6,7 @@ import projectsData from "@/data/projects.json";
 import { Project } from "@/lib/types";
 import { CoverflowCarousel, CoverflowSlide } from "@/components/ui/coverflow-carousel";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -28,28 +29,44 @@ export function ProjectsSection() {
       className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12">
+      <ScrollReveal
+        direction="up"
+        distance={35}
+        amount={0.3}
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+      >
         <SectionGhostTitle text="Projects" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
           Featured full-stack & AI projects.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Main Content Div */}
       <div className="relative z-10 w-full flex flex-col justify-center">
 
         {/* Full-width 3D Coverflow Carousel */}
-        <div className="w-full">
+        <ScrollReveal
+          direction="up"
+          distance={30}
+          scale={0.97}
+          amount={0.2}
+          className="w-full"
+        >
           <CoverflowCarousel
             slides={slides}
             onSelectChange={setSelectedIndex}
             showPagination={true}
             showNavigation={true}
           />
-        </div>
+        </ScrollReveal>
 
         {/* Active Project Details Panel */}
-        <div className="max-w-3xl mx-auto px-6 mt-8 md:mt-10">
+        <ScrollReveal
+          direction="up"
+          distance={20}
+          amount={0.2}
+          className="max-w-3xl mx-auto px-6 mt-8 md:mt-10"
+        >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.slug}
@@ -127,7 +144,7 @@ export function ProjectsSection() {
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
+      </ScrollReveal>
       </div>
     </section>
   );

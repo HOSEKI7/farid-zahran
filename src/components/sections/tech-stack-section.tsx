@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { techStack } from "@/data/tech-stack";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import { OrbitRotation, type OrbitIcon } from "@/components/ui/orbit-rotation";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container";
 import {
   FaReact,
   FaNodeJs,
@@ -31,8 +32,6 @@ import {
 } from "react-icons/si";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CpuIcon } from "@hugeicons/core-free-icons";
-
-const EASE_SPRING = [0.16, 1, 0.3, 1] as const;
 
 const CpuCenterIcon = (props: { className?: string }) => (
   <HugeiconsIcon icon={CpuIcon} {...props} />
@@ -60,22 +59,6 @@ const orbitIcons: OrbitIcon[] = [
   { Icon: FaGithub, name: "GitHub" },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: EASE_SPRING },
-  },
-};
-
 const chipClassName =
   "rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-xs text-secondary " +
   "transition-all duration-300 ease-in-out hover:-translate-y-[1px] hover:border-accent/70 " +
@@ -86,8 +69,6 @@ export interface TechStackSectionProps {
 }
 
 export const TechStackSection: React.FC<TechStackSectionProps> = ({ className }) => {
-  const reduce = useReducedMotion();
-
   return (
     <section
       id="tech-stack"
@@ -97,29 +78,38 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
       )}
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12">
+      <ScrollReveal
+        direction="up"
+        distance={35}
+        amount={0.3}
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+      >
         <SectionGhostTitle text="Tech Stack" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
           The tools & technologies behind my work.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Main Content Div */}
       <div className="relative z-10 flex w-full items-center">
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
-          <motion.div
-            variants={containerVariants}
-            initial={reduce ? false : "hidden"}
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+          <StaggerContainer
+            staggerChildren={0.15}
+            amount={0.2}
             className="grid gap-12 lg:grid-cols-12 lg:gap-8 items-center"
           >
-            <motion.div variants={itemVariants} className="lg:col-span-7">
+            <StaggerItem direction="up" distance={30} className="lg:col-span-7">
               <article className="rounded-lg border border-border bg-card/40 p-6 md:p-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+                <StaggerContainer
+                  staggerChildren={0.08}
+                  amount={0.2}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8"
+                >
                   {techStack.map((group, index) => (
-                    <div
+                    <StaggerItem
                       key={group.label}
+                      direction="up"
+                      distance={20}
                       className={
                         index === techStack.length - 1 ? "sm:col-span-2" : undefined
                       }
@@ -134,14 +124,16 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
                           </span>
                         ))}
                       </div>
-                    </div>
+                    </StaggerItem>
                   ))}
-                </div>
+                </StaggerContainer>
               </article>
-            </motion.div>
+            </StaggerItem>
 
-            <motion.div
-              variants={itemVariants}
+            <StaggerItem
+              direction="left"
+              distance={35}
+              scale={0.92}
               className="hidden lg:col-span-5 lg:flex items-center justify-center"
             >
               <div className="origin-center scale-[0.72] xl:scale-100">
@@ -153,8 +145,8 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
                   size="md"
                 />
               </div>
-            </motion.div>
-          </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Timeline } from "@/components/ui/timeline";
 import { ExperienceCarousel } from "@/components/ui/experience-carousel";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { Experience } from "@/lib/types";
 import experiencesData from "@/data/experiences.json";
 import { Globe, ArrowUpRight } from "lucide-react";
@@ -14,7 +15,7 @@ export function ExperienceSection() {
     id: exp.id,
     title: `${exp.startYear} - ${exp.endYear}`,
     content: (
-      <div key={exp.id} className="mb-12">
+      <ScrollReveal key={exp.id} direction="up" distance={25} amount={0.15} className="mb-12">
         <div className="flex items-center gap-4 mb-4">
           {exp.companyLogo && (
             <div className="relative shrink-0 h-12 w-12 md:h-14 md:w-14">
@@ -87,19 +88,24 @@ export function ExperienceSection() {
             )}
           </div>
         )}
-      </div>
+      </ScrollReveal>
     ),
   }));
 
   return (
     <section id="experience" className="relative w-full min-h-screen flex flex-col justify-center py-20 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden">
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12">
+      <ScrollReveal
+        direction="up"
+        distance={35}
+        amount={0.3}
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+      >
         <SectionGhostTitle text="Experience" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
-          Where I've worked & key milestones.
+          Where I&apos;ve worked & key milestones.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Main Content Div */}
       <div className="relative z-10 w-full">

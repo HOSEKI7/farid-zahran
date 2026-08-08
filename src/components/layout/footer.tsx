@@ -5,6 +5,7 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.webp";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Mail, ArrowUp } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,10 +20,13 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-border/40 bg-background text-foreground py-6 md:py-8 relative z-10">
       <div className="w-full px-4 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-          
+        <StaggerContainer
+          staggerChildren={0.1}
+          amount={0.2}
+          className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4"
+        >
           {/* Left Column: Logo, Brand Name & Availability Status */}
-          <div className="flex items-center gap-3.5">
+          <StaggerItem direction="up" distance={20} className="flex items-center gap-3.5">
             <a
               href="#hero"
               onClick={(e) => {
@@ -57,18 +61,18 @@ export function Footer() {
                 Available for work
               </span>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Center Column: Copyright Notice */}
-          <div className="text-center">
+          <StaggerItem direction="up" distance={20} className="text-center">
             <p className="font-mono text-xs text-muted">
               © {currentYear}{" "}
               <span className="text-secondary font-medium">Farid Zahran</span>. All rights reserved.
             </p>
-          </div>
+          </StaggerItem>
 
           {/* Right Column: Social Media Icons & Back to Top */}
-          <div className="flex items-center gap-3">
+          <StaggerItem direction="up" distance={20} className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <a
                 href="https://github.com/faridzahran"
@@ -120,9 +124,9 @@ export function Footer() {
             >
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-          </div>
+          </StaggerItem>
 
-        </div>
+        </StaggerContainer>
       </div>
     </footer>
   );

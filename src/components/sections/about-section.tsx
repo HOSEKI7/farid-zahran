@@ -3,6 +3,7 @@
 import React from "react";
 import { ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import aboutImage from "@/assets/images/about.gif";
 import { cn } from "@/lib/utils";
 
@@ -20,12 +21,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       )}
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12">
+      <ScrollReveal
+        direction="up"
+        distance={35}
+        amount={0.3}
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+      >
         <SectionGhostTitle text="About" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
           Crafting fast web apps & smart AI systems.
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Main Content Div */}
       <div className="relative z-10">
