@@ -27,14 +27,14 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full py-20 md:py-28 bg-background text-foreground border-t border-border/40 overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col justify-center py-16 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden"
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
       <ScrollReveal
         direction="up"
         distance={35}
         amount={0.3}
-        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-12 md:mb-16"
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-6 md:mb-8"
       >
         <SectionGhostTitle text="Contact" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">

@@ -16,8 +16,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
     <section
       id="about"
       className={cn(
-        "relative w-full min-h-screen flex flex-col justify-center py-20 md:py-28 bg-background text-foreground border-t border-border/40 overflow-hidden",
-        className
+        "relative w-full min-h-screen flex flex-col justify-center py-16 md:py-24 bg-background text-foreground border-t border-border/40 overflow-hidden",
+        className,
       )}
     >
       {/* Section Header Group: Title + Centered Accent Subtitle Overlapping */}
@@ -25,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         direction="up"
         distance={35}
         amount={0.3}
-        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-6 md:mb-8"
       >
         <SectionGhostTitle text="About" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">

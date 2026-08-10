@@ -73,7 +73,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
     <section
       id="tech-stack"
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-background text-foreground border-t border-border/40 py-20 md:py-28",
+        "relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-background text-foreground border-t border-border/40 py-16 md:py-24",
         className
       )}
     >
@@ -82,7 +82,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
         direction="up"
         distance={35}
         amount={0.3}
-        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-8 md:mb-12"
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 mb-6 md:mb-8"
       >
         <SectionGhostTitle text="Tech Stack" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">

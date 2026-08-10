@@ -1,6 +1,7 @@
 "use client";
 import { useScroll, useTransform, motion, useReducedMotion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface TimelineEntry {
   id?: string | number;
@@ -35,7 +36,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             key={item.id ?? index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className={cn(
+              "flex justify-start md:gap-10",
+              index === 0 ? "pt-0" : "pt-12 md:pt-20"
+            )}
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-accent border border-black flex items-center justify-center shadow-sm">

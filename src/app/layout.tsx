@@ -40,6 +40,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`bg-background text-foreground font-[Arial,sans-serif] antialiased min-h-screen ${jetbrainsMono.variable}`}>
+        {/* Global SVG Filter for Grain */}
+        <svg className="pointer-events-none absolute w-0 h-0" aria-hidden="true">
+          <filter id="grain">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.75"
+              numOctaves="3"
+            />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+        </svg>
+
+        {/* Global Grain Overlay Background */}
+        <div className="halide-grain" style={{ filter: "url(#grain)" }} />
+
         <Navbar />
         {children}
         <Footer />

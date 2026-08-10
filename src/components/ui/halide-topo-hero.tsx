@@ -87,21 +87,6 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
       )}
     >
 
-
-      {/* SVG Filter for Grain */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }}>
-        <filter id="grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
-
-      <div className="halide-grain" style={{ filter: "url(#grain)" }}></div>
-
       <div className="interface-grid">
         <div></div>
         <h1 className="hero-title">
