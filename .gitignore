@@ -49,7 +49,6 @@ next-env.d.ts
 
 # === AI ===
 .agents
-CLAUDE.md
 skills-lock.json
 .impeccable
 .codex

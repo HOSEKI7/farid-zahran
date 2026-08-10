@@ -14,7 +14,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Context
 
-- **Read PRODUCT.md for project spec and explanation**
+- **Read SPEC.md for project spec and explanation**
 - **Read DESIGN.md for design system**
 
 ## Language
@@ -29,7 +29,7 @@ But the entire portfolio (UI text, codebase, and documentation) is strictly in E
 ## Workflow
 
 - **If the prompt is ambiguous, enter plan mode and ask before writing any code.**
-- Use Context7 to fetch up-to-date library docs before implementing.
+- Use Context7 to fetch up-to-date docs before planning & implementing.
 - Use relevant skills when appropriate.
 - Never mark a task complete without proving it works (dev server, relevant page/endpoint, DB state in Prisma Studio). Ask "Would a senior dev approve this PR?"
 - Never commit or push without permission.
