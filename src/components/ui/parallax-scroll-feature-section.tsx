@@ -80,7 +80,7 @@ export const ParallaxScrollFeatureSection = ({
     target: sectionRef,
     offset: isMobile
       ? ["start 95%", "center 85%"]
-      : ["start 80%", "center 55%"],
+      : ["start 85%", "center 68%"],
   });
 
   const opacityContent = useTransform(scrollYProgress, [0, 1], [0, 1]);
