@@ -61,8 +61,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
     };
 
     // Entrance Animation
-    canvas.style.opacity = "0";
-    canvas.style.transform = "rotateX(90deg) rotateZ(0deg) scale(0.8)";
+    // Initial states are now set via inline styles to prevent FOUC
 
     const timeout = setTimeout(() => {
       canvas.style.transition = "all 2.5s cubic-bezier(0.16, 1, 0.3, 1)";
@@ -302,9 +301,16 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
       </div>
 
       <div className="viewport">
-        <div className="canvas-3d" ref={canvasRef}>
+        <div
+          className="canvas-3d relative w-[min(800px,85vw)] h-[min(500px,55vh)]"
+          ref={canvasRef}
+          style={{
+            opacity: 0,
+            transform: "rotateX(90deg) rotateZ(0deg) scale(0.8)",
+          }}
+        >
           <div
-            className="layer layer-1"
+            className="layer layer-1 absolute inset-0"
             ref={(el) => {
               layersRef.current[0] = el;
             }}
@@ -319,7 +325,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
             />
           </div>
           <div
-            className="layer layer-2"
+            className="layer layer-2 absolute inset-0"
             ref={(el) => {
               layersRef.current[1] = el;
             }}
@@ -334,7 +340,7 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
             />
           </div>
           <div
-            className="layer layer-3"
+            className="layer layer-3 absolute inset-0"
             ref={(el) => {
               layersRef.current[2] = el;
             }}
