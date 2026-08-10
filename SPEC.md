@@ -1,12 +1,48 @@
-# Spec: Farid Zahran Portfolio Website
+# PRD: Farid Zahran Portfolio Website
+
+*Merged from PRODUCT.md (product brief) and SPEC.md (technical spec). Single source of truth going forward.*
+
+## Language
+
+**CRITICAL: UI text and codebase (code, identifiers, content strings) MUST be in English — do not translate any of it to Bahasa Indonesia.** Code comments, internal summaries, and planning documents may be written in Bahasa Indonesia.
 
 ## Problem Statement
 
 Farid Zahran is a Full-stack Developer and AI Engineer who needs a personal portfolio website to showcase his work, professional background, and technical capabilities. The website must leave a strong visual impression on visitors (recruiters, clients, collaborators) while loading fast and ranking well in search engines. Current state: no website exists — only a design system document ("Halide") has been established.
 
+## Users & Positioning
+
+**Primary visitor:** recruiters and potential clients evaluating Farid Zahran for full-stack or AI engineering roles.
+**Secondary visitor:** collaborators exploring his work.
+
+**Visitor flow:** arrive via social links, search, or shared URL → hero (name/role) → About → Tech Stack → Projects (filterable) → Experience → Contact form / CV download / socials.
+
+**Positioning:** design as the differentiator — dark, cinematic, single-accent, motion-driven — while staying a fast, fully indexable Next.js static export. The motion is proof of craft, not decoration.
+
+**Success metric:** a visitor converts into a contact or collaboration message.
+
 ## Solution
 
-Build a dark, cinematic, single-page portfolio website with a secondary route for project detail pages. The site is statically exported from Next.js, deployed to Vercel, and styled according to the existing "Halide" design system — monochrome palette with a single orange-red accent, grain texture, and 3D parallax effects. Animations are driven by a hybrid of GSAP (scroll/timeline/DOM) and Framer Motion (React state/transitions). The site ships zero server runtime; all pages are pre-rendered HTML served from a CDN.
+Single-page portfolio (`/`) plus a secondary `/projects/[slug]` route, statically exported from Next.js and deployed to Vercel per the Halide design system. Animation uses a GSAP + Framer Motion hybrid. Zero server runtime — every page pre-rendered and CDN-served.
+
+## Content Status — What's Real vs. Placeholder
+
+*Read before implementing. Treat placeholder items as structural only — never invent content to fill them.*
+
+- **Real, keep as-is:** hero photo, social links (navbar + Contact), Halide design system (`DESIGN.md`, `design-tokens.json`).
+- **Placeholder, not final:** `projects.json` (only "Example Project" so far — real entries added later by the owner), About bio, Experience timeline, CV (not yet produced).
+
+Build the components to render this data correctly; leave the content itself empty or clearly placeholder until supplied.
+
+## Product Principles
+
+Use these to resolve ambiguity in improvised visual design — they outrank inventing a new direction:
+
+- **Proof by motion** — animation demonstrates craft; it's the differentiator, not decoration.
+- **Atmosphere over density** — dark, grainy, restrained beats cluttered.
+- **Fast and indexable** — performance and SEO are first-class.
+- **Owner-improvised** — layout evolves during build; structure/behavior stay fixed, aesthetics stay flexible.
+- **One accent discipline** — a single orange-red signal keeps every interactive cue unambiguous.
 
 ## User Stories
 
@@ -21,7 +57,7 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 7. As a recruiter, I want a fixed top navigation bar with brand, section links, and social icons, so that I can jump to any section at any time.
 8. As a recruiter, I want the active nav item to be visually highlighted as I scroll through sections, so that I always know where I am on the page.
 9. As a recruiter, I want to scroll to the About section and see Farid's photo and a brief background, so that I get a personal sense of who he is.
-10. As a recruiter, I want to scroll to the Tech Stack section and see my technical skills in a single grouped card, so that I can assess capabilities without the section feeling cluttered.
+10. As a recruiter, I want to scroll to the Tech Stack section and see technical skills in a single grouped card, so that I can assess capabilities without the section feeling cluttered.
 11. As a recruiter, I want the Tech Stack card to organize skills into five categories (Frontend & User Interface, Backend & API Architecture, AI/ML & Data Processing, Database & Vector Storage, Infrastructure/DevOps/MLOps), so that I can quickly assess skills relevant to my open position.
 12. As a recruiter, I want to browse project cards in the Projects section, so that I can see the breadth of Farid's work.
 13. As a recruiter, I want to filter projects by field (Full-stack / AI Engineer) using tabs, so that I only see relevant work.
@@ -65,69 +101,56 @@ Build a dark, cinematic, single-page portfolio website with a secondary route fo
 
 ## Implementation Decisions
 
-### Architecture
+### Architecture & Deployment
 
-- **Next.js App Router** with `output: 'export'` for full static generation. No server runtime.
-- **TypeScript** for all source files. Project data typed with interfaces.
-- **Tailwind CSS v4** configured with the Halide design system tokens via `@theme` block.
-- **JetBrains Mono** loaded from Google Fonts in the root layout `<head>`.
+- Next.js 16.2.12, App Router, `output: 'export'`. No server runtime.
+- TypeScript strict (no `any`/`unknown`); project data typed via interfaces.
+- Tailwind CSS v4 via `@theme` with Halide tokens; JetBrains Mono from Google Fonts.
+- Deploy: Vercel, automatic on `git push`, serving pre-built HTML/CSS/JS from its CDN. No env vars needed initially — the Web3Forms endpoint can be hardcoded in the form action, or moved to an env var later.
 
 ### Rendering & Routing
 
-- Homepage (`/`) is a single-page scroll with sections: Hero, About, Tech Stack, Projects, Experience, Contact, Footer.
-- Project detail pages at `/projects/[slug]` — statically generated from JSON data using `generateStaticParams`.
-- Page transitions between homepage and project detail pages via Framer Motion `AnimatePresence` (fade + subtle slide). May be upgraded during development.
+- Homepage (`/`) is a single-page scroll: Hero, About, Tech Stack, Projects, Experience, Contact, Footer.
+- Project detail pages at `/projects/[slug]`, statically generated via `generateStaticParams`.
+- Page transitions via Framer Motion `AnimatePresence` (fade + subtle slide) — may be upgraded during development.
 
 ### Data Layer
 
-- Project data stored in a single JSON file with the following shape per entry: `title`, `description`, `tags` (string array), `liveUrl`, `slug`, `bidang` ("fullstack" | "ai"), `githubUrl`, `year`.
-- A TypeScript interface enforces this shape. Components import the typed data directly.
-- Project detail page content (long description, screenshots, tech breakdown) is hardcoded in individual page components or a content map — not in the JSON.
-- Experience data is hardcoded in the Experience section component.
-- Tech stack data (five categories covering full-stack and AI tooling) lives in `src/data/tech-stack.ts` (typed `TechGroup` array) and is rendered by the Tech Stack section component.
+- `projects.json` shape per entry: `title`, `description`, `tags`, `liveUrl`, `slug`, `bidang` ("fullstack" | "ai"), `githubUrl`, `year` — enforced by a `Project` TypeScript interface.
+- Project detail long-form content (screenshots, tech breakdown) hardcoded per page, not in the JSON.
+- Experience data hardcoded in the Experience component; timeline format is tentative and may change during development based on the owner's preference.
+- Tech stack data (5 categories) lives in `src/data/tech-stack.ts` as a typed `TechGroup` array.
 
 ### Animation Strategy (Hybrid)
 
-- **GSAP** handles: hero entrance timeline (rotate from 90deg, 2500ms, spring easing), text scramble effect on job title, 3D parallax on mouse/device move, scroll-triggered section entrance animations (ScrollTrigger).
-- **Framer Motion** handles: Tech Stack section scroll-reveal stagger, page transitions (`AnimatePresence`), mobile menu overlay animation, hover states on interactive elements.
-- **CSS keyframes** drive the Tech Stack orbit rotation (decorative; icons counter-rotate to stay upright; disabled under `prefers-reduced-motion` via `useReducedMotion`).
-- Both libraries respect `prefers-reduced-motion`: GSAP checks the media query before running timelines; Framer Motion uses `useReducedMotion` hook.
+- **GSAP:** hero entrance (rotate from 90deg, 2500ms, spring easing), text scramble on job title, 3D parallax on pointer/device move, scroll-triggered entrances (ScrollTrigger).
+- **Framer Motion:** Tech Stack scroll-reveal stagger, page transitions, mobile menu overlay, hover states.
+- **CSS keyframes:** Tech Stack orbit rotation (icons counter-rotate to stay upright; disabled under reduced motion).
+- Both respect `prefers-reduced-motion` (GSAP checks the media query before running timelines; Framer Motion uses `useReducedMotion`).
 
 ### Navigation
 
-- Top bar, fixed position, three sections: brand "FZ" (left), section nav links (center), social icons — GitHub, LinkedIn, Instagram (right).
+- Fixed top bar: brand "FZ" (left), section links (center), social icons — GitHub, LinkedIn, Instagram (right).
 - Active section tracked via scroll position (Intersection Observer or ScrollTrigger).
-- Design details and code to be provided by the owner during development.
-- Mobile: hamburger icon triggers full-screen overlay menu with Framer Motion stagger animation.
+- Mobile: hamburger → full-screen overlay menu with Framer Motion stagger. Design and code to be provided by the owner during development.
 
 ### Contact & Form
 
-- Contact form with fields: name, email, message.
-- Submission via Web3Forms or Formspree (HTML form action, zero JS dependency for submission).
-- Success/error feedback shown inline after submission.
-- Download CV button alongside the form in the Contact section.
-- Social links (GitHub, LinkedIn, Instagram) also present in Contact section.
+- Fields: name, email, message. Submission via **Web3Forms** (final decision — Formspree dropped), destination `contact@faridzahran.com`.
+- Inline success/error feedback after submission. CV download button alongside the form. Social links also present here.
 
 ### Responsive Design
 
-- Mobile-first responsive approach using Tailwind breakpoints defined in the design tokens (`sm: 640px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`).
-- Hero title uses fluid typography: `clamp(3rem, 10vw, 10rem)`.
-- 3D parallax reduced intensity on mobile.
-- Full-screen overlay menu replaces inline nav links on mobile.
+- Mobile-first, Tailwind breakpoints per design tokens (`sm: 640px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`).
+- Hero title fluid typography: `clamp(3rem, 10vw, 10rem)`.
+- Reduced-intensity 3D parallax and full-screen overlay nav on mobile.
 
 ### Design System
 
-- All tokens from `design-tokens.json` are applied via Tailwind v4 `@theme` directive.
-- Dark-only theme. No light mode toggle.
-- SVG `feTurbulence` grain texture overlay at 15% opacity.
-- Single accent color `#9ba480`. Blend modes (`difference`, `screen`, `overlay`) on hero layers.
-- UI design is improvised during development — the spec does not prescribe visual layout beyond what the Halide design system defines.
-
-### Deployment
-
-- Vercel with automatic deploy on `git push`.
-- Static export: Vercel serves pre-built HTML/CSS/JS from its CDN.
-- No environment variables or secrets needed initially (form service API key can be hardcoded in form action URL or added as env var later).
+- Tokens from `design-tokens.json` via Tailwind v4 `@theme`. Dark-only, no light mode.
+- Monochrome base `#0a0a0a`, single accent `#9ba480`.
+- SVG `feTurbulence` grain overlay at 15% opacity; blend modes (`difference`/`screen`/`overlay`) on hero layers; spring cubic-bezier easing; clip-path cut on the CTA button.
+- Layout is improvised during build — see Product Principles for resolving gaps.
 
 ## Testing Decisions
 
@@ -135,53 +158,57 @@ Testing is scoped to four seams that verify external behavior without coupling t
 
 ### Seam 1: Data Boundary (JSON → Rendered Output)
 
-- Verify that every entry in the project JSON file produces a corresponding card on the homepage.
-- Verify that `generateStaticParams` produces a route for every slug in the JSON.
-- Verify that filtering by `bidang` shows only matching projects.
-- **How**: Build-time assertions or lightweight integration tests using React Testing Library against rendered components. Prior art: standard Next.js static generation testing patterns.
+- Every entry in the project JSON produces a corresponding homepage card.
+- `generateStaticParams` produces a route for every slug in the JSON.
+- Filtering by `bidang` shows only matching projects.
+- **How:** build-time assertions or lightweight React Testing Library integration tests.
 
 ### Seam 2: Form Submission Boundary
 
-- Verify that the contact form validates required fields (name, email, message) before submission.
-- Verify that the form posts to the correct external endpoint.
-- Verify that success and error states are rendered after submission.
-- **How**: Integration tests with mocked fetch/form action. Test the form component in isolation.
+- The contact form validates required fields (name, email, message) before submission.
+- The form posts to the correct external endpoint (Web3Forms).
+- Success and error states render after submission.
+- **How:** integration tests with mocked fetch/form action, testing the form component in isolation.
 
 ### Seam 3: Accessibility Boundary
 
-- Verify that `prefers-reduced-motion: reduce` disables or reduces GSAP timelines and Framer Motion animations.
-- Verify that color contrast ratios meet WCAG AA (primary text) and AAA where claimed in the design system.
-- Verify that all interactive elements are keyboard-focusable with visible focus indicators.
-- **How**: Automated accessibility audit (axe-core or Lighthouse CI). Manual verification of `prefers-reduced-motion` behavior.
+- `prefers-reduced-motion: reduce` disables or reduces GSAP and Framer Motion animations.
+- Color contrast meets WCAG AA (primary text) and AAA where claimed in the design system.
+- All interactive elements are keyboard-focusable with visible focus indicators.
+- **How:** automated audit (axe-core or Lighthouse CI) plus manual verification of reduced-motion behavior.
 
 ### Seam 4: Build Output
 
-- Verify that `next build` completes without errors.
-- Verify that the `out/` directory contains HTML files for `/`, and for each `/projects/[slug]`.
-- Verify that no server-only features are accidentally used (which would break static export).
-- **How**: CI pipeline runs `next build` on every push. Check for expected output files.
+- `next build` completes without errors.
+- The `out/` directory contains HTML for `/` and every `/projects/[slug]`.
+- No server-only features are accidentally used (would break static export).
+- **How:** CI runs `next build` on every push; check for expected output files.
 
 ### What makes a good test here
 
-A good test for this project verifies **observable behavior from the visitor's perspective** — does the right content appear, does the form work, does the build succeed. Tests should NOT assert on CSS class names, animation timings, specific DOM structure, or internal component state. The visual design is improvised and will change frequently — tests that couple to visual details will break constantly and provide no value.
+Test observable behavior — right content appears, form works, build succeeds. Don't assert on CSS classes, animation timing, DOM structure, or internal state: the visual design changes often, and tests coupled to it will break constantly for no value.
+
+## Accessibility & Inclusion
+
+- Target WCAG AA contrast: `#e0e0e0` on `#0a0a0a` (~14.5:1). Accent `#9ba480` meets AA for large text only — not for small body copy.
+- `prefers-reduced-motion: reduce` must disable or reduce GSAP and Framer Motion animations.
+- Keyboard-focusable interactive elements need visible focus indicators — **not yet fully implemented as of this writing**.
+- Semantic HTML and ARIA labels required for screen reader support.
 
 ## Out of Scope
 
-- **Backend / Database** — No API routes, no database, no CMS. Data is static JSON and hardcoded content. Database integration is a future migration, not part of this spec.
-- **Authentication** — No login, admin panel, or protected routes.
-- **Blog / Articles** — No blog section. May be added in a future iteration.
-- **Internationalization (i18n)** — Website content is in English. No multi-language support.
-- **Light mode** — Design system is dark-only. No theme toggle.
-- **Analytics integration** — Vercel Web Analytics is available for free but not part of this spec. Can be enabled with one click later.
-- **E2E visual regression testing** — May be added later; not justified for initial development where design is actively improvised.
-- **Specific UI mockups or wireframes** — Design is improvised during development. This spec defines behavior and architecture, not pixel-perfect layouts.
-- **Custom domain setup** — DNS configuration is a deployment task, not a development task.
+- **Backend / Database** — no API routes, database, or CMS. Data is static JSON and hardcoded content.
+- **Authentication** — no login, admin panel, or protected routes.
+- **Blog / Articles** — none for now; may be added in a future iteration.
+- **Internationalization (i18n)** — content in English only (see Language). No multi-language support.
+- **Light mode** — dark-only, no theme toggle.
+- **Analytics integration** — Vercel Web Analytics available but not part of this spec; enable later with one click.
+- **E2E visual regression testing** — not justified while design is actively improvised.
+- **Specific UI mockups or wireframes** — this spec defines behavior and architecture, not pixel-perfect layouts.
+- **Custom domain setup** — a deployment task, not a development task.
 
 ## Further Notes
 
-- The Halide design system (`DESIGN.md`, `design-tokens.json`) is the source of truth for all visual tokens. Any token changes should be made there first, then propagated to code.
-- The design system was originally authored with Astro component references (`limelight-nav.astro`, `scramble-text.astro`). These will be reimplemented as React components in Next.js — the design tokens and behavior specifications carry over, not the Astro code.
-- Experience section format (vertical timeline) is tentative and may change significantly during development based on the owner's preference.
-- Page transitions may be upgraded from simple fade+slide to more impressive animations during development.
-- Navbar design and code will be provided by the owner during development.
-- The owner retains full creative control over visual design decisions during implementation. This spec constrains architecture and behavior, not aesthetics.
+- The Halide design system (`DESIGN.md`, `design-tokens.json`) is the source of truth for all visual tokens — change there first, then propagate to code.
+- Original design references were Astro components (`limelight-nav.astro`, `scramble-text.astro`); these get reimplemented as React components — tokens and behavior carry over, not the Astro code.
+- The owner retains full creative control over visual decisions; this spec constrains architecture and behavior, not aesthetics (see Product Principles).

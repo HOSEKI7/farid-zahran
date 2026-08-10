@@ -5,7 +5,7 @@
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "liveUrl": "https://nextlevelacademy.id",
     "slug": "nextlevel-academy",
-    "bidang": "fullstack",
+    "field": "fullstack",
     "githubUrl": "https://github.com/HOSEKI7/ta-platform-pembelajaran-digital-nextlevel-academy",
     "year": 2026
   },
@@ -15,7 +15,7 @@
     "tags": ["React", "Vite", "Tailwind CSS", "Express", "MySQL"],
     "liveUrl": "https://hosekishops.com",
     "slug": "hoseki-shops",
-    "bidang": "fullstack",
+    "field": "fullstack",
     "githubUrl": "https://github.com/HOSEKI7/DevOps_Class_Project",
     "year": 2025
   },
@@ -25,7 +25,7 @@
     "tags": ["Vue.js", "Express", "PostgreSQL"],
     "liveUrl": "https://medisync.care",
     "slug": "medisync-care",
-    "bidang": "fullstack",
+    "field": "fullstack",
     "githubUrl": "https://github.com/HOSEKI7/medisync-care-app",
     "year": 2024
   },
@@ -35,7 +35,7 @@
     "tags": ["Flutter", "Firebase", "Dart"],
     "liveUrl": "https://finnova.app",
     "slug": "finnova-app",
-    "bidang": "fullstack",
+    "field": "fullstack",
     "githubUrl": "https://github.com/HOSEKI7/finnova-personal-finance",
     "year": 2026
   },
@@ -45,7 +45,7 @@
     "tags": ["Python", "PyTorch", "FastAPI", "React", "Tailwind CSS"],
     "liveUrl": "https://aetheria-ai.studio",
     "slug": "aetheria-ai",
-    "bidang": "ai",
+    "field": "ai",
     "githubUrl": "https://github.com/HOSEKI7/aetheria-ai-studio",
     "year": 2026
   }

@@ -8,6 +8,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 <!-- END:nextjs-agent-rules -->
 
+## Note
+
+**YOU CAN ALWAYS EDIT THIS FOR EVERYTHING THAT NEEDS TO NOTED AFTER YOU COMPLETING SOMETHING NEW OR A CHANGE.**
+
 ## Context
 
 - **Read PRODUCT.md for project spec and explanation**
@@ -21,10 +25,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Always ask, instruct, write plans, and comments in Indonesian.**
 But the entire portfolio (UI text, codebase, and documentation) is strictly in English.
-
-## Write code
-
-**Use or access /ponytail skill when executing plan or before writing code.**
 
 ## Workflow
 
