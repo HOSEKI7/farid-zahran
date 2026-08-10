@@ -5,11 +5,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Working Agreement
 
 - **Language split:** All shipped output — UI text, identifiers, code, docs — is **English**. Chat, plans, questions, and code comments to the owner are written in **Bahasa Indonesia**.
+- **Read `SPEC.md` for the product spec, `DESIGN.md` for the design system.**
 - If the prompt is ambiguous, enter plan mode and ask before writing code.
+- **Fetch current docs before planning and implementing** — use Context7 for any library, and read the relevant guide in `node_modules/next/dist/docs/` for Next.js (see below). Don't work from memory.
+- Use relevant skills when appropriate.
+- Never mark a task complete without proving it works (dev server + the actual section in the browser). Ask: *"Would a senior dev approve this PR?"*
 - Never commit or push. After finishing a task, provide a suggested commit message using /caveman-commit.
-- Never mark a task complete without proving it works (dev server + the actual section in the browser).
-- When implementation diverges from `SPEC.md` or `DESIGN.md`, update those docs in the same change.
-- Read `SPEC.md` instead.
+- When implementation diverges from `SPEC.md` or `DESIGN.md`, update those docs in the same change. Same for this file and `AGENTS.md` — keep them in sync when a convention changes.
+
+### This is NOT the Next.js you know
+
+Next.js 16 has breaking changes — APIs, conventions, and file structure may all differ from training data. **Read the relevant guide in `node_modules/next/dist/docs/` (`01-app`, `02-pages`, `03-architecture`, `04-community`) before writing code**, and heed deprecation notices.
 
 ## Commands
 
@@ -34,7 +40,11 @@ Next.js 16.2.12 App Router, **statically exported** (`output: 'export'`, `images
 - `ui/` — reusable presentational primitives (carousels, hero, nav, scramble text, timeline, orbit).
 - `animations/` — `ScrollReveal` and `StaggerContainer`/`StaggerItem` wrappers used across every section.
 
-**Server vs client:** default to server components. `experience-section.tsx` and `section-ghost-title.tsx` are server components; the rest are `"use client"` only because they use state, effects, or motion hooks.
+**Server vs client:** default to server components. `experience-section.tsx` and `section-ghost-title.tsx` are server components; the rest are `"use client"` only because they use state, effects, or browser APIs.
+
+**Reuse before you build.** Compose from existing primitives in `@/components/ui/` and style with the `@theme` tokens in `globals.css` — don't hand-roll a new carousel, nav, or hard-coded hex when one already exists. New shared primitives go in `ui/`; anything section-specific stays in that section's file.
+
+Project detail pages, when built, belong at `src/app/projects/[slug]/` with `generateStaticParams` (required under `output: 'export'`).
 
 ### Section shell convention
 
