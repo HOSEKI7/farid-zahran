@@ -1,0 +1,52 @@
+{
+  "slug": "aetheria-ai",
+  "tagline": "A generative AI workspace built around iteration, not one-shot prompting.",
+  "role": "AI Engineer",
+  "timeline": "2026",
+  "heroImage": {
+    "src": "/projects-thumbnail/aetheria-ai.webp",
+    "alt": "Aetheria AI Studio generation workspace"
+  },
+  "blocks": [
+    {
+      "type": "gallery",
+      "layout": "full-bleed",
+      "images": [
+        {
+          "src": "/project-detail/aetheria-ai/01.webp",
+          "alt": "Prompt workspace with generation history panel",
+          "caption": "The workspace keeps every iteration addressable."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Overview",
+      "paragraphs": [
+        "Generative AI workspace for creative workflows, prompt engineering, and intelligent content synthesis.",
+        "TODO: Describe the actual workflow this supports, and what makes iterating here better than prompting a model directly."
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Model serving",
+      "paragraphs": [
+        "TODO: Explain the inference path. How does FastAPI handle queueing, and what happens to a request while a PyTorch model is still warming up?"
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "masonry",
+      "images": [
+        {
+          "src": "/project-detail/aetheria-ai/02.webp",
+          "alt": "Prompt engineering panel with parameter controls"
+        },
+        {
+          "src": "/project-detail/aetheria-ai/03.webp",
+          "alt": "Generation results grid with comparison view"
+        }
+      ]
+    }
+  ]
+}

@@ -31,7 +31,7 @@ No test framework is configured. `npm run start` exists but is meaningless under
 
 Next.js 16.2.12 App Router, **statically exported** (`output: 'export'`, `images.unoptimized: true` in `next.config.ts`). No server runtime, no API routes, no env vars — anything requiring a server breaks the build.
 
-**One page.** `src/app/page.tsx` composes six sections in fixed order: Hero → About → Tech Stack → Projects → Experience → Contact. `src/app/layout.tsx` owns the Navbar, Footer, the global `<filter id="grain">` SVG, and the `.halide-grain` overlay div. The `/projects/[slug]` route described in `SPEC.md` does **not exist yet**.
+**Two routes.** `src/app/page.tsx` composes six sections in fixed order: Hero → About → Tech Stack → Projects → Experience → Contact. `src/app/layout.tsx` owns the Navbar, Footer, the global `<filter id="grain">` SVG, and the `.halide-grain` overlay div. `src/app/projects/[slug]/page.tsx` renders project detail pages, statically generated from `projects.json` via `generateStaticParams`.
 
 **Component layers** (`src/components/`):
 
@@ -39,12 +39,23 @@ Next.js 16.2.12 App Router, **statically exported** (`output: 'export'`, `images
 - `sections/` — one file per homepage section; owns section chrome and data wiring.
 - `ui/` — reusable presentational primitives (carousels, hero, nav, scramble text, timeline, orbit).
 - `animations/` — `ScrollReveal` and `StaggerContainer`/`StaggerItem` wrappers used across every section.
+- `project-blocks/` — detail-page building blocks: `block-renderer.tsx` (the only place that maps a block `type` to a component), `narrative-block.tsx`, `gallery-block.tsx`, `metrics-block.tsx`, `project-hero.tsx`.
 
 **Server vs client:** default to server components. `experience-section.tsx` and `section-ghost-title.tsx` are server components; the rest are `"use client"` only because they use state, effects, or browser APIs.
 
 **Reuse before you build.** Compose from existing primitives in `@/components/ui/` and style with the `@theme` tokens in `globals.css` — don't hand-roll a new carousel, nav, or hard-coded hex when one already exists. New shared primitives go in `ui/`; anything section-specific stays in that section's file.
 
-Project detail pages, when built, belong at `src/app/projects/[slug]/` with `generateStaticParams` (required under `output: 'export'`).
+### Project detail pages
+
+Content is data, not code. Each slug gets `src/data/project-details/{slug}.json` typed as `ProjectDetail`, holding a `blocks` array. `ProjectBlock` is a **discriminated union** — `block-renderer.tsx` switches on `type` with a `never` exhaustive check, so adding a variant to `src/lib/types.ts` without adding a case there fails the build.
+
+Per-project visual variation comes from **composing blocks in a different order**, not from writing bespoke page code. The `gallery` block's `layout` (`grid` | `masonry` | `full-bleed`) is the main lever. Rule of thumb: at most two consecutive blocks with the same shape — break the third with a full-bleed or a plain text stack.
+
+Detail pages read as a flowing document, so they do **not** use `min-h-screen` per block, and `SectionGhostTitle` appears at most once (in the closing section). Repeating the homepage's ghost-title + accent-subtitle pattern per block turns the page into a template.
+
+Detail-page gallery images live at `public/project-detail/{slug}/01.webp, 02.webp, …`, separate from `public/projects-thumbnail/` which still serves the homepage cards.
+
+Adding a slug to `projects.json` without a matching detail file makes that route `notFound()` — that is deliberate, so the gap fails loudly rather than rendering an empty page.
 
 ### Section shell convention
 
@@ -81,13 +92,15 @@ Every section repeats this shape — match it when adding one:
 
 | Source                      | Type                             | Notes                                                                 |
 | --------------------------- | -------------------------------- | --------------------------------------------------------------------- |
-| `src/data/projects.json`    | `Project[]` (`src/lib/types.ts`) | Add a project by adding an entry — no component change                |
+| `src/data/projects.json`    | `Project[]` (`src/lib/types.ts`) | Index for homepage cards + `generateStaticParams`. Adding an entry needs a matching `project-details/{slug}.json` |
+| `src/data/project-details/{slug}.json` | `ProjectDetail`      | Long-form detail content as a `blocks` array — see Project detail pages |
 | `src/data/experiences.json` | `Experience[]`                   | Timeline + carousel content                                           |
 | `src/data/tech-stack.ts`    | `TechGroup[]`                    | Five fixed categories; icon mapping lives in `tech-stack-section.tsx` |
 
 **Asset path conventions** (the code derives paths, so files must be named to match):
 
 - Project thumbnails: `public/projects-thumbnail/{slug}.webp`
+- Project detail galleries: `public/project-detail/{slug}/01.webp`, `02.webp`, …
 - Company logos: `public/company-logo/{experiences.json → companyLogo}`
 - Experience photos: `public/experience-photos/`
 - Imported images (hero, about, logo) live in `src/assets/images/` and are imported as `StaticImageData`.
@@ -123,6 +136,7 @@ Three libraries, split by role: `@hugeicons/react` + core-free-icons for navbar 
 ## Known Gaps
 
 - The contact form (`contact-section.tsx`) is local state only — `handleSubmit` fakes success after 4s. The Web3Forms wiring specified in `SPEC.md` is not implemented.
-- Keyboard focus indicators are not implemented site-wide (`DESIGN.md` §8 calls for `outline: 2px solid var(--accent)`).
+- Project detail JSON still carries `TODO:` paragraphs and gallery image paths under `public/project-detail/` that have no files yet. The pages render, but the prose and screenshots are the owner's to supply.
+- No `metrics` block appears in any detail file. The renderer exists; real numbers do not. Do not invent them.
 - Navbar/contact social URLs are placeholders (`https://github.com`, `https://github.com/faridzahran`).
 - CV download is specified but not built.

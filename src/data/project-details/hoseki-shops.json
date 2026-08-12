@@ -1,0 +1,45 @@
+{
+  "slug": "hoseki-shops",
+  "tagline": "An e-commerce build where the deployment pipeline mattered as much as the storefront.",
+  "role": "Full-stack Developer",
+  "timeline": "2025",
+  "heroImage": {
+    "src": "/projects-thumbnail/hoseki-shops.webp",
+    "alt": "HOSEKI SHOPS storefront product listing"
+  },
+  "blocks": [
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/project-detail/hoseki-shops/01.webp",
+          "alt": "Product listing page with category filters"
+        },
+        {
+          "src": "/project-detail/hoseki-shops/02.webp",
+          "alt": "Checkout flow showing cart summary and payment step"
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Overview",
+      "paragraphs": [
+        "E-Commerce web application featuring modern user interface and streamlined DevOps deployment workflows.",
+        "TODO: This started as a DevOps class project. Describe what the pipeline actually does, and what broke before it existed."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "full-bleed",
+      "images": [
+        {
+          "src": "/project-detail/hoseki-shops/03.webp",
+          "alt": "CI pipeline stages from commit through automated deployment",
+          "caption": "The deployment pipeline, from commit to live."
+        }
+      ]
+    }
+  ]
+}

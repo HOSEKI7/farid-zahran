@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import projectsData from "@/data/projects.json";
 import { Project } from "@/lib/types";
@@ -109,13 +110,13 @@ export function ProjectsSection() {
 
               {/* Action Buttons / CTAs */}
               <div className="flex items-center gap-4 pt-2">
-                <a
+                <Link
                   href={`/projects/${activeProject.slug}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-background font-semibold text-sm hover:bg-accent-hover transition-all transform active:scale-[0.98]"
                 >
                   View Project
                   <ArrowUpRight className="size-4" />
-                </a>
+                </Link>
 
                 {activeProject.liveUrl && (
                   <a

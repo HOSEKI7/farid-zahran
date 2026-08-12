@@ -40,6 +40,13 @@
   }
 }
 
+/* Keyboard focus indicator — DESIGN.md §8.
+   :focus-visible only, jadi klik mouse tidak memunculkan outline. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* Halide Topo Hero Styles */
 :root {
   --grain-opacity: 0.15;

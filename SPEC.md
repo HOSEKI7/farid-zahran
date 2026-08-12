@@ -116,8 +116,10 @@ Use these to resolve ambiguity in improvised visual design — they outrank inve
 
 ### Data Layer
 
-- `projects.json` shape per entry: `title`, `description`, `tags`, `liveUrl`, `slug`, `bidang` ("fullstack" | "ai"), `githubUrl`, `year` — enforced by a `Project` TypeScript interface.
-- Project detail long-form content (screenshots, tech breakdown) hardcoded per page, not in the JSON.
+- `projects.json` shape per entry: `title`, `description`, `tags`, `liveUrl`, `slug`, `field` ("fullstack" | "ai"), `githubUrl`, `year` — enforced by a `Project` TypeScript interface. It acts as the index that drives the homepage cards and `generateStaticParams`.
+- Project detail long-form content lives in `src/data/project-details/{slug}.json`, one file per slug, typed as `ProjectDetail`. Each file carries `tagline`, `role`, `timeline`, `heroImage`, and a `blocks` array.
+- `blocks` is a discriminated union (`narrative` | `gallery` | `metrics`) rendered by `src/components/project-blocks/block-renderer.tsx`. Layout varies per project by composing blocks in a different order, not by writing bespoke page code. Adding a block variant without a matching case in the renderer fails the type check.
+- The block schema is deliberately shaped to map 1:1 onto a future CMS document, so the renderer stays unchanged if the data source is swapped later.
 - Experience data hardcoded in the Experience component; timeline format is tentative and may change during development based on the owner's preference.
 - Tech stack data (5 categories) lives in `src/data/tech-stack.ts` as a typed `TechGroup` array.
 
@@ -192,12 +194,12 @@ Test observable behavior — right content appears, form works, build succeeds. 
 
 - Target WCAG AA contrast: `#e0e0e0` on `#0a0a0a` (~14.5:1). Accent `#9ba480` meets AA for large text only — not for small body copy.
 - `prefers-reduced-motion: reduce` must disable or reduce GSAP and Framer Motion animations.
-- Keyboard-focusable interactive elements need visible focus indicators — **not yet fully implemented as of this writing**.
+- Keyboard-focusable interactive elements need visible focus indicators. A global `:focus-visible` rule in `globals.css` draws a 2px accent outline; mouse clicks stay clean because `:focus` alone is not targeted.
 - Semantic HTML and ARIA labels required for screen reader support.
 
 ## Out of Scope
 
-- **Backend / Database** — no API routes, database, or CMS. Data is static JSON and hardcoded content.
+- **Backend / Database** — no API routes, database, or CMS. Data is static JSON. A CMS is a planned follow-up: the block schema in the Data Layer exists so that step swaps the fetch layer only, but adopting one means dropping `output: 'export'` and accepting a server runtime, and this line must be revised when that happens.
 - **Authentication** — no login, admin panel, or protected routes.
 - **Blog / Articles** — none for now; may be added in a future iteration.
 - **Internationalization (i18n)** — content in English only (see Language). No multi-language support.
