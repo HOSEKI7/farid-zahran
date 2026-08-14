@@ -33,7 +33,7 @@ const GalleryFigure: React.FC<GalleryFigureProps> = ({
   <figure className={cn("group", inColumns && "mb-4 break-inside-avoid md:mb-6")}>
     <div className="relative overflow-hidden rounded-lg border border-border bg-card">
       <Image
-        src={image.src}
+        src={`/project-details${image.src}`}
         alt={image.alt}
         width={1600}
         height={1000}
@@ -87,7 +87,7 @@ const FullBleedFigure: React.FC<{ image: GalleryImage }> = ({ image }) => {
           className="absolute inset-x-0 top-0 h-[112%]"
         >
           <Image
-            src={image.src}
+            src={`/project-details${image.src}`}
             alt={image.alt}
             fill
             sizes="100vw"

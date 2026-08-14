@@ -14,7 +14,7 @@
       "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
       "Designed and implemented user interfaces for various client projects. Utilized HTML, CSS, and JavaScript to create responsive and visually appealing websites"
     ],
-    "photos": ["photo1.webp", "photo2.webp"],
+    "photos": ["/nextlevel-academy/01.webp", "/nextlevel-academy/02.webp"],
     "company_website": "https://nextlevelacademy.id",
     "company_linkedin": "https://www.linkedin.com/company/nextlevel-academy-id"
   },
@@ -32,7 +32,7 @@
       "Designed and implemented user interfaces for various client projects. Utilized HTML, CSS, and JavaScript to create responsive and visually appealing websites.",
       "Developed and maintained web applications using JavaScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
     ],
-    "photos": ["photo1.webp", "photo2.webp"],
+    "photos": ["/codinglab/photo1.webp", "/codinglab/photo2.webp"],
     "company_website": "https://codinglab.id",
     "company_linkedin": "https://www.linkedin.com/company/codinglab-id/"
   }

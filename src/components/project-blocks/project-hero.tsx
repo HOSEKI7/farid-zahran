@@ -128,7 +128,7 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
         >
           <div className="relative overflow-hidden rounded-xl border border-border bg-card">
             <Image
-              src={image.src}
+              src={`/project-details${image.src}`}
               alt={image.alt}
               width={1200}
               height={900}

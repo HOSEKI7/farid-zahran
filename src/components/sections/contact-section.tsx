@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Check, Mail, Phone, MapPin, Send } from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa6";
 import { SectionGhostTitle } from "@/components/ui/section-ghost-title";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations/stagger-container";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -59,12 +62,22 @@ export function ContactSection() {
             </h2>
 
             <p className="text-secondary text-base md:text-lg leading-relaxed max-w-lg">
-              Have a project in mind, looking for potential collaboration, or want to discuss engineering ideas? Send a message and let&apos;s create something exceptional together.
+              Have a project in mind, looking for potential collaboration, or
+              want to discuss engineering ideas? Send a message and let&apos;s
+              create something exceptional together.
             </p>
 
             {/* Vertical checklist of 3 short benefit items */}
-            <StaggerContainer staggerChildren={0.1} amount={0.2} className="space-y-4 pt-2">
-              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
+            <StaggerContainer
+              staggerChildren={0.1}
+              amount={0.2}
+              className="space-y-4 pt-2"
+            >
+              <StaggerItem
+                direction="up"
+                distance={15}
+                className="flex items-center gap-3.5"
+              >
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
@@ -73,7 +86,11 @@ export function ContactSection() {
                 </span>
               </StaggerItem>
 
-              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
+              <StaggerItem
+                direction="up"
+                distance={15}
+                className="flex items-center gap-3.5"
+              >
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
@@ -82,7 +99,11 @@ export function ContactSection() {
                 </span>
               </StaggerItem>
 
-              <StaggerItem direction="up" distance={15} className="flex items-center gap-3.5">
+              <StaggerItem
+                direction="up"
+                distance={15}
+                className="flex items-center gap-3.5"
+              >
                 <div className="w-7 h-7 rounded-full bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4" />
                 </div>
@@ -95,7 +116,7 @@ export function ContactSection() {
             {/* Row of 3 circular social media icon buttons */}
             <div className="pt-4 flex items-center gap-3">
               <a
-                href="https://github.com/faridzahran"
+                href="https://github.com/HOSEKI7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
@@ -104,7 +125,7 @@ export function ContactSection() {
                 <FaGithub className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://linkedin.com/in/faridzahran"
+                href="https://linkedin.com/in/farid-zahran"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
@@ -113,13 +134,13 @@ export function ContactSection() {
                 <FaLinkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://x.com/faridzahran"
+                href="https://youtube.com/@HOSEKIII"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X (Twitter) Profile"
+                aria-label="YouTube Profile"
                 className="w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 text-secondary hover:text-foreground transition-all flex items-center justify-center group"
               >
-                <FaXTwitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <FaYoutube className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </ScrollReveal>
@@ -143,31 +164,41 @@ export function ContactSection() {
                 {/* Row 1: Side-by-side Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="contact-name" className="block text-xs font-mono uppercase tracking-wider text-muted">
+                    <label
+                      htmlFor="contact-name"
+                      className="block text-xs font-mono uppercase tracking-wider text-muted"
+                    >
                       Your Name
                     </label>
                     <input
                       id="contact-name"
                       type="text"
                       required
-                      placeholder="John Doe"
+                      placeholder="Your Name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="w-full px-4 py-3.5 rounded-xl bg-background/80 border border-border/80 focus:border-accent focus:ring-1 focus:ring-accent outline-none text-foreground placeholder:text-muted/50 transition-all font-mono text-sm"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-muted">
+                    <label
+                      htmlFor="contact-email"
+                      className="block text-xs font-mono uppercase tracking-wider text-muted"
+                    >
                       Email Address
                     </label>
                     <input
                       id="contact-email"
                       type="email"
                       required
-                      placeholder="john@example.com"
+                      placeholder="your.email@example.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="w-full px-4 py-3.5 rounded-xl bg-background/80 border border-border/80 focus:border-accent focus:ring-1 focus:ring-accent outline-none text-foreground placeholder:text-muted/50 transition-all font-mono text-sm"
                     />
                   </div>
@@ -175,7 +206,10 @@ export function ContactSection() {
 
                 {/* Row 2: Full-width Message textarea */}
                 <div className="space-y-2">
-                  <label htmlFor="contact-message" className="block text-xs font-mono uppercase tracking-wider text-muted">
+                  <label
+                    htmlFor="contact-message"
+                    className="block text-xs font-mono uppercase tracking-wider text-muted"
+                  >
                     Message
                   </label>
                   <textarea
@@ -184,7 +218,9 @@ export function ContactSection() {
                     rows={5}
                     placeholder="Tell me about your project or inquiry..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full px-4 py-3.5 rounded-xl bg-background/80 border border-border/80 focus:border-accent focus:ring-1 focus:ring-accent outline-none text-foreground placeholder:text-muted/50 transition-all font-mono text-sm resize-none"
                   />
                 </div>
@@ -238,7 +274,7 @@ export function ContactSection() {
                   href="mailto:contact@faridzahran.com"
                   className="block text-foreground font-bold text-base hover:text-accent transition-colors truncate"
                 >
-                  contact@faridzahran.com
+                  faridzahran174@gmail.com
                 </a>
               </div>
             </StaggerItem>
@@ -276,7 +312,7 @@ export function ContactSection() {
                   Physical Location
                 </p>
                 <p className="text-foreground font-bold text-base">
-                  Jakarta, Indonesia (UTC+7)
+                  Medan, Indonesia (UTC+7)
                 </p>
               </div>
             </StaggerItem>

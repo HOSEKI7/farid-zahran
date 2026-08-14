@@ -4,7 +4,7 @@
   "role": "Full-stack Developer",
   "timeline": "2024 - 2026",
   "heroImage": {
-    "src": "/projects-thumbnail/nextlevel-academy.webp",
+    "src": "/nextlevel-academy/nextlevel-academy-hero.webp",
     "alt": "NextLevel Academy course dashboard showing progress tracking"
   },
   "blocks": [
@@ -21,7 +21,7 @@
       "layout": "full-bleed",
       "images": [
         {
-          "src": "/project-detail/nextlevel-academy/01.webp",
+          "src": "/nextlevel-academy/01.webp",
           "alt": "Course player interface with lesson progression sidebar",
           "caption": "The course player, built around resumable progress."
         }
@@ -39,11 +39,11 @@
       "layout": "grid",
       "images": [
         {
-          "src": "/project-detail/nextlevel-academy/02.webp",
+          "src": "/nextlevel-academy/02.webp",
           "alt": "Student dashboard showing enrolled courses and streaks"
         },
         {
-          "src": "/project-detail/nextlevel-academy/03.webp",
+          "src": "/nextlevel-academy/03.webp",
           "alt": "Instructor view for authoring course modules"
         }
       ]

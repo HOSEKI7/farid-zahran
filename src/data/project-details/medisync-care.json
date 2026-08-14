@@ -4,7 +4,7 @@
   "role": "Full-stack Developer",
   "timeline": "2024",
   "heroImage": {
-    "src": "/projects-thumbnail/medisync-care.webp",
+    "src": "/medisync-care/medisync-care-hero.webp",
     "alt": "MediSync Care appointment scheduling calendar"
   },
   "blocks": [
@@ -21,15 +21,15 @@
       "layout": "masonry",
       "images": [
         {
-          "src": "/project-detail/medisync-care/01.webp",
+          "src": "/medisync-care/01.webp",
           "alt": "Patient record view with visit history timeline"
         },
         {
-          "src": "/project-detail/medisync-care/02.webp",
+          "src": "/medisync-care/02.webp",
           "alt": "Doctor availability calendar with booked slots"
         },
         {
-          "src": "/project-detail/medisync-care/03.webp",
+          "src": "/medisync-care/03.webp",
           "alt": "Appointment booking confirmation screen"
         }
       ]

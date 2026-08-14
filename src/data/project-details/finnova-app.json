@@ -4,7 +4,7 @@
   "role": "Mobile Developer",
   "timeline": "2026",
   "heroImage": {
-    "src": "/projects-thumbnail/finnova-app.webp",
+    "src": "/finnova-app/finnova-app-hero.webp",
     "alt": "FinNova App portfolio overview screen"
   },
   "blocks": [
@@ -21,11 +21,11 @@
       "layout": "grid",
       "images": [
         {
-          "src": "/project-detail/finnova-app/01.webp",
+          "src": "/finnova-app/01.webp",
           "alt": "Transaction list grouped by category"
         },
         {
-          "src": "/project-detail/finnova-app/02.webp",
+          "src": "/finnova-app/02.webp",
           "alt": "Portfolio analytics screen with allocation breakdown"
         }
       ]

@@ -4,7 +4,7 @@
   "role": "Full-stack Developer",
   "timeline": "2025",
   "heroImage": {
-    "src": "/projects-thumbnail/hoseki-shops.webp",
+    "src": "/hoseki-shops/hoseki-shops-hero.webp",
     "alt": "HOSEKI SHOPS storefront product listing"
   },
   "blocks": [
@@ -13,11 +13,11 @@
       "layout": "grid",
       "images": [
         {
-          "src": "/project-detail/hoseki-shops/01.webp",
+          "src": "/hoseki-shops/01.webp",
           "alt": "Product listing page with category filters"
         },
         {
-          "src": "/project-detail/hoseki-shops/02.webp",
+          "src": "/hoseki-shops/02.webp",
           "alt": "Checkout flow showing cart summary and payment step"
         }
       ]
@@ -35,7 +35,7 @@
       "layout": "full-bleed",
       "images": [
         {
-          "src": "/project-detail/hoseki-shops/03.webp",
+          "src": "/hoseki-shops/03.webp",
           "alt": "CI pipeline stages from commit through automated deployment",
           "caption": "The deployment pipeline, from commit to live."
         }
