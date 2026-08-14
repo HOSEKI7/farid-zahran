@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Maximize2, X } from "lucide-react";
 
 export function ExperienceCarousel({
@@ -16,6 +17,11 @@ export function ExperienceCarousel({
   const [width, setWidth] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -42,6 +48,10 @@ export function ExperienceCarousel({
   }, [selectedImage]);
 
   if (!photos || photos.length === 0) return null;
+
+  const getPhotoPath = (photo: string) => {
+    return photo.startsWith("/") ? `/experience-photos${photo}` : `/experience-photos/${photo}`;
+  };
 
   const handleCardClick = (photo: string) => {
     if (!isDragging) {
@@ -71,7 +81,7 @@ export function ExperienceCarousel({
               className="group relative min-w-[280px] md:min-w-[400px] aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50"
             >
               <Image
-                src={`/experience-photos/${photo}`}
+                src={getPhotoPath(photo)}
                 alt={`${company} experience photo ${idx + 1}`}
                 fill
                 sizes="(max-width: 768px) 280px, 400px"
@@ -93,44 +103,50 @@ export function ExperienceCarousel({
         </motion.div>
       </div>
 
-      {/* Lightbox Modal Popup */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/40 backdrop-blur-md"
-            onClick={() => setSelectedImage(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl max-h-[85vh] w-auto h-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-card/90 p-2 md:p-3 flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
+      {/* Lightbox Modal Popup (Rendered via Portal to ensure viewport centering) */}
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {selectedImage && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md"
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-card/80 hover:bg-card border border-border text-foreground transition-colors cursor-pointer shadow-lg backdrop-blur-md"
-                aria-label="Close image preview"
               >
-                <X className="w-5 h-5" />
-              </button>
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                  className="relative flex flex-col items-center justify-center max-w-[92vw] max-h-[88vh] w-auto h-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-card/95 p-3 md:p-5"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute top-3 right-3 z-30 p-2.5 rounded-full bg-black/80 hover:bg-black border border-white/20 text-white transition-colors cursor-pointer shadow-xl backdrop-blur-md"
+                    aria-label="Close image preview"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
 
-              {/* Image Preview */}
-              <img
-                src={`/experience-photos/${selectedImage}`}
-                alt={`${company} enlarged experience photo`}
-                className="max-h-[80vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl"
-              />
-            </motion.div>
-          </motion.div>
+                  {/* Image Preview Container */}
+                  <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                    <img
+                      src={getPhotoPath(selectedImage)}
+                      alt={`${company} enlarged experience photo`}
+                      className="max-h-[80vh] max-w-[88vw] w-auto h-auto object-contain rounded-xl shadow-2xl select-none"
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }
