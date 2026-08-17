@@ -13,10 +13,9 @@ import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import type { GalleryImage } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-export interface GalleryBlockProps {
-  layout: "grid" | "masonry" | "full-bleed";
-  images: GalleryImage[];
-}
+export type GalleryBlockProps =
+  | { layout: "grid" | "masonry"; images: GalleryImage[] }
+  | { layout: "full-bleed"; heroImage: GalleryImage };
 
 interface GalleryFigureProps {
   image: GalleryImage;
@@ -104,21 +103,18 @@ const FullBleedFigure: React.FC<{ image: GalleryImage }> = ({ image }) => {
   );
 };
 
-export const GalleryBlock: React.FC<GalleryBlockProps> = ({
-  layout,
-  images,
-}) => {
-  if (layout === "full-bleed") {
+export const GalleryBlock: React.FC<GalleryBlockProps> = (props) => {
+  if (props.layout === "full-bleed") {
     return (
       <ScrollReveal direction="up" distance={24} amount={0.15} className="w-full">
         <div className="space-y-10">
-          {images.map((image) => (
-            <FullBleedFigure key={image.src} image={image} />
-          ))}
+          <FullBleedFigure image={props.heroImage} />
         </div>
       </ScrollReveal>
     );
   }
+
+  const { layout, images } = props;
 
   return (
     <ScrollReveal

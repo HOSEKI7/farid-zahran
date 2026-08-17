@@ -3,8 +3,8 @@
   "tagline": "Medical records and appointment scheduling, where a scheduling bug is not a cosmetic problem.",
   "role": "Full-stack Developer",
   "timeline": "2024",
-  "heroImage": {
-    "src": "/medisync-care/medisync-care-hero.webp",
+  "thumbnail": {
+    "src": "/projects-thumbnail/medisync-care.webp",
     "alt": "MediSync Care appointment scheduling calendar"
   },
   "blocks": [

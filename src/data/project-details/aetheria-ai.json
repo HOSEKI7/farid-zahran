@@ -3,21 +3,19 @@
   "tagline": "A generative AI workspace built around iteration, not one-shot prompting.",
   "role": "AI Engineer",
   "timeline": "2026",
-  "heroImage": {
-    "src": "/aetheria-ai/aetheria-ai-hero.webp",
+  "thumbnail": {
+    "src": "/projects-thumbnail/aetheria-ai.webp",
     "alt": "Aetheria AI Studio generation workspace"
   },
   "blocks": [
     {
       "type": "gallery",
       "layout": "full-bleed",
-      "images": [
-        {
-          "src": "/aetheria-ai/01.webp",
-          "alt": "Prompt workspace with generation history panel",
-          "caption": "The workspace keeps every iteration addressable."
-        }
-      ]
+      "heroImage": {
+        "src": "/aetheria-ai/hero.webp",
+        "alt": "Prompt workspace with generation history panel",
+        "caption": "The workspace keeps every iteration addressable."
+      }
     },
     {
       "type": "narrative",

@@ -3,8 +3,8 @@
   "tagline": "A gamified learning platform built for students who lose momentum halfway through a course.",
   "role": "Full-stack Developer",
   "timeline": "2024 - 2026",
-  "heroImage": {
-    "src": "/nextlevel-academy/nextlevel-academy-hero.webp",
+  "thumbnail": {
+    "src": "/projects-thumbnail/nextlevel-academy.webp",
     "alt": "NextLevel Academy course dashboard showing progress tracking"
   },
   "blocks": [
@@ -19,13 +19,11 @@
     {
       "type": "gallery",
       "layout": "full-bleed",
-      "images": [
-        {
-          "src": "/nextlevel-academy/01.webp",
-          "alt": "Course player interface with lesson progression sidebar",
-          "caption": "The course player, built around resumable progress."
-        }
-      ]
+      "heroImage": {
+        "src": "/nextlevel-academy/hero.webp",
+        "alt": "Course player interface with lesson progression sidebar",
+        "caption": "The course player, built around resumable progress."
+      }
     },
     {
       "type": "narrative",
@@ -39,11 +37,11 @@
       "layout": "grid",
       "images": [
         {
-          "src": "/nextlevel-academy/02.webp",
+          "src": "/nextlevel-academy/01.webp",
           "alt": "Student dashboard showing enrolled courses and streaks"
         },
         {
-          "src": "/nextlevel-academy/03.webp",
+          "src": "/nextlevel-academy/02.webp",
           "alt": "Instructor view for authoring course modules"
         }
       ]

@@ -28,7 +28,8 @@ export interface MetricItem {
  */
 export type ProjectBlock =
   | { type: "narrative"; heading?: string; paragraphs: string[] }
-  | { type: "gallery"; layout: "grid" | "masonry" | "full-bleed"; images: GalleryImage[] }
+  | { type: "gallery"; layout: "grid" | "masonry"; images: GalleryImage[] }
+  | { type: "gallery"; layout: "full-bleed"; heroImage: GalleryImage }
   | { type: "metrics"; heading?: string; items: MetricItem[] };
 
 export interface ProjectDetail {
@@ -37,7 +38,7 @@ export interface ProjectDetail {
   tagline: string;
   role: string;
   timeline: string;
-  heroImage: GalleryImage;
+  thumbnail: GalleryImage;
   blocks: ProjectBlock[];
 }
 

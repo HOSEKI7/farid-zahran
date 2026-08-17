@@ -24,6 +24,9 @@ function renderBlock(block: ProjectBlock, key: number) {
         />
       );
     case "gallery":
+      if (block.layout === "full-bleed") {
+        return <GalleryBlock key={key} layout={block.layout} heroImage={block.heroImage} />;
+      }
       return (
         <GalleryBlock key={key} layout={block.layout} images={block.images} />
       );

@@ -3,8 +3,8 @@
   "tagline": "A personal finance tracker that stays useful after the first week of enthusiasm.",
   "role": "Mobile Developer",
   "timeline": "2026",
-  "heroImage": {
-    "src": "/finnova-app/finnova-app-hero.webp",
+  "thumbnail": {
+    "src": "/projects-thumbnail/finnova-app.webp",
     "alt": "FinNova App portfolio overview screen"
   },
   "blocks": [

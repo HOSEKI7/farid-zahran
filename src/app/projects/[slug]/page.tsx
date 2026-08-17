@@ -60,7 +60,7 @@ export async function generateMetadata({
       title,
       description,
       type: "article",
-      images: [{ url: found.detail.heroImage.src }],
+      images: [{ url: found.detail.thumbnail.src }],
     },
   };
 }
@@ -88,7 +88,7 @@ export default async function ProjectDetailPage({
         tags={project.tags}
         liveUrl={project.liveUrl}
         githubUrl={project.githubUrl}
-        image={detail.heroImage}
+        image={detail.thumbnail}
       />
 
       <div className="py-20 md:py-28">
