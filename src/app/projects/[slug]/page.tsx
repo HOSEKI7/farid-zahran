@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import projectsData from "@/data/projects.json";
 import nextlevelAcademy from "@/data/project-details/nextlevel-academy.json";
 import hosekiShops from "@/data/project-details/hoseki-shops.json";
-import medisyncCare from "@/data/project-details/medisync-care.json";
+import predictiveMaintenance from "@/data/project-details/predictive-maintenance.json";
 import finnovaApp from "@/data/project-details/finnova-app.json";
 import aetheriaAi from "@/data/project-details/aetheria-ai.json";
 import type { Project, ProjectDetail } from "@/lib/types";
@@ -23,7 +23,7 @@ const projects = projectsData as Project[];
 const projectDetails: ProjectDetail[] = [
   nextlevelAcademy,
   hosekiShops,
-  medisyncCare,
+  predictiveMaintenance,
   finnovaApp,
   aetheriaAi,
 ] as ProjectDetail[];

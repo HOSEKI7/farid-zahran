@@ -7,7 +7,7 @@
     "slug": "nextlevel-academy",
     "field": "fullstack",
     "githubUrl": "https://github.com/HOSEKI7/ta-platform-pembelajaran-digital-nextlevel-academy",
-    "year": 2026
+    "year": 2025
   },
   {
     "title": "HOSEKI SHOPS",
@@ -20,14 +20,23 @@
     "year": 2025
   },
   {
-    "title": "MediSync Care",
-    "description": "Web-based digital medical records management system and doctor appointment scheduling platform.",
-    "tags": ["Vue.js", "Express", "PostgreSQL"],
-    "liveUrl": "https://medisync.care",
-    "slug": "medisync-care",
-    "field": "fullstack",
-    "githubUrl": "https://github.com/HOSEKI7/medisync-care-app",
-    "year": 2024
+    "title": "Predictive Maintenance Failure Classification & Anomaly Detection",
+    "description": "Two-layer detection system for industrial sensor data. An XGBoost classifier identifies known failure types while an Isolation Forest catches unseen anomaly patterns. Deployed as an interactive real-time dashboard.",
+    "tags": [
+      "Python",
+      "scikit-learn",
+      "XGBoost",
+      "Streamlit",
+      "Plotly",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "liveUrl": "https://hoseki7-predictive-maintenance.streamlit.app/",
+    "slug": "predictive-maintenance",
+    "field": "ai",
+    "githubUrl": "https://github.com/HOSEKI7/predictive-maintenance-ml",
+    "year": 2026
   },
   {
     "title": "FinNova App",

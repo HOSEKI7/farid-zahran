@@ -1,0 +1,92 @@
+{
+  "slug": "predictive-maintenance",
+  "tagline": "Two-layer detection system for industrial sensor data combining XGBoost failure classification and Isolation Forest anomaly detection into a real-time monitoring dashboard.",
+  "role": "Machine Learning Engineer",
+  "timeline": "2026",
+  "thumbnail": {
+    "src": "/projects-thumbnail/predictive-maintenance.webp",
+    "alt": "Predictive Maintenance dual-layer failure classification and anomaly detection dashboard"
+  },
+  "blocks": [
+    {
+      "type": "narrative",
+      "heading": "Industrial downtime & problem statement",
+      "paragraphs": [
+        "Unplanned downtime in manufacturing and industrial facilities leads to severe production losses, safety hazards, and expensive emergency repairs. Traditional maintenance relies on rigid schedules or reactive interventions after physical damage has already occurred. This project builds a real-time predictive maintenance system that continuously analyzes sensor telemetry to identify subtle degradation signatures and provide early warnings before equipment breakdown.",
+        "Using the AI4I 2020 predictive maintenance benchmark dataset (10,000 synthetic records reflecting real-world milling machine operations with a ~3.4% failure rate), the system processes five critical physical parameters: air temperature, process temperature, rotational speed, torque, and tool wear."
+      ]
+    },
+    {
+      "type": "metrics",
+      "heading": "Dataset & operational scope",
+      "items": [
+        {
+          "label": "Sensor telemetry readings",
+          "value": "10,000",
+          "detail": "Stratified industrial records across diverse machine operation cycles."
+        },
+        {
+          "label": "Physical sensor dimensions",
+          "value": "5",
+          "detail": "Air temperature, process temperature, rotational speed, torque, and tool wear."
+        },
+        {
+          "label": "Imbalanced failure incidence",
+          "value": "3.4%",
+          "detail": "339 total failure events reflecting realistic high-reliability manufacturing environments."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Two-layer detection architecture",
+      "paragraphs": [
+        "Industrial failures fall into two distinct categories: known failure modes with historical precedent, and unprecedented operational anomalies caused by novel mechanical or environmental stressors. A single supervised model struggles to catch unseen anomaly patterns, while a purely unsupervised detector produces high false alarm rates. To resolve this trade-off, the architecture implements a synchronized two-layer detection strategy.",
+        "Layer 1: Supervised XGBoost Classifier. Trained on multi-class labeled failure data with gradient boosting and scale_pos_weight parameterization to counter the severe 3.4% class imbalance. It predicts imminent breakdown probability and categorizes specific failure modes—including Tool Wear Failure (TWF), Heat Dissipation Failure (HDF), Power Failure (PWF), and Overstrain Failure (OSF).",
+        "Layer 2: Unsupervised Isolation Forest. Trained exclusively on 100% normal operating baseline data. By isolating observations across multidimensional feature space through random partitioning trees, it calculates anomaly severity scores and flags abnormal trajectories even if they do not match any historical failure signature."
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Decision triangulation & risk scoring",
+      "paragraphs": [
+        "The system unifies predictions from both models into a three-tier operational risk matrix: (1) Normal Status when both models verify nominal operating parameters; (2) Anomaly Warning when the classifier considers the operation normal but the Isolation Forest score exceeds the outlier threshold, flagging a potential novel failure mode for inspection; and (3) Critical Failure Alert when XGBoost predicts a high-confidence imminent failure.",
+        "This multi-layered triangulation ensures broad operational coverage: plant operators receive prioritized actionable alerts with identified root causes, while maintenance engineering teams can investigate zero-day anomalies before they cascade into catastrophic mechanical failure."
+      ]
+    },
+    {
+      "type": "metrics",
+      "heading": "Model performance on test evaluation",
+      "items": [
+        {
+          "label": "Overall model accuracy",
+          "value": "98%",
+          "detail": "Evaluated on a 2,000-sample stratified holdout test split."
+        },
+        {
+          "label": "Failure recall rate",
+          "value": "78%",
+          "detail": "Prioritized recall over precision to minimize costly missed equipment breakdowns."
+        },
+        {
+          "label": "Failure F1-score",
+          "value": "0.75",
+          "detail": "Harmonic balance between false alarms and critical detections on imbalanced data."
+        },
+        {
+          "label": "Failure precision rate",
+          "value": "72%",
+          "detail": "53 true failures correctly identified against only 21 false alarms."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Test evaluation & streaming dashboard",
+      "paragraphs": [
+        "Rigorous evaluation on the 2,000-sample test set confirmed strong diagnostic reliability: 1,911 true normal states were correctly verified, 53 actual failures were successfully flagged out of 68 total breakdown events, with only 15 missed failures (false negatives) compared to 21 false alarms (false positives).",
+        "The end-to-end system is deployed as an interactive Streamlit web dashboard. Operators and engineers can stream real-time synthetic sensor telemetry, adjust operational parameters via interactive sliders, monitor live dual-model risk gauges, inspect Plotly time-series degradation trends, and view automated alert logs for immediate maintenance dispatch."
+      ]
+    }
+  ]
+}
