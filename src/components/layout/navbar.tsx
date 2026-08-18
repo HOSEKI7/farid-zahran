@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import logo from "@/assets/images/logo.webp";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -38,6 +40,8 @@ const SECTION_IDS = [
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const pathname = usePathname();
+  const router = useRouter();
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isManualScrollRef = useRef(false);
   const manualScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -73,8 +77,39 @@ export const Navbar = () => {
     };
   }, []);
 
-  // Scroll spy: Track currently visible section and update activeIndex dynamically
+  // Handle route and hash changes
   useEffect(() => {
+    if (pathname === "/") {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && SECTION_IDS.includes(hash as (typeof SECTION_IDS)[number])) {
+        const targetIndex = SECTION_IDS.indexOf(hash as (typeof SECTION_IDS)[number]);
+        setActiveIndex(targetIndex);
+        isManualScrollRef.current = true;
+
+        const timer = setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+          setTimeout(() => {
+            isManualScrollRef.current = false;
+          }, 800);
+        }, 100);
+
+        return () => clearTimeout(timer);
+      }
+    } else if (pathname.startsWith("/projects")) {
+      const projectIndex = SECTION_IDS.indexOf("projects");
+      if (projectIndex !== -1) {
+        setActiveIndex(projectIndex);
+      }
+    }
+  }, [pathname]);
+
+  // Scroll spy: Track currently visible section and update activeIndex dynamically (only on homepage)
+  useEffect(() => {
+    if (pathname !== "/") return;
+
     const handleSectionSpy = () => {
       if (isManualScrollRef.current) return;
 
@@ -115,7 +150,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleSectionSpy);
     };
-  }, []);
+  }, [pathname]);
 
   const handleNavClick = (index: number, sectionId: string) => {
     setActiveIndex(index);
@@ -125,11 +160,18 @@ export const Navbar = () => {
       clearTimeout(manualScrollTimerRef.current);
     }
 
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-
-    manualScrollTimerRef.current = setTimeout(() => {
-      isManualScrollRef.current = false;
-    }, 800);
+    if (pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", `#${sectionId}`);
+      }
+      manualScrollTimerRef.current = setTimeout(() => {
+        isManualScrollRef.current = false;
+      }, 800);
+    } else {
+      router.push(`/#${sectionId}`);
+    }
   };
 
   const navItems: NavItem[] = [
@@ -182,11 +224,13 @@ export const Navbar = () => {
         <div className="w-full px-4 sm:px-10 py-4 sm:py-5 flex items-center justify-between">
           {/* Left: Brand Logo */}
           <div className="flex items-center">
-            <a
-              href="#hero"
+            <Link
+              href="/"
               onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(0, "hero");
+                if (pathname === "/") {
+                  e.preventDefault();
+                  handleNavClick(0, "hero");
+                }
               }}
               className="flex items-center group hover:opacity-80 transition-opacity"
               aria-label="Farid Zahran"
@@ -200,7 +244,7 @@ export const Navbar = () => {
                 priority
                 unoptimized
               />
-            </a>
+            </Link>
           </div>
 
           {/* Center: Navigation Menu (Desktop Only) */}
