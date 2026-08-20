@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Maximize2, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ExperienceCarousel({
   photos,
@@ -24,11 +25,21 @@ export function ExperienceCarousel({
   }, []);
 
   useEffect(() => {
-    if (carouselRef.current) {
-      setWidth(
-        carouselRef.current.scrollWidth - carouselRef.current.offsetWidth
-      );
-    }
+    const updateWidth = () => {
+      if (carouselRef.current) {
+        const scrollW = carouselRef.current.scrollWidth;
+        const parentW = carouselRef.current.parentElement?.offsetWidth || carouselRef.current.offsetWidth;
+        setWidth(Math.max(0, scrollW - parentW));
+      }
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    const timer = setTimeout(updateWidth, 150);
+    return () => {
+      window.removeEventListener("resize", updateWidth);
+      clearTimeout(timer);
+    };
   }, [photos]);
 
   useEffect(() => {
@@ -59,6 +70,11 @@ export function ExperienceCarousel({
     }
   };
 
+  const isMulti = photos.length > 2;
+  const cardWidthClass = isMulti
+    ? "w-[82%] min-w-[82%] sm:w-[calc((100%-1.5rem)/2)] sm:min-w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2rem)/2.25)] md:min-w-[calc((100%-2rem)/2.25)]"
+    : "w-[85%] min-w-[85%] sm:w-[calc((100%-1rem)/2)] sm:min-w-[calc((100%-1rem)/2)]";
+
   return (
     <>
       <div className="mt-8 overflow-hidden w-full cursor-grab active:cursor-grabbing">
@@ -72,19 +88,22 @@ export function ExperienceCarousel({
           onDragEnd={() => {
             setTimeout(() => setIsDragging(false), 50);
           }}
-          className="flex gap-4"
+          className="flex gap-4 w-max"
         >
           {photos.map((photo, idx) => (
             <motion.div
               key={idx}
               onClick={() => handleCardClick(photo)}
-              className="group relative min-w-[280px] md:min-w-[400px] aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50"
+              className={cn(
+                "group relative aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50 shrink-0",
+                cardWidthClass
+              )}
             >
               <Image
                 src={getPhotoPath(photo)}
                 alt={`${company} experience photo ${idx + 1}`}
                 fill
-                sizes="(max-width: 768px) 280px, 400px"
+                sizes="(max-width: 768px) 82vw, (max-width: 1024px) 45vw, 360px"
                 className="object-cover pointer-events-none transition-transform duration-500 group-hover:scale-105"
               />
 

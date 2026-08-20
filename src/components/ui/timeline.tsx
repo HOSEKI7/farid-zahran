@@ -41,16 +41,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               index === 0 ? "pt-0" : "pt-12 md:pt-20"
             )}
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start w-full md:w-[260px] lg:w-[320px] shrink-0">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-accent border border-black flex items-center justify-center shadow-sm">
                 <div className="h-4 w-4 rounded-full bg-white border border-black shadow-[0_0_10px_rgba(155,164,128,0.5)]" />
               </div>
-              <div className="hidden md:block text-xl md:pl-20 md:text-3xl lg:text-4xl font-bold text-secondary">
+              <div className="hidden md:block text-xl md:pl-20 md:text-3xl lg:text-4xl font-bold text-secondary whitespace-nowrap">
                 {item.title}
               </div>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
+            <div className="relative pl-20 pr-4 md:pl-4 w-full min-w-0">
               <div className="md:hidden block text-2xl mb-4 text-left font-bold text-secondary">
                 {item.title}
               </div>
