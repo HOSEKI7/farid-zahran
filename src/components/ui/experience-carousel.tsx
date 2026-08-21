@@ -2,10 +2,12 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { Maximize2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const emptySubscribe = () => () => {};
 
 export function ExperienceCarousel({
   photos,
@@ -19,11 +21,11 @@ export function ExperienceCarousel({
   const [dragLimit, setDragLimit] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (!containerRef.current || !photos || photos.length === 0) return;

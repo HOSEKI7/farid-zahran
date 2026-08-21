@@ -122,7 +122,6 @@ Three libraries, split by role: `@hugeicons/react` + core-free-icons for navbar 
 
 ## Known Gaps
 
-- The contact form (`contact-section.tsx`) is local state only — `handleSubmit` fakes success after 4s. The Web3Forms wiring specified in `SPEC.md` is not implemented.
 - Keyboard focus indicators are not implemented site-wide (`DESIGN.md` §8 calls for `outline: 2px solid var(--accent)`).
 - Navbar/contact social URLs are placeholders (`https://github.com`, `https://github.com/faridzahran`).
 - CV download is specified but not built.

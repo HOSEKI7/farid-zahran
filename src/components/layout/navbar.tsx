@@ -83,10 +83,10 @@ export const Navbar = () => {
       const hash = window.location.hash.replace("#", "");
       if (hash && SECTION_IDS.includes(hash as (typeof SECTION_IDS)[number])) {
         const targetIndex = SECTION_IDS.indexOf(hash as (typeof SECTION_IDS)[number]);
-        setActiveIndex(targetIndex);
         isManualScrollRef.current = true;
 
         const timer = setTimeout(() => {
+          setActiveIndex(targetIndex);
           const el = document.getElementById(hash);
           if (el) {
             el.scrollIntoView({ behavior: "smooth" });
@@ -101,7 +101,10 @@ export const Navbar = () => {
     } else if (pathname.startsWith("/projects")) {
       const projectIndex = SECTION_IDS.indexOf("projects");
       if (projectIndex !== -1) {
-        setActiveIndex(projectIndex);
+        const timer = setTimeout(() => {
+          setActiveIndex(projectIndex);
+        }, 0);
+        return () => clearTimeout(timer);
       }
     }
   }, [pathname]);
