@@ -21,8 +21,6 @@ import {
   StaggerItem,
 } from "@/components/animations/stagger-container";
 
-const WEB3FORMS_DEFAULT_KEY = "a1b04df7-f9c2-4cf7-b92c-a076ff75b402";
-
 export function ContactSection() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -45,8 +43,15 @@ export function ContactSection() {
     setErrorMessage("");
 
     try {
-      const accessKey =
-        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || WEB3FORMS_DEFAULT_KEY;
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+      if (!accessKey) {
+        setStatus("error");
+        setErrorMessage(
+          "Contact form service is currently unconfigured (missing access key). Please contact me via email directly."
+        );
+        return;
+      }
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
