@@ -58,7 +58,7 @@ Use these to resolve ambiguity in improvised visual design — they outrank inve
 8. As a recruiter, I want the active nav item to be visually highlighted as I scroll through sections, so that I always know where I am on the page.
 9. As a recruiter, I want to scroll to the About section and see Farid's photo and a brief background, so that I get a personal sense of who he is.
 10. As a recruiter, I want to scroll to the Tech Stack section and see technical skills in a single grouped card, so that I can assess capabilities without the section feeling cluttered.
-11. As a recruiter, I want the Tech Stack card to organize skills into five categories (Frontend & User Interface, Backend & API Architecture, AI/ML & Data Processing, Database & Vector Storage, Infrastructure/DevOps/MLOps), so that I can quickly assess skills relevant to my open position.
+11. As a recruiter, I want the Tech Stack card to organize skills into six categories (Frontend & User Interface, Backend & API Architecture, AI/ML & Data Processing, Database & Vector Storage, Infrastructure/DevOps/MLOps, AI Tooling & Agentic Workflows), so that I can quickly assess skills relevant to my open position.
 12. As a recruiter, I want to browse project cards in the Projects section, so that I can see the breadth of Farid's work.
 13. As a recruiter, I want to filter projects by field (Full-stack / AI Engineer) using tabs, so that I only see relevant work.
 14. As a recruiter, I want each project card to show title, short description, tags, and year, so that I can quickly assess relevance.
@@ -121,7 +121,7 @@ Use these to resolve ambiguity in improvised visual design — they outrank inve
 - `blocks` is a discriminated union (`narrative` | `gallery` | `metrics`) rendered by `src/components/project-blocks/block-renderer.tsx`. Layout varies per project by composing blocks in a different order, not by writing bespoke page code. Adding a block variant without a matching case in the renderer fails the type check.
 - The block schema is deliberately shaped to map 1:1 onto a future CMS document, so the renderer stays unchanged if the data source is swapped later.
 - Experience data hardcoded in the Experience component; timeline format is tentative and may change during development based on the owner's preference.
-- Tech stack data (5 categories) lives in `src/data/tech-stack.ts` as a typed `TechGroup` array.
+- Tech stack data (6 categories) lives in `src/data/tech-stack.ts` as a typed `TechGroup` array.
 
 ### Animation Strategy (Hybrid)
 

@@ -24,4 +24,8 @@ export const techStack: TechGroup[] = [
     label: "Infrastructure, DevOps & MLOps",
     items: ["Git", "Docker", "AWS", "Vercel", "GitHub Actions", "MLflow"],
   },
+  {
+    label: "AI Tooling & Agentic Workflows",
+    items: ["Claude Code", "Antigravity", "ChatGPT", "MCP", "Agent Skills", "Agentic Loops"],
+  },
 ];

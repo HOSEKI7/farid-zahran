@@ -83,7 +83,7 @@ Every section repeats this shape — match it when adding one:
 | --------------------------- | -------------------------------- | --------------------------------------------------------------------- |
 | `src/data/projects.json`    | `Project[]` (`src/lib/types.ts`) | Add a project by adding an entry — no component change                |
 | `src/data/experiences.json` | `Experience[]`                   | Timeline + carousel content                                           |
-| `src/data/tech-stack.ts`    | `TechGroup[]`                    | Five fixed categories; icon mapping lives in `tech-stack-section.tsx` |
+| `src/data/tech-stack.ts`    | `TechGroup[]`                    | Six fixed categories; icon mapping lives in `tech-stack-section.tsx` |
 
 **Asset path conventions** (the code derives paths, so files must be named to match):
 

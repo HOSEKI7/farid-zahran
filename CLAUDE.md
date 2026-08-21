@@ -95,7 +95,7 @@ Every section repeats this shape — match it when adding one:
 | `src/data/projects.json`    | `Project[]` (`src/lib/types.ts`) | Index for homepage cards + `generateStaticParams`. Adding an entry needs a matching `project-details/{slug}.json` |
 | `src/data/project-details/{slug}.json` | `ProjectDetail`      | Long-form detail content as a `blocks` array — see Project detail pages |
 | `src/data/experiences.json` | `Experience[]`                   | Timeline + carousel content                                           |
-| `src/data/tech-stack.ts`    | `TechGroup[]`                    | Five fixed categories; icon mapping lives in `tech-stack-section.tsx` |
+| `src/data/tech-stack.ts`    | `TechGroup[]`                    | Six fixed categories; icon mapping lives in `tech-stack-section.tsx` |
 
 **Asset path conventions** (the code derives paths, so files must be named to match):
 

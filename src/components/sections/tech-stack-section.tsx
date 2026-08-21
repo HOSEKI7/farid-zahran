@@ -29,6 +29,7 @@ import {
   SiPytorch,
   SiLangchain,
   SiHuggingface,
+  SiAnthropic,
 } from "react-icons/si";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CpuIcon } from "@hugeicons/core-free-icons";
@@ -48,6 +49,7 @@ const orbitIcons: OrbitIcon[] = [
   { Icon: SiPytorch, name: "PyTorch" },
   { Icon: SiLangchain, name: "LangChain" },
   { Icon: FaBrain, name: "OpenAI" },
+  { Icon: SiAnthropic, name: "Claude" },
   { Icon: SiHuggingface, name: "Hugging Face" },
   { Icon: SiPostgresql, name: "PostgreSQL" },
   { Icon: SiMongodb, name: "MongoDB" },
@@ -111,7 +113,9 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({ className })
                       direction="up"
                       distance={20}
                       className={
-                        index === techStack.length - 1 ? "sm:col-span-2" : undefined
+                        techStack.length % 2 !== 0 && index === techStack.length - 1
+                          ? "sm:col-span-2"
+                          : undefined
                       }
                     >
                       <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
