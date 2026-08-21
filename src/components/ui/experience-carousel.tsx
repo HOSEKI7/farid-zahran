@@ -14,8 +14,9 @@ export function ExperienceCarousel({
   photos: string[];
   company: string;
 }) {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [cardWidth, setCardWidth] = useState<number | null>(null);
+  const [dragLimit, setDragLimit] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -25,20 +26,50 @@ export function ExperienceCarousel({
   }, []);
 
   useEffect(() => {
-    const updateWidth = () => {
-      if (carouselRef.current) {
-        const scrollW = carouselRef.current.scrollWidth;
-        const parentW = carouselRef.current.parentElement?.offsetWidth || carouselRef.current.offsetWidth;
-        setWidth(Math.max(0, scrollW - parentW));
+    if (!containerRef.current || !photos || photos.length === 0) return;
+
+    const calculateDimensions = () => {
+      if (!containerRef.current) return;
+      const parentWidth = containerRef.current.offsetWidth;
+      if (parentWidth <= 0) return;
+
+      const gap = 16; // 1rem (gap-4)
+      const count = photos.length;
+      let widthPerCard = parentWidth;
+
+      if (parentWidth < 640) {
+        // Mobile: 1 card + peek preview of 2nd card
+        widthPerCard = count > 1 ? Math.round(parentWidth * 0.82) : parentWidth;
+      } else {
+        // Tablet / Desktop:
+        if (count > 2) {
+          // Exactly 2 full cards + ~25% peek preview of 3rd card
+          widthPerCard = Math.round((parentWidth - gap * 2) / 2.25);
+        } else if (count === 2) {
+          // Exactly 2 full cards filling container
+          widthPerCard = Math.round((parentWidth - gap) / 2);
+        } else {
+          widthPerCard = parentWidth;
+        }
       }
+
+      setCardWidth(widthPerCard);
+
+      const totalTrackWidth = count * widthPerCard + (count - 1) * gap;
+      const maxScroll = Math.max(0, totalTrackWidth - parentWidth);
+      setDragLimit(maxScroll);
     };
 
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    const timer = setTimeout(updateWidth, 150);
+    calculateDimensions();
+
+    const resizeObserver = new ResizeObserver(() => {
+      calculateDimensions();
+    });
+
+    resizeObserver.observe(containerRef.current);
+
     return () => {
-      window.removeEventListener("resize", updateWidth);
-      clearTimeout(timer);
+      resizeObserver.disconnect();
     };
   }, [photos]);
 
@@ -70,33 +101,32 @@ export function ExperienceCarousel({
     }
   };
 
-  const isMulti = photos.length > 2;
-  const cardWidthClass = isMulti
-    ? "w-[82%] min-w-[82%] sm:w-[calc((100%-1.5rem)/2)] sm:min-w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2rem)/2.25)] md:min-w-[calc((100%-2rem)/2.25)]"
-    : "w-[85%] min-w-[85%] sm:w-[calc((100%-1rem)/2)] sm:min-w-[calc((100%-1rem)/2)]";
-
   return (
     <>
-      <div className="mt-8 overflow-hidden w-full cursor-grab active:cursor-grabbing">
+      <div
+        ref={containerRef}
+        className="mt-8 overflow-hidden w-full cursor-grab active:cursor-grabbing"
+      >
         <motion.div
-          ref={carouselRef}
           drag="x"
-          dragConstraints={{ right: 0, left: -width }}
+          dragConstraints={{ right: 0, left: -dragLimit }}
           dragElastic={0.1}
           dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
           onDragStart={() => setIsDragging(true)}
           onDragEnd={() => {
             setTimeout(() => setIsDragging(false), 50);
           }}
-          className="flex gap-4 w-max"
+          className="flex gap-4"
         >
           {photos.map((photo, idx) => (
             <motion.div
               key={idx}
               onClick={() => handleCardClick(photo)}
+              style={{
+                width: cardWidth ? `${cardWidth}px` : "280px",
+              }}
               className={cn(
-                "group relative aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50 shrink-0",
-                cardWidthClass
+                "group relative aspect-video rounded-xl overflow-hidden border border-border cursor-pointer select-none bg-card/50 shrink-0"
               )}
             >
               <Image
