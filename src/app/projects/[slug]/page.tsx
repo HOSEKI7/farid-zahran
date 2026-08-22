@@ -6,8 +6,7 @@ import projectsData from "@/data/projects.json";
 import nextlevelAcademy from "@/data/project-details/nextlevel-academy.json";
 import hosekiShops from "@/data/project-details/hoseki-shops.json";
 import predictiveMaintenance from "@/data/project-details/predictive-maintenance.json";
-import finnovaApp from "@/data/project-details/finnova-app.json";
-import aetheriaAi from "@/data/project-details/aetheria-ai.json";
+import contexure from "@/data/project-details/contexure.json";
 import type { Project, ProjectDetail } from "@/lib/types";
 import { ProjectHero } from "@/components/project-blocks/project-hero";
 import { BlockRenderer } from "@/components/project-blocks/block-renderer";
@@ -24,8 +23,7 @@ const projectDetails: ProjectDetail[] = [
   nextlevelAcademy,
   hosekiShops,
   predictiveMaintenance,
-  finnovaApp,
-  aetheriaAi,
+  contexure,
 ] as ProjectDetail[];
 
 function getProject(slug: string) {

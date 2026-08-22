@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Working Agreement
 
 - **Language split:** All shipped output — UI text, identifiers, code, docs — is **English**. Chat, plans, questions, and code comments to the owner are written in **Bahasa Indonesia**.
+- **Be extremely concise**. Sacrifice grammar for the sake of consicion, for easiest and quick to understanding.
 - **Read `SPEC.md` for the product spec, `DESIGN.md` for the design system.**
 - If the prompt is ambiguous, enter plan mode and ask before writing code.
 - **Fetch current docs before planning and implementing** — use Context7 for any library, and read the relevant guide in `node_modules/next/dist/docs/` for Next.js (see below). Don't work from memory.

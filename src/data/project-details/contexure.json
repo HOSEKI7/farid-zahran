@@ -1,0 +1,134 @@
+{
+  "slug": "contexure",
+  "tagline": "Enterprise-grade RAG platform for industrial technical datasheets using a deterministic 5-stage pipeline and strict confidence guardrails.",
+  "role": "Full-stack & AI Engineer",
+  "timeline": "2026",
+  "thumbnail": {
+    "src": "/projects-thumbnail/contexure.webp",
+    "alt": "Contexure Enterprise Industrial RAG Platform interface"
+  },
+  "blocks": [
+    {
+      "type": "narrative",
+      "heading": "Industrial documentation & hallucination risks",
+      "paragraphs": [
+        "Industrial automation equipment—such as AC motors, variable frequency drives, PLCs, and inductive sensors—operates under strict physical, electrical, and thermal tolerances. When automation engineers and field technicians query technical documentation, hallucinated ratings lead to burnt drive modules, incorrect wiring schematics, and costly factory downtime.",
+        "Generic conversational AI systems fail in industrial domains: they flatten dense multi-column electrical tables into scrambled text strings, guess unlisted parameters rather than acknowledging absent data, lack verifiable page-level citations linked to source PDFs, and suffer from single-provider API rate limits. Contexure solves these failure points through structure-aware document parsing, local CPU embeddings, cross-encoder reranking, and a strict confidence guardrail gate."
+      ]
+    },
+    {
+      "type": "metrics",
+      "heading": "Production telemetry & system benchmarks",
+      "items": [
+        {
+          "label": "Vector Dimensionality",
+          "value": "768",
+          "detail": "FastEmbed nomic-embed-text-v1.5 local ONNX embeddings."
+        },
+        {
+          "label": "Max Context Window",
+          "value": "8,192",
+          "detail": "Token capacity per document chunk with structural tree mapping."
+        },
+        {
+          "label": "Guardrail Cutoff Gate",
+          "value": "θ ≥ 0.65",
+          "detail": "Deterministic cross-encoder score required before invoking LLM."
+        },
+        {
+          "label": "Retrieval Latency",
+          "value": "< 200ms",
+          "detail": "End-to-end local CPU vectorization and FlashRank reranking."
+        },
+        {
+          "label": "Citation Fidelity",
+          "value": "100%",
+          "detail": "Verifiable chunk-level source citations and page mappings."
+        },
+        {
+          "label": "PDF Server Load",
+          "value": "0 ms",
+          "detail": "Zero server overhead via client-side jsPDF report generation."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/contexure/01.webp",
+          "alt": "Contexure editorial landing page and specimen catalog",
+          "caption": "01. Editorial landing page & specimen catalog — public discovery, backend health probing, and interactive 5-stage pipeline visualizer."
+        },
+        {
+          "src": "/contexure/02.webp",
+          "alt": "Contexure grounded multi-turn chat workspace",
+          "caption": "02. Grounded chat workspace — real-time SSE token streaming, client-side conversation memory, and specimen query presets."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Deterministic 5-stage RAG lifecycle",
+      "paragraphs": [
+        "From raw multi-page PDF ingestion to real-time streaming answer delivery, each query flows through a deterministic, observable sequence designed to eliminate hallucination risks.",
+        "Stage 1 (Structure-Aware Ingestion): Parses industrial datasheets with PyMuPDF and Docling into markdown trees that strictly retain heading depth (#, ##, ###) and table grids. This guarantees table row associations (e.g. Frame size → Current → Torque) do not collapse into disorganized flat strings.",
+        "Stage 2 (Hierarchical Chunking): Documents are segmented along structural boundaries into large Parent Chunks (~1,500 tokens) and small Child Chunks (~300 tokens). Child chunks provide high-precision vector matches, while the reconstructed Parent Chunk provides the full surrounding context to the generation prompt.",
+        "Stage 3 (Local CPU FastEmbed Inference): Generates normalized 768-dimensional embeddings using nomic-embed-text-v1.5 locally on CPU via ONNX Runtime in ~18ms with zero third-party API latency or recurring token fees, then indexes vectors into Qdrant Cloud with rich metadata payloads.",
+        "Stage 4 (FlashRank Cross-Encoder & Guardrail Gate): Initial top-20 vector candidates are re-scored locally by FlashRank cross-encoder. If the top candidate fails the calibrated confidence threshold (score < 0.65), the system immediately halts LLM synthesis and outputs a deterministic refusal banner, eliminating 100% of LLM token spend on out-of-scope queries.",
+        "Stage 5 (Resilient Dual-Provider LLM Synthesis): Synthesizes grounded responses with XML-tagged context chunks via Server-Sent Events (SSE). If Google Gemini 2.5 Flash encounters rate limits (HTTP 429) or transient errors, the request automatically fails over to Groq Llama 3.3 70B Versatile in under 50ms with zero user disruption."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/contexure/03.webp",
+          "alt": "Footnote citation drawer with verbatim text snippets",
+          "caption": "03. Footnote citation drawer — reveals exact source document title, page number, confidence rating, and verbatim datasheet excerpts."
+        },
+        {
+          "src": "/contexure/04.webp",
+          "alt": "Multi-document specification comparison matrix",
+          "caption": "04. Spec matrix — balanced multi-document vector retrieval for side-by-side industrial motor comparisons."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Decoupled architecture & failover resilience",
+      "paragraphs": [
+        "The system enforces a clean separation of concerns across three distinct operational tiers to maintain high availability and predictable inference latency.",
+        "Tier 1 (Client Application): Built with Next.js 16 App Router, TypeScript, and Tailwind CSS. Features Vercel AI SDK Server-Sent Events integration, client-side jsPDF single-answer technical reporting, citation popover drawers, and localStorage conversation memory.",
+        "Tier 2 (Core Ingestion & Evaluation Engine): Asynchronous FastAPI service running Python 3.11, responsible for structure-aware parsing, hierarchical chunking, local CPU FastEmbed ONNX vectorization, FlashRank cross-encoder reranking, and confidence guardrail validation.",
+        "Tier 3 (Managed Storage & LLM Providers): Qdrant Cloud 768-dimensional vector store with rich structured payload filters, primary Google Gemini 2.5 Flash generation, and Groq Llama 3.3 70B zero-downtime failover orchestration."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/contexure/05.webp",
+          "alt": "Administrative PDF ingestion portal and vector stepper",
+          "caption": "05. Ingestion portal — administrative drag-and-drop PDF upload with real-time 4-step vector processing stepper."
+        },
+        {
+          "src": "/contexure/06.webp",
+          "alt": "RAG observability and telemetry dashboard",
+          "caption": "06. Observability dashboard — full RAG telemetry tracking pass rates (94.8%), latency distributions, and rejected query gap triage."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Production rigor & architectural decisions",
+      "paragraphs": [
+        "Contexure demonstrates engineering maturity by treating AI integration as a disciplined systems problem rather than a simple prompt wrapper.",
+        "By enforcing deterministic guardrails, layout-preserving PDF extraction, dual-provider failover, and local CPU embedding generation, the platform delivers verifiable accuracy, high availability, and significant API cost reductions for mission-critical industrial applications."
+      ]
+    }
+  ]
+}
