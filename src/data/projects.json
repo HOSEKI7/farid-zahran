@@ -39,23 +39,13 @@
     "year": 2026
   },
   {
-    "title": "FinNova App",
-    "description": "Personal financial tracking application with automated investment portfolio analytics.",
-    "tags": ["Flutter", "Firebase", "Dart"],
-    "liveUrl": "https://finnova.app",
-    "slug": "finnova-app",
+    "title": "Contexure - RAG AI Chatbot",
+    "description": "Contexure is an enterprise-grade, retrieval-augmented generation (RAG) conversational platform purpose-built for industrial automation engineers, field technicians, and system integrators who interact with complex technical datasheets (AC motors, variable frequency drives, PLCs, inductive sensors).",
+    "tags": ["Next.js", "FastAPI", "Qdrant", "Gemini", "Groq"],
+    "liveUrl": "https://contexure-ai.vercel.app/",
+    "slug": "contexure",
     "field": "fullstack",
-    "githubUrl": "https://github.com/HOSEKI7/finnova-personal-finance",
-    "year": 2026
-  },
-  {
-    "title": "Aetheria AI Studio",
-    "description": "Generative AI workspace for creative workflows, prompt engineering, and intelligent content synthesis.",
-    "tags": ["Python", "PyTorch", "FastAPI", "React", "Tailwind CSS"],
-    "liveUrl": "https://aetheria-ai.studio",
-    "slug": "aetheria-ai",
-    "field": "ai",
-    "githubUrl": "https://github.com/HOSEKI7/aetheria-ai-studio",
+    "githubUrl": "https://github.com/HOSEKI7/rag-ai-chatbot",
     "year": 2026
   }
 ]
