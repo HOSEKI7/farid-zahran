@@ -1,7 +1,7 @@
 {
   "slug": "nextlevel-academy",
   "tagline": "Unified digital learning and server-validated virtual internship ecosystem combining modular video LMS, gamified leveling incentives, and automated compliance.",
-  "role": "Full-stack Developer",
+  "role": "CTO & Software Engineer",
   "timeline": "2024 - 2025",
   "thumbnail": {
     "src": "/projects-thumbnail/nextlevel-academy.webp",
@@ -13,7 +13,7 @@
       "heading": "Operational context & problem statement",
       "paragraphs": [
         "Prior to the development of this platform, NextLevel Academy conducted all training operations through in-person, offline sessions. This legacy model incurred high operational overhead, created geographical bottlenecks, and resulted in fragmented progress tracking across disconnected spreadsheets.",
-        "The web platform was engineered as an integrated, monorepo full-stack ecosystem addressing three core requirements: (1) centralized, self-paced online course delivery via a proprietary video LMS, (2) heightened student retention through structured gamification and tier-based voucher rewards, and (3) a server-validated virtual internship environment providing automated presence enforcement and task assessment for partner vocational schools."
+        "The web platform was engineered as an integrated, monorepo software ecosystem addressing three core requirements: (1) centralized, self-paced online course delivery via a proprietary video LMS, (2) heightened student retention through structured gamification and tier-based voucher rewards, and (3) a server-validated virtual internship environment providing automated presence enforcement and task assessment for partner vocational schools."
       ]
     },
     {
@@ -226,7 +226,7 @@
       "type": "narrative",
       "heading": "Architectural rigor & engineering decisions",
       "paragraphs": [
-        "NextLevel Academy reflects deliberate full-stack engineering practices designed to balance high performance, cost efficiency, and transactional reliability across a monolithic Next.js 16 deployment.",
+        "NextLevel Academy reflects deliberate software engineering practices designed to balance high performance, cost efficiency, and transactional reliability across a monolithic Next.js 16 deployment.",
         "High-Performance Certificate Generation (Satori + Sharp): Headless browser PDF generation typically consumes 200–400 MB of RAM per process. Replacing Chromium with Satori (JSX to SVG) and native C++ Sharp (SVG to PNG) reduced memory consumption by 90%, enabling instantaneous certificate rendering on a modest 2GB RAM production VPS.",
         "Idempotent Payment Webhooks: The order fulfillment pipeline (fulfillOrderPaid) is structured to resist race conditions from duplicate webhook calls, coupled with automated reconciliation against the Midtrans Get-Status API to guarantee 100% order fulfillment integrity.",
         "Tamper-Resistant Server Guards: By decoupling all temporal logic from the client device and resolving time, weekends, and holidays strictly against UTC+7 server clocks, the platform guarantees attendance compliance for institutional partner auditing."

@@ -5,7 +5,7 @@
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "liveUrl": "https://nextlevelacademy.id",
     "slug": "nextlevel-academy",
-    "field": "fullstack",
+    "field": "software",
     "githubUrl": "https://github.com/HOSEKI7/ta-platform-pembelajaran-digital-nextlevel-academy",
     "year": 2025
   },
@@ -15,7 +15,7 @@
     "tags": ["React", "Vite", "Tailwind CSS", "Express", "MySQL"],
     "liveUrl": "https://hosekishops.com",
     "slug": "hoseki-shops",
-    "field": "fullstack",
+    "field": "software",
     "githubUrl": "https://github.com/HOSEKI7/DevOps_Class_Project",
     "year": 2025
   },
@@ -44,7 +44,7 @@
     "tags": ["Next.js", "FastAPI", "Qdrant", "Gemini", "Groq"],
     "liveUrl": "https://contexure-ai.vercel.app/",
     "slug": "contexure",
-    "field": "fullstack",
+    "field": "software",
     "githubUrl": "https://github.com/HOSEKI7/rag-ai-chatbot",
     "year": 2026
   }

@@ -13,7 +13,7 @@ export default function Home() {
       <section id="hero">
         <HalideTopoHero
           layers={[heroImage]}
-          jobTitles={["FULL-STACK DEVELOPER", "AI ENGINEER"]}
+          jobTitles={["SOFTWARE ENGINEER", "AI ENGINEER"]}
         />
       </section>
 

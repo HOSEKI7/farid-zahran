@@ -25,6 +25,7 @@ export interface ParallaxScrollFeatureSectionProps {
   title?: string;
   paragraph1?: string;
   paragraph2?: string;
+  paragraph3?: string;
   imageUrl?: string | StaticImageData;
   statNumber?: string;
   statLabel?: string;
@@ -36,30 +37,32 @@ export interface ParallaxScrollFeatureSectionProps {
 
 export const ParallaxScrollFeatureSection = ({
   eyebrow = "ABOUT ME",
-  title = "Membangun Sistem Modern & Kecerdasan Artifisial",
-  paragraph1 = "Saya seorang Full-Stack Engineer & AI Specialist yang berfokus pada pengembangan aplikasi web berkinerja tinggi, arsitektur sistem yang fleksibel, dan antarmuka pengguna yang intuitif.",
-  paragraph2 = "Dengan menggabungkan prinsip desain modern dan alur kerja berkecepatan tinggi berbasis AI, saya menciptakan solusi digital yang presisi, scalable, dan memberikan dampak nyata bagi penggunanya.",
+  title = "Building Modern Systems & Artificial Intelligence",
+  paragraph1 = "I am a Software Engineer & AI Engineer focusing on developing high-performance web applications, scalable system architectures, and intelligent solutions.",
+  paragraph2 = "By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact.",
+  paragraph3 = "I am a Computer Science student and full-stack software engineer transitioning into AI/ML engineering, with hands-on experience building and deploying production-grade web applications end-to-end.",
   imageUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
   statNumber = "04+",
-  statLabel = "PENGALAMAN & MILESTONE",
+  statLabel = "EXPERIENCE & MILESTONES",
   features = [
     {
       icon: ComputerTerminal01Icon,
-      title: "Full-Stack Dev",
-      description: "Arsitektur Next.js, Node.js & sistem scalable.",
+      title: "Software Engineering",
+      description:
+        "Scalable system architecture, high-performance web apps & robust APIs.",
     },
     {
       icon: CpuIcon,
       title: "AI Engineering",
-      description: "Integrasi LLM, AI Agent, & alur otomatisasi.",
+      description: "LLM integration, AI agent workflows & automated pipelines.",
     },
     {
       icon: Layers01Icon,
       title: "Motion & UI",
-      description: "Interaksi presisi dengan GSAP & Framer Motion.",
+      description: "Precision interactive experiences with GSAP & Motion.",
     },
   ],
-  ctaText = "HUBUNGI SAYA",
+  ctaText = "CONTACT ME",
   ctaHref = "#contact",
   className,
 }: ParallaxScrollFeatureSectionProps) => {
@@ -84,10 +87,11 @@ export const ParallaxScrollFeatureSection = ({
   });
 
   const opacityContent = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const clipProgress = useTransform(scrollYProgress, [0, 1], [
-    "inset(0 100% 0 0)",
-    "inset(0 0% 0 0)",
-  ]);
+  const clipProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["inset(0 100% 0 0)", "inset(0 0% 0 0)"],
+  );
   const translateContent = useTransform(scrollYProgress, [0, 1], [-40, 0]);
 
   const resolvedSrc = typeof imageUrl === "string" ? imageUrl : imageUrl?.src;
@@ -132,7 +136,10 @@ export const ParallaxScrollFeatureSection = ({
           {eyebrow && (
             <div className="flex items-center gap-2.5 font-mono text-xs font-semibold text-accent tracking-widest uppercase mb-3">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span>{"// "}{eyebrow}</span>
+              <span>
+                {"// "}
+                {eyebrow}
+              </span>
             </div>
           )}
 
@@ -144,10 +151,20 @@ export const ParallaxScrollFeatureSection = ({
           )}
 
           {/* Split Paragraphs */}
-          <ScrollReveal direction="up" distance={20} duration={0.6} amount={0.3}>
+          <ScrollReveal
+            direction="up"
+            distance={20}
+            duration={0.6}
+            amount={0.3}
+          >
             <div className="space-y-4 text-secondary leading-relaxed font-sans text-base md:text-lg">
               <p>{paragraph1}</p>
-              <p className="text-secondary text-sm md:text-base">{paragraph2}</p>
+              <p className="text-secondary text-sm md:text-base">
+                {paragraph2}
+              </p>
+              <p className="text-secondary text-sm md:text-base">
+                {paragraph3}
+              </p>
             </div>
           </ScrollReveal>
 

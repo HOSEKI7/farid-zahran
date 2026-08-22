@@ -162,7 +162,7 @@ export function ContactSection() {
                   <Check className="w-4 h-4" />
                 </div>
                 <span className="text-foreground text-sm md:text-base font-medium">
-                  End-to-End Full-Stack & AI Solutions
+                  End-to-End Software & AI Solutions
                 </span>
               </StaggerItem>
 

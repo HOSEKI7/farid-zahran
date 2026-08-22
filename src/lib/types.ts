@@ -4,7 +4,7 @@ export interface Project {
   tags: string[];
   liveUrl: string;
   slug: string;
-  field: "fullstack" | "ai";
+  field: "software" | "ai";
   githubUrl: string;
   year: number;
 }

@@ -22,11 +22,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Farid Zahran — Full-stack Developer & AI Engineer",
+  title: "Farid Zahran — Software Engineer & AI Engineer",
   description:
-    "Personal portfolio of Farid Zahran. Full-stack Developer and AI Engineer building modern web applications and intelligent systems.",
+    "Personal portfolio of Farid Zahran. Software Engineer and AI Engineer building modern web applications, scalable systems, and intelligent solutions.",
   openGraph: {
-    title: "Farid Zahran — Full-stack Developer & AI Engineer",
+    title: "Farid Zahran — Software Engineer & AI Engineer",
     description: "Personal portfolio of Farid Zahran.",
     type: "website",
   },

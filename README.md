@@ -1,6 +1,6 @@
 # farid-zahran
 
-Personal portfolio website for **Farid Zahran** — Full-stack Developer & AI Engineer.
+Personal portfolio website for **Farid Zahran** — Software Engineer & AI Engineer.
 
 Dark, cinematic, single-page portfolio built with performance and SEO as first-class priorities.
 

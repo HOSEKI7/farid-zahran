@@ -19,8 +19,8 @@ export interface HalideTopoHeroProps {
 export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
   className,
   name = "FARID\nZAHRAN",
-  role = "FULL-STACK DEVELOPER & AI ENGINEER",
-  jobTitles = ["FULL-STACK DEVELOPER", "AI ENGINEER"],
+  role = "SOFTWARE ENGINEER & AI ENGINEER",
+  jobTitles = ["SOFTWARE ENGINEER", "AI ENGINEER"],
   ctaText = "EXPLORE DEPTH",
   ctaHref = "#about",
   onCtaClick,

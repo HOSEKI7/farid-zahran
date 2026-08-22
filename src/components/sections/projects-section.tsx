@@ -38,7 +38,7 @@ export function ProjectsSection() {
       >
         <SectionGhostTitle text="Projects" />
         <p className="relative z-10 text-accent font-semibold text-base sm:text-xl md:text-2xl text-center max-w-2xl mx-auto -mt-7 sm:-mt-11 md:-mt-16 tracking-wide">
-          Featured full-stack & AI projects.
+          Featured software engineering & AI projects.
         </p>
       </ScrollReveal>
 

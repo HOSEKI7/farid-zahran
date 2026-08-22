@@ -8,11 +8,11 @@
 
 ## Problem Statement
 
-Farid Zahran is a Full-stack Developer and AI Engineer who needs a personal portfolio website to showcase his work, professional background, and technical capabilities. The website must leave a strong visual impression on visitors (recruiters, clients, collaborators) while loading fast and ranking well in search engines. Current state: no website exists — only a design system document ("Halide") has been established.
+Farid Zahran is a Software Engineer and AI Engineer who needs a personal portfolio website to showcase his work, professional background, and technical capabilities. The website must leave a strong visual impression on visitors (recruiters, clients, collaborators) while loading fast and ranking well in search engines. Current state: no website exists — only a design system document ("Halide") has been established.
 
 ## Users & Positioning
 
-**Primary visitor:** recruiters and potential clients evaluating Farid Zahran for full-stack or AI engineering roles.
+**Primary visitor:** recruiters and potential clients evaluating Farid Zahran for software engineering or AI engineering roles.
 **Secondary visitor:** collaborators exploring his work.
 
 **Visitor flow:** arrive via social links, search, or shared URL → hero (name/role) → About → Tech Stack → Projects (filterable) → Experience → Contact form / CV download / socials.
@@ -60,7 +60,7 @@ Use these to resolve ambiguity in improvised visual design — they outrank inve
 10. As a recruiter, I want to scroll to the Tech Stack section and see technical skills in a single grouped card, so that I can assess capabilities without the section feeling cluttered.
 11. As a recruiter, I want the Tech Stack card to organize skills into six categories (Frontend & User Interface, Backend & API Architecture, AI/ML & Data Processing, Database & Vector Storage, Infrastructure/DevOps/MLOps, AI Tooling & Agentic Workflows), so that I can quickly assess skills relevant to my open position.
 12. As a recruiter, I want to browse project cards in the Projects section, so that I can see the breadth of Farid's work.
-13. As a recruiter, I want to filter projects by field (Full-stack / AI Engineer) using tabs, so that I only see relevant work.
+13. As a recruiter, I want to filter projects by field (Software Engineer / AI Engineer) using tabs, so that I only see relevant work.
 14. As a recruiter, I want each project card to show title, short description, tags, and year, so that I can quickly assess relevance.
 15. As a recruiter, I want to click a project card and be taken to a detail page with smooth page transition, so that the experience feels polished.
 16. As a recruiter, I want the project detail page to show in-depth information (screenshots, tech used, description, links to live site and GitHub), so that I can evaluate the quality of work.
@@ -116,7 +116,7 @@ Use these to resolve ambiguity in improvised visual design — they outrank inve
 
 ### Data Layer
 
-- `projects.json` shape per entry: `title`, `description`, `tags`, `liveUrl`, `slug`, `field` ("fullstack" | "ai"), `githubUrl`, `year` — enforced by a `Project` TypeScript interface. It acts as the index that drives the homepage cards and `generateStaticParams`.
+- `projects.json` shape per entry: `title`, `description`, `tags`, `liveUrl`, `slug`, `field` ("software" | "ai"), `githubUrl`, `year` — enforced by a `Project` TypeScript interface. It acts as the index that drives the homepage cards and `generateStaticParams`.
 - Project detail long-form content lives in `src/data/project-details/{slug}.json`, one file per slug, typed as `ProjectDetail`. Each file carries `tagline`, `role`, `timeline`, `heroImage`, and a `blocks` array.
 - `blocks` is a discriminated union (`narrative` | `gallery` | `metrics`) rendered by `src/components/project-blocks/block-renderer.tsx`. Layout varies per project by composing blocks in a different order, not by writing bespoke page code. Adding a block variant without a matching case in the renderer fails the type check.
 - The block schema is deliberately shaped to map 1:1 onto a future CMS document, so the renderer stays unchanged if the data source is swapped later.

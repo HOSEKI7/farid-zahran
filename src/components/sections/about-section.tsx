@@ -38,8 +38,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         <ParallaxScrollFeatureSection
           eyebrow=""
           title=""
-          paragraph1="I am a Full-Stack Engineer & AI Specialist focusing on developing high-performance web applications, flexible system architectures, and intuitive user interfaces."
+          paragraph1="I am a Software Engineer & AI Engineer focusing on developing high-performance web applications, scalable system architectures, and intelligent solutions. "
           paragraph2="By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact for users."
+          paragraph3="I am a Computer Science student and full-stack software engineer transitioning into AI/ML engineering, with hands-on experience building and deploying production-grade web applications end-to-end. Actively building applied ML/AI projects to strengthen practical knowledge and experience in the field, combining strong software engineering fundamentals with practical machine learning implementation to ship reliable, deployable AI products."
           imageUrl={aboutImage}
           statNumber="04+"
           statLabel="EXPERIENCE & MILESTONES"
