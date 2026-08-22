@@ -86,7 +86,6 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
         className,
       )}
     >
-
       <div className="interface-grid">
         <div></div>
         <h1 className="hero-title">
@@ -110,8 +109,8 @@ export const HalideTopoHero: React.FC<HalideTopoHeroProps> = ({
           <div
             style={{
               fontFamily: "var(--font-mono, monospace)",
-              fontSize: "0.85rem",
-              letterSpacing: "0.05em",
+              fontSize: "1.15rem",
+              letterSpacing: "0.08em",
             }}
           >
             {jobTitles && jobTitles.length > 0 ? (

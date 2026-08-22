@@ -8,7 +8,7 @@ import {
   ComputerTerminal01Icon,
   CpuIcon,
   Layers01Icon,
-  ArrowRight01Icon
+  FileDownloadIcon,
 } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
@@ -32,6 +32,7 @@ export interface ParallaxScrollFeatureSectionProps {
   features?: FeatureItem[];
   ctaText?: string;
   ctaHref?: string;
+  ctaDownload?: boolean | string;
   className?: string;
 }
 
@@ -62,8 +63,9 @@ export const ParallaxScrollFeatureSection = ({
       description: "Precision interactive experiences with GSAP & Motion.",
     },
   ],
-  ctaText = "CONTACT ME",
-  ctaHref = "#contact",
+  ctaText = "DOWNLOAD CV",
+  ctaHref = "/CV - Farid Zahran.pdf",
+  ctaDownload = "CV - Farid Zahran.pdf",
   className,
 }: ParallaxScrollFeatureSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -205,12 +207,15 @@ export const ParallaxScrollFeatureSection = ({
           <ScrollReveal direction="up" distance={20} delay={0.15} amount={0.3}>
             <a
               href={ctaHref}
+              download={ctaDownload}
+              target={ctaHref.endsWith(".pdf") || ctaHref.startsWith("http") ? "_blank" : undefined}
+              rel={ctaHref.endsWith(".pdf") || ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
               className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-border hover:border-accent hover:text-accent hover:bg-accent/10 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 group"
             >
               <span>{ctaText}</span>
               <HugeiconsIcon
-                icon={ArrowRight01Icon}
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                icon={FileDownloadIcon}
+                className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
               />
             </a>
           </ScrollReveal>

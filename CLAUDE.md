@@ -139,4 +139,3 @@ Three libraries, split by role: `@hugeicons/react` + core-free-icons for navbar 
 - Project detail JSON still carries `TODO:` paragraphs and gallery image paths under `public/project-detail/` that have no files yet. The pages render, but the prose and screenshots are the owner's to supply.
 - No `metrics` block appears in any detail file. The renderer exists; real numbers do not. Do not invent them.
 - Navbar/contact social URLs are placeholders (`https://github.com`, `https://github.com/faridzahran`).
-- CV download is specified but not built.

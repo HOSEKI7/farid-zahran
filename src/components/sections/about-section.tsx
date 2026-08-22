@@ -44,8 +44,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
           imageUrl={aboutImage}
           statNumber="04+"
           statLabel="EXPERIENCE & MILESTONES"
-          ctaText="CONTACT ME"
-          ctaHref="#contact"
+          ctaText="DOWNLOAD CV"
+          ctaHref="/CV - Farid Zahran.pdf"
         />
       </div>
     </section>
