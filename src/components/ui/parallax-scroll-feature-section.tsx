@@ -38,9 +38,9 @@ export interface ParallaxScrollFeatureSectionProps {
 export const ParallaxScrollFeatureSection = ({
   eyebrow = "ABOUT ME",
   title = "Building Modern Systems & Artificial Intelligence",
-  paragraph1 = "I am a Software Engineer & AI Engineer focusing on developing high-performance web applications, scalable system architectures, and intelligent solutions.",
-  paragraph2 = "By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact.",
-  paragraph3 = "I am a Computer Science student and full-stack software engineer transitioning into AI/ML engineering, with hands-on experience building and deploying production-grade web applications end-to-end.",
+  paragraph1 = "I am a Computer Science student and full-stack software engineer transitioning into AI/ML engineering, with hands-on experience building and deploying production-grade web applications end-to-end.",
+  paragraph2 = "Focus on developing high-performance web applications, scalable system architectures, and intelligent solutions. By combining modern design principles and high-speed AI-driven workflows, I create digital solutions that are precise, scalable, and deliver real impact.",
+  paragraph3 = "Actively building applied ML/AI projects to strengthen practical knowledge and experience in the field, combining strong software engineering fundamentals with practical machine learning implementation to ship reliable, deployable AI products.",
   imageUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
   statNumber = "04+",
   statLabel = "EXPERIENCE & MILESTONES",
