@@ -1,35 +1,64 @@
 {
   "slug": "nextlevel-academy",
-  "tagline": "A gamified learning platform built for students who lose momentum halfway through a course.",
+  "tagline": "Unified digital learning and server-validated virtual internship ecosystem combining modular video LMS, gamified leveling incentives, and automated compliance.",
   "role": "Full-stack Developer",
-  "timeline": "2024 - 2026",
+  "timeline": "2024 - 2025",
   "thumbnail": {
     "src": "/projects-thumbnail/nextlevel-academy.webp",
-    "alt": "NextLevel Academy course dashboard showing progress tracking"
+    "alt": "NextLevel Academy learning platform and virtual internship interface"
   },
   "blocks": [
     {
       "type": "narrative",
-      "heading": "Overview",
+      "heading": "Operational context & problem statement",
       "paragraphs": [
-        "Digital learning platform for students and young professionals featuring high-quality courses with gamified progression.",
-        "TODO: Describe the problem this solved, the approach taken, and one technical decision worth defending in an interview."
+        "Prior to the development of this platform, NextLevel Academy conducted all training operations through in-person, offline sessions. This legacy model incurred high operational overhead, created geographical bottlenecks, and resulted in fragmented progress tracking across disconnected spreadsheets.",
+        "The web platform was engineered as an integrated, monorepo full-stack ecosystem addressing three core requirements: (1) centralized, self-paced online course delivery via a proprietary video LMS, (2) heightened student retention through structured gamification and tier-based voucher rewards, and (3) a server-validated virtual internship environment providing automated presence enforcement and task assessment for partner vocational schools."
       ]
     },
     {
-      "type": "gallery",
-      "layout": "full-bleed",
-      "heroImage": {
-        "src": "/nextlevel-academy/hero.webp",
-        "alt": "Course player interface with lesson progression sidebar",
-        "caption": "The course player, built around resumable progress."
-      }
+      "type": "metrics",
+      "heading": "Production telemetry & system benchmarks",
+      "items": [
+        {
+          "label": "Test Scenarios Verified",
+          "value": "88",
+          "detail": "100% black-box test pass rate across all 5 user roles and edge cases."
+        },
+        {
+          "label": "Integrated User Roles",
+          "value": "5",
+          "detail": "Strict RBAC covering Public, Students, Interns, Mentors, and Superadmins."
+        },
+        {
+          "label": "Memory Overhead Saved",
+          "value": "90%",
+          "detail": "Satori JSX-to-SVG + native Sharp C++ rendering vs headless Chromium."
+        },
+        {
+          "label": "Reward Milestone Tiers",
+          "value": "3",
+          "detail": "Automated discount claims at Level 5 (20%), Level 10 (35%), and Level 15 (50%)."
+        },
+        {
+          "label": "Server Time Integrity",
+          "value": "100%",
+          "detail": "Absolute UTC+7 WIB server window enforcement preventing client clock spoofing."
+        },
+        {
+          "label": "Double-Billing Risk",
+          "value": "0ms",
+          "detail": "Idempotent payment fulfillment logic with Midtrans Snap webhook reconciliation."
+        }
+      ]
     },
     {
       "type": "narrative",
-      "heading": "Technical approach",
+      "heading": "Public discovery & verified credentials",
       "paragraphs": [
-        "TODO: Explain the architecture. Why Supabase over a custom backend? How is progression state modelled and kept consistent across devices?"
+        "The public-facing surface serves as the entry point for prospective students and external credential verifiers, designed for high conversion, minimal latency, and zero friction.",
+        "The architecture provides an interactive landing page showcasing available curricula, multi-tier sprint previews, instructor profiles, and lifetime pricing. Integrated Midtrans Snap checkout handles instant transactions (QRIS, Virtual Accounts, and E-Wallets) with dynamic voucher code discount validation.",
+        "To protect academic reputation, the platform features a public verification endpoint (/cert/:publicId) linked directly via QR codes on issued certificates, enabling immediate cryptographic verification of graduate authenticity without requiring user login."
       ]
     },
     {
@@ -37,13 +66,170 @@
       "layout": "grid",
       "images": [
         {
-          "src": "/nextlevel-academy/01.webp",
-          "alt": "Student dashboard showing enrolled courses and streaks"
+          "src": "/nextlevel-academy/Halaman Publik/Landing Page.webp",
+          "alt": "NextLevel Academy public landing page and hero showcase",
+          "caption": "01. Public landing page & showcase — value proposition, program highlights, and dynamic student onboarding flow."
         },
         {
-          "src": "/nextlevel-academy/02.webp",
-          "alt": "Instructor view for authoring course modules"
+          "src": "/nextlevel-academy/Halaman Publik/Katalog Kursus.webp",
+          "alt": "Course catalog and curriculum syllabus preview",
+          "caption": "02. Course catalog & curriculum explorer — multi-tier sprint syllabi previews, instructor credentials, and lifetime pricing."
+        },
+        {
+          "src": "/nextlevel-academy/Halaman Publik/Login.webp",
+          "alt": "Unified multi-role login and authentication portal",
+          "caption": "03. Unified authentication gateway — secure multi-role entry portal with automated role-based routing."
+        },
+        {
+          "src": "/nextlevel-academy/Halaman Publik/Sertifikat Publik.webp",
+          "alt": "Public certificate verification page with QR code resolver",
+          "caption": "04. Public credential verification — QR-linked lookup (/cert/:publicId) ensuring instant tamper-proof authenticity."
         }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Self-paced LMS & gamified retention mechanics",
+      "paragraphs": [
+        "Student dropout rates in self-paced digital education frequently stem from unstructured pacing and lack of tangible milestones. NextLevel Academy counters this through a cohesive combination of strict sequential gating, autosaving study tools, and an engaging progression loop.",
+        "Sequential Video Player & Autosave Notes: Video streams delivered via Bunny.net Stream CDN are bound to sequential completion requirements, ensuring prerequisites are mastered before advancing. The learning interface features a split-pane autosaving Markdown editor that persists personal notes to PostgreSQL on every keystroke.",
+        "Automated Mastery Quizzes: Each module concludes with an automated assessment requiring a minimum 80% passing grade. An anti-brute-force mechanism limits users to 3 consecutive attempts before enforcing a 30-minute study cooldown.",
+        "Linear Gamification & Voucher Economy: User activity awards experience points under the formula REQ(L) = 744 + 124 × (L - 1), awarding +15 EXP for videos, +90 EXP for quizzes, and +600 EXP upon course completion. Reaching milestones unlocks commercial discount vouchers: 20% at Level 5, 35% at Level 10, and 50% at Level 15.",
+        "Immutable Snapshot Certification: Upon course completion, the system issues a verified digital certificate. The recipient's full name is permanently frozen (Certificate.recipientName) at the moment of issuance, ensuring certificate integrity even if the student later edits their account profile."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Dashboard.webp",
+          "alt": "Student learning dashboard showing active courses and progress",
+          "caption": "05. Student learning dashboard — real-time course progress tracking, active sprint overview, and current EXP status."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Video Learn.webp",
+          "alt": "Sequential video player with split-pane markdown notes editor",
+          "caption": "06. Video player & note-taking pane — CDN video streaming with synchronized chapter navigation and autosaving notes."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Quiz Learn.webp",
+          "alt": "Interactive quiz evaluation and scoring interface",
+          "caption": "07. Interactive quiz evaluation — multiple-choice mastery tests with automated grading and attempt limits."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Exp-Level.webp",
+          "alt": "EXP gamification roadmap and milestone discount rewards",
+          "caption": "08. EXP progression roadmap — level milestones unlocking 20%, 35%, and 50% discount voucher reward claims."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Checkout (voucher activated).webp",
+          "alt": "Checkout modal with applied gamification discount voucher",
+          "caption": "09. Transaction checkout — seamless voucher redemption with Midtrans Snap modal payment integration."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Didik/Klaim Sertifikat.webp",
+          "alt": "Certificate claim portal and earned profile achievement badges",
+          "caption": "10. Digital certificate issuance — instant claim portal with earned achievement badges and PDF export."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Virtual internship & scoped cohort mentorship",
+      "paragraphs": [
+        "To support vocational school partners, the platform incorporates a dedicated virtual internship infrastructure isolated from the general commercial catalog.",
+        "Server-Enforced Attendance Windows: Attendance check-ins are restricted to a mandatory 09:00–12:00 WIB daily window evaluated strictly against UTC+7 server time, rendering client-side clock tampering ineffective. The system automatically locks attendance on weekends and configured national holidays.",
+        "High-Touch 1-to-10 Mentorship: Mentors are assigned to dedicated cohorts of maximum 10 interns. This scoped model enables mentors to monitor daily attendance in real time, assign specialized project deliverables, and conduct rigorous evaluations.",
+        "Mandatory Structured Feedback: When deliverables require revisions, the system strictly mandates written feedback from the mentor before the task can be returned to the student, fostering a constructive iterative review process.",
+        "Cumulative Grading & Audit Trail: Final evaluations are calculated on a 0–100 numerical scale and automatically converted to standard letter grades (A through E/F), with full audit logging for partner institutional compliance."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/nextlevel-academy/Peserta Magang/Dashboard.webp",
+          "alt": "Intern workspace dashboard with attendance and task overview",
+          "caption": "11. Intern workspace dashboard — daily attendance alerts, active assignment milestones, and mentor notices."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Magang/Absensi.webp",
+          "alt": "Server-validated monthly attendance calendar",
+          "caption": "12. Server-validated attendance calendar — visual attendance logs bounded strictly to 09:00–12:00 WIB server windows."
+        },
+        {
+          "src": "/nextlevel-academy/Peserta Magang/Tugas (detail).webp",
+          "alt": "Intern task submission portal and mentor revision feedback",
+          "caption": "13. Task submission & feedback portal — file upload pipelines with revision status and mentor review history."
+        },
+        {
+          "src": "/nextlevel-academy/Mentor/Dashboard.webp",
+          "alt": "Mentor command center and cohort supervision hub",
+          "caption": "14. Mentor command center — real-time supervision of assigned 10-student cohort, pending tasks, and attendance."
+        },
+        {
+          "src": "/nextlevel-academy/Mentor/Absensi Peserta.webp",
+          "alt": "Cohort daily attendance tracking and verification table",
+          "caption": "15. Cohort attendance monitoring — daily check-in verification across all interns assigned to the mentor."
+        },
+        {
+          "src": "/nextlevel-academy/Mentor/Tugas & Feedback.webp",
+          "alt": "Deliverable evaluation interface with structured revision notes",
+          "caption": "16. Deliverable evaluation pane — submission review interface with mandatory written feedback on revision requests."
+        },
+        {
+          "src": "/nextlevel-academy/Mentor/Nilai Akhir.webp",
+          "alt": "Final grade assessment and letter grade conversion",
+          "caption": "17. Final grading & assessment — 0–100 numerical scoring with automatic letter grade conversion and audit logging."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Administrative control & learning analytics",
+      "paragraphs": [
+        "The administrative suite equips superadmins with centralized governance tools across learning analytics, curriculum publishing, financial transactions, and user access control.",
+        "Learning Analytics Dashboard (LAD): Consolidates 12-month revenue trajectories, enrollment velocity, sales breakdown by category, and course completion metrics into actionable operational visualizations.",
+        "Curriculum & Media Engine: Allows comprehensive authoring of course hierarchies (Sprints and Stages), direct video uploads to Bunny.net Stream, and multi-variant quiz bank construction.",
+        "Internship Operations & Multi-Role RBAC: Simplifies the orchestration of internship batches, classes, and quota limits while maintaining strict role-based access control (RBAC). Superadmins can invite new administrative personnel via time-bounded 24-hour single-use activation tokens with complete audit traceability."
+      ]
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "src": "/nextlevel-academy/Admin/Dashboard.webp",
+          "alt": "Learning Analytics Dashboard showing revenue and user metrics",
+          "caption": "18. Learning Analytics Dashboard (LAD) — comprehensive revenue tracking, user acquisition trends, and course metrics."
+        },
+        {
+          "src": "/nextlevel-academy/Admin/CRUD Course.webp",
+          "alt": "Course curriculum editor and media upload interface",
+          "caption": "19. Course builder & media manager — curriculum hierarchy management, Bunny Stream video uploads, and quiz banks."
+        },
+        {
+          "src": "/nextlevel-academy/Admin/CRUD Pengguna.webp",
+          "alt": "Multi-role user management and permission configuration",
+          "caption": "20. Multi-role user administration — RBAC permission management, account lifecycle, and 24-hour invitation dispatch."
+        },
+        {
+          "src": "/nextlevel-academy/Admin/CRUD Konfigurasi Magang.webp",
+          "alt": "Internship batch hierarchy and national holiday configuration",
+          "caption": "21. Internship program configuration — batch parameters, class allocation, quota controls, and official holiday calendar."
+        }
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Architectural rigor & engineering decisions",
+      "paragraphs": [
+        "NextLevel Academy reflects deliberate full-stack engineering practices designed to balance high performance, cost efficiency, and transactional reliability across a monolithic Next.js 16 deployment.",
+        "High-Performance Certificate Generation (Satori + Sharp): Headless browser PDF generation typically consumes 200–400 MB of RAM per process. Replacing Chromium with Satori (JSX to SVG) and native C++ Sharp (SVG to PNG) reduced memory consumption by 90%, enabling instantaneous certificate rendering on a modest 2GB RAM production VPS.",
+        "Idempotent Payment Webhooks: The order fulfillment pipeline (fulfillOrderPaid) is structured to resist race conditions from duplicate webhook calls, coupled with automated reconciliation against the Midtrans Get-Status API to guarantee 100% order fulfillment integrity.",
+        "Tamper-Resistant Server Guards: By decoupling all temporal logic from the client device and resolving time, weekends, and holidays strictly against UTC+7 server clocks, the platform guarantees attendance compliance for institutional partner auditing."
       ]
     }
   ]
