@@ -1,51 +1,108 @@
 {
   "slug": "hoseki-shops",
-  "tagline": "An e-commerce build where the deployment pipeline mattered as much as the storefront.",
-  "role": "Software Engineer",
+  "tagline": "Fullstack multi-service e-commerce ecosystem built from scratch to explore containerization, Kubernetes cluster orchestration, and automated CI/CD pipelines.",
+  "role": "Fullstack & DevOps Engineer",
   "timeline": "2025",
   "thumbnail": {
     "src": "/projects-thumbnail/hoseki-shops.webp",
-    "alt": "HOSEKI SHOPS storefront product listing"
+    "alt": "HOSEKI SHOPS storefront product catalog and DevOps infrastructure"
   },
   "blocks": [
+    {
+      "type": "narrative",
+      "heading": "Educational testbed & multi-tier architecture",
+      "paragraphs": [
+        "To truly grasp modern cloud-native infrastructure, hands-on complexity is essential beyond trivial scripts. HOSEKI Shops was conceived as a comprehensive fullstack e-commerce testbed built from the ground up to explore real-world operational challenges: container lifecycle management, persistent storage, service discovery, and automated deployment.",
+        "The system is decoupled into four distinct functional tiers: (1) a responsive customer storefront built with React 19, Vite, Tailwind CSS, and Redux Toolkit for real-time cart state; (2) an administrative backoffice dashboard providing full CRUD operations over catalog items and inventory; (3) a high-performance REST API powered by Node.js, Express v5, and Prisma ORM with automated migrations and /health readiness probes; and (4) a stateful MySQL 8.0 relational database requiring persistent volume storage."
+      ]
+    },
+    {
+      "type": "metrics",
+      "heading": "Container benchmarks & infrastructure metrics",
+      "items": [
+        {
+          "label": "Image Size Reduction",
+          "value": "94%",
+          "detail": "Optimized from ~450MB dev image to ~25MB via multi-stage alpine builds."
+        },
+        {
+          "label": "Micro-Containers",
+          "value": "4",
+          "detail": "Decoupled services: Storefront, Admin Backoffice, Node.js API, and MySQL 8.0."
+        },
+        {
+          "label": "Max Autoscaling Pods",
+          "value": "5",
+          "detail": "Dynamic horizontal pod autoscaling (2 to 5 replicas) triggered at >60% CPU utilization."
+        },
+        {
+          "label": "Ingress Endpoints",
+          "value": "3",
+          "detail": "Single-domain path-based routing for /, /admin, and /api services."
+        },
+        {
+          "label": "CI/CD Workflows",
+          "value": "3",
+          "detail": "Path-filtered GitHub Actions pipelines eliminating redundant monolithic builds."
+        },
+        {
+          "label": "Storage Persistence",
+          "value": "100%",
+          "detail": "Kubernetes PersistentVolume & PVC mounts ensuring zero data loss across pod restarts."
+        }
+      ]
+    },
     {
       "type": "gallery",
       "layout": "grid",
       "images": [
         {
-          "src": "/hoseki-shops/01.webp",
-          "alt": "Product listing page with category filters"
+          "src": "/hoseki-shops/Homepage.webp",
+          "alt": "HOSEKI Shops customer storefront homepage",
+          "caption": "01. Customer storefront — PC hardware catalog, category filtering, dynamic discounts, and responsive dark theme."
         },
         {
-          "src": "/hoseki-shops/02.webp",
-          "alt": "Checkout flow showing cart summary and payment step"
+          "src": "/hoseki-shops/Product-list.webp",
+          "alt": "Interactive shopping cart and catalog view",
+          "caption": "02. Product catalog & interactive cart — Redux Toolkit state management calculating live totals and instant discount rules."
         },
         {
-          "src": "/hoseki-shops/03.webp",
-          "alt": "Checkout flow showing cart summary and payment step"
+          "src": "/hoseki-shops/Admin-products.webp",
+          "alt": "Admin inventory management dashboard",
+          "caption": "03. Admin management dashboard — dedicated backoffice panel supporting complete CRUD operations over catalog items."
         },
         {
-          "src": "/hoseki-shops/04.webp",
-          "alt": "Admin dashboard showing order management and analytics"
+          "src": "/hoseki-shops/Login.webp",
+          "alt": "Authentication gateway and login portal",
+          "caption": "04. Authentication portal — secure user sign-in gateway with JWT token verification and protected route navigation."
         }
       ]
     },
     {
       "type": "narrative",
-      "heading": "Overview",
+      "heading": "Multi-stage Docker builds & local orchestration",
       "paragraphs": [
-        "E-Commerce web application featuring modern user interface and streamlined DevOps deployment workflows.",
-        "TODO: This started as a DevOps class project. Describe what the pipeline actually does, and what broke before it existed."
+        "Standard single-stage container builds for Node.js applications frequently produce heavy Docker images bloated with build compilers, linters, and temporary dependencies. To resolve this inefficiency, the storefront and backoffice utilize a two-stage build pipeline: Stage 1 (Builder) leverages node:24-alpine to compile TypeScript and Vite assets into /dist, while Stage 2 (Production Server) copies strictly the static artifacts into a minimal nginx:alpine runtime (~25MB), slashing image sizes by ~94% and eliminating compiler toolchains from production containers.",
+        "For local development and integration testing, a declarative docker-compose orchestration coordinates all containers on an isolated bridge network (app-network). It integrates automated MySQL ping probes and environment variable isolation to ensure seamless database bootstrapping before API service initialization."
       ]
     },
     {
-      "type": "gallery",
-      "layout": "full-bleed",
-      "heroImage": {
-        "src": "/hoseki-shops/hero.webp",
-        "alt": "CI pipeline stages from commit through automated deployment",
-        "caption": "The deployment pipeline, from commit to live."
-      }
+      "type": "narrative",
+      "heading": "Kubernetes orchestration, ingress routing & autoscaling",
+      "paragraphs": [
+        "Transitioning from local docker-compose to production-grade cluster orchestration, the entire infrastructure was deployed within an isolated Kubernetes namespace (hosekishops). The setup enforces strict separation of concerns across compute, networking, and persistent storage layers.",
+        "Unified Ingress Routing: A single-domain Ingress controller (hosekishops.local) manages external HTTP traffic, routing path-based requests to their respective ClusterIP services: / to the storefront, /admin to the backoffice, and /api to the backend API.",
+        "Elastic Horizontal Pod Autoscaling (HPA): Backend deployments define explicit CPU constraints (100m requests, 500m limits). An HPA policy monitors real-time CPU utilization, automatically scaling backend pod replicas from 2 up to 5 instances when load exceeds 60%.",
+        "Stateful Data Persistence: Database reliability is guaranteed via PersistentVolume (PV) and PersistentVolumeClaim (PVC) definitions with ReadWriteOnce access mode, ensuring catalog records and user states survive pod restarts, rescheduling, or node failures."
+      ]
+    },
+    {
+      "type": "narrative",
+      "heading": "Path-filtered CI/CD & engineering takeaways",
+      "paragraphs": [
+        "To streamline software delivery and optimize build runner minutes, automated Continuous Integration workflows were constructed using GitHub Actions. Instead of executing heavy monolithic rebuilds on every commit, path-filtered triggers (backend-ci-cd.yaml, frontend-store-ci.yaml, frontend-admin-ci.yaml) ensure only modified service directories are compiled, tested, and containerized.",
+        "Building both the application layer and the underlying cloud-native infrastructure delivered critical fullstack insights: understanding how application architectural decisions impact container footprint, embracing declarative Infrastructure-as-Code workflows, and building practical confidence with Kubernetes operational primitives."
+      ]
     }
   ]
 }

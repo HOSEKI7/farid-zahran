@@ -2,7 +2,17 @@
   {
     "title": "NextLevel Academy",
     "description": "An integrated web platform that provide high-quality education/courses, that combines a self-paced video LMS with a gamification system featuring level-based incentives and vouchers, as well as a server-time-based virtual internship infrastructure to digitize the operations of the startup NextLevel Academy.",
-    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase (PostgreSQL)",
+      "Resend",
+      "Better-auth",
+      "Midtrans",
+      "Zod",
+      "Redis"
+    ],
     "liveUrl": "https://nextlevelacademy.id",
     "slug": "nextlevel-academy",
     "field": "software",
@@ -11,8 +21,17 @@
   },
   {
     "title": "HOSEKI SHOPS",
-    "description": "E-Commerce web application featuring modern user interface and streamlined DevOps deployment workflows.",
-    "tags": ["React", "Vite", "Tailwind CSS", "Express", "MySQL"],
+    "description": "Built a fullstack multi-service e-commerce platform from scratch to learn, implement, and master modern Docker containerization, Kubernetes cluster orchestration, and automated CI/CD pipelines.",
+    "tags": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Express",
+      "MySQL",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions"
+    ],
     "liveUrl": "https://hosekishops.com",
     "slug": "hoseki-shops",
     "field": "software",
