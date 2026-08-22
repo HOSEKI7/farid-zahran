@@ -414,13 +414,18 @@ export function ContactSection() {
               <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 text-accent flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <Phone className="w-6 h-6" />
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 overflow-hidden">
                 <p className="text-xs font-mono uppercase tracking-wider text-muted">
-                  Phone Contact
+                  Phone / WhatsApp
                 </p>
-                <p className="text-foreground font-bold text-base">
-                  Available on request
-                </p>
+                <a
+                  href="https://wa.me/6281268528218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-foreground font-bold text-base hover:text-accent transition-colors truncate"
+                >
+                  +62 812-6852-8218
+                </a>
               </div>
             </StaggerItem>
 
