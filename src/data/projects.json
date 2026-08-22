@@ -1,7 +1,7 @@
 [
   {
     "title": "NextLevel Academy",
-    "description": "Digital learning platform for students and young professionals featuring high-quality courses with gamified progression.",
+    "description": "An integrated web platform that provide high-quality education/courses, that combines a self-paced video LMS with a gamification system featuring level-based incentives and vouchers, as well as a server-time-based virtual internship infrastructure to digitize the operations of the startup NextLevel Academy.",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "liveUrl": "https://nextlevelacademy.id",
     "slug": "nextlevel-academy",
